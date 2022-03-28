@@ -32,7 +32,6 @@ let info = {
         "Algorithms",
         "Computer Vision",
         "Music Data Mining",
-        ,
         "OS"
       ]
     },

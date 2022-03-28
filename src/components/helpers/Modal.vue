@@ -73,13 +73,13 @@
 </template>
 
 <script>
-import Carousel from "./Carousel";
+//import Carousel from "./Carousel";
 import Gallery from "./Gallery";
 
 export default {
   name: "Modal",
   components: {
-    Carousel,
+    //Carousel,
     Gallery,
   },
   props: {

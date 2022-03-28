@@ -61,12 +61,12 @@
 <script>
 import info from "../../info";
 
-import Wave from "./helpers/Wave";
+//import Wave from "./helpers/Wave";
 
 export default {
   name: "Home",
   components: {
-    Wave,
+    //Wave,
   },
   props: {
     nightMode: {
