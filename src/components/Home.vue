@@ -17,7 +17,7 @@
           <span
             class="home-title"
             :class="{ pgray: !nightMode, 'text-light': nightMode }"
-            >hello there!@@</span
+            >Hello</span
           >
           <div>
             <p v-html="description"></p>
@@ -37,6 +37,7 @@
             >
               <i class="fab fa-github"></i>
             </button>
+
             <button
               class="btn btn-outline-secondary mx-2"
               @click="open('angellist')"

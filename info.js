@@ -1,6 +1,6 @@
 let info = {
-  name: "Hrishikesh Paul",
-  logo_name: "paul",
+  name: "KooJaeHoon",
+  logo_name: "Koo",
   flat_picture: require("./src/assets/potrait.jpg"),
   config: {
     use_cookies: true,
@@ -9,13 +9,12 @@ let info = {
     }
   },
   description:
-    "A second year Computer Science graduate student at Indiana University Bloomington with an interest in Software Development, UX Design and Artificial Intelligence - and seeking exciting opportunities related to the same.<br><br>I am a detail oriented person and I keep my goals and tasks organized to maintain productivity. I would bring to table a wide range of software skills, ranging from design and development to writing scripts for intelligent agents. I believe that the skills that I have attained from the dynamic environment and competitive university life define me, and I am looking forward to implementing and polishing them in any opportunity that I receive. ",
+    "개발에 관심있고 이것저것 개발하는 한량 개발자입니다.",
   links: {
-    linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
-    github: "https://github.com/hrishikeshpaul",
-    angellist: "https://angel.co/u/hrishikesh-paul",
-    resume:
-      "https://github.com/hrishikeshpaul/portfolio-template/blob/master/src/assets/pdfs/Resume.pdf"
+    //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
+    github: "https://github.com/jjjhhh999",
+    //angellist: "https://angel.co/u/hrishikesh-paul",
+    //resume: "https://github.com/hrishikeshpaul/portfolio-template/blob/master/src/assets/pdfs/Resume.pdf"
   },
   education: [
     {
@@ -56,64 +55,32 @@ let info = {
   ],
   experience: [
     {
-      name: "Cyberinfrastructure for Network Science Center",
-      place: "Bloomington, Indiana",
-      date: "Jun, 2020 - Present",
-      position: "Research Assistant; Full Stack Developer",
+      name: "[일진그룹] 일진C&S",
+      place: "서울 마포구 마포대로 45 일진빌딩 14층",
+      date: "Jan, 2020 - Present",
+      position: "DT사업팀, Full Stack Developer",
       description:
-        "Worked as a Software Developer for the Human BioMolecular Atlas Program (funded by the NIH), building innovative visualization tools to envision large biomedical datasets.",
-      skills: ["Angular", "Node.js", "Vega", "Shell", "Typescript"]
+        "이것저것 했어요",
+      skills: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "Git"]
     },
     {
-      name: "Skylark Drones",
-      place: "Bangalore, India",
-      date: "Jan, 2019 - Jun, 2021",
-      position: "Full Stack Web Developer",
+      name: "Inbus",
+      place: "서울 구로구 디지털로 272 한신IT타워 8층",
+      date: "Jun, 2015 - Jan, 2020",
+      position: "프로젝트팀, Full Stack Developer",
       description:
-        "Worked as a full stack web developer, implementing various features and fixing bugs for Skylark Drones’ central management system called Operations Portal and Data Mining Server.",
-      skills: ["MongoDB", "Flask", "VueJS", "NGINX"]
-    },
-    {
-      name: "Hridayam Soft Solutions",
-      place: "Mumbai, India",
-      date: "May, 2018 - Jun, 2018",
-      position: "Computer Vision Engineer",
-      description:
-        "Scripted an algorithm for extracting information (such as date, invoice number etc.) from scanned images of invoices, built a web interface for using the former mentioned machine.",
-      skills: ["Python", "OpenCV", "PyTesseract", "AngularJS", "NodeJS"]
-    },
-    {
-      name: "Elementail Labs",
-      place: "Mumbai, India",
-      date: "May, 2017 - July, 2017",
-      position: "Full Stack Web Developer",
-      description:
-        "Implemented various contracts and deployed them on the upcoming blockchain technology - Ethereum, while also working as a MEAN stack web developer for Elemential Labs’ website.",
-      skills: ["MongoDB", "AngularJS", "NodeJS", "ExpressJS"]
-    },
-    {
-      name: "Viteos Capital Market Services s",
-      place: "Mumbai, India",
-      date: "May, 2016 - July, 2016",
-      position: "Software Developer",
-      description:
-        "Evaluated technologies, and building proof of concept/prototype solutions for trade processing and mathematical model based evaluations, while working in the software development team.",
-      skills: ["C#", "C++", "Visual Studio"]
+        "이것저것 했어요",
+        /*"인사, 회계, 예산 등 ERP시스템 구축하였으며 개발 PL로 프로젝트에 참여하여 개발 및 ERD설계, 업무협의 등 전반적인 SI프로젝트 경험을 하였습니다.",*/
+      skills: ["Java", "Spring-Framework", "Javascript", "Oracle", "Ms-sql", "Jsp"]
     }
   ],
   skills: [
     {
       title: "languages",
       info: [
-        "Python",
-        "Javascript",
-        "TypeScript",
         "Java",
-        "C",
-        "C++",
-        "SQL",
-        "NoSQL",
-        "Ruby"
+        "Javascript",
+        "Jsp"
       ],
       icon: "fa fa-code"
     },
@@ -133,27 +100,18 @@ let info = {
     },
     {
       title: "web technologies",
-      info: ["Vue", "Angular", "React", "Node", "Flask", "HTML", "CSS"],
+      info: ["Vue", "REST-API", "HTML", "CSS"],
       icon: "fas fa-laptop-code"
     },
     {
       title: "databases",
-      info: ["MongoDB", "MySQL", "OracleSQL", "Neo4j"],
+      info: ["OracleSQL", "MySQL", "MsSQL"],
       icon: "fa fa-database"
     },
     {
       title: "operating systems & tools",
       info: [
-        "MacOS",
-        "Ubuntu",
-        "Windows",
-        "Android",
-        "Agile",
-        "Scrum",
-        "JIRA",
-        "Heroku",
-        "Firebase",
-        "AWS S3"
+        "Windows", "Linux"
       ],
       icon: "fas fa-tools"
     },
@@ -165,92 +123,116 @@ let info = {
   ],
   portfolio: [
     {
-      name: "Sheet Recognizer",
+      name: "알피니언메디칼 전자전표 구축",
       pictures: [
         {
-          img: require("./src/assets/portfolio/msr/one.png")
+          img: require("./src/assets/portfolio/alpinion/0.png")
         },
         {
-          img: require("./src/assets/portfolio/msr/two.png")
+          img: require("./src/assets/portfolio/alpinion/1.png")
         },
         {
-          img: require("./src/assets/portfolio/msr/three.png")
+          img: require("./src/assets/portfolio/alpinion/2.png")
         },
         {
-          img: require("./src/assets/portfolio/msr/four.png")
+          img: require("./src/assets/portfolio/alpinion/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/alpinion/4.png")
+        },
+        {
+          img: require("./src/assets/portfolio/alpinion/5.png")
+        },
+        {
+          img: require("./src/assets/portfolio/alpinion/6.png")
+        },
+        {
+          img: require("./src/assets/portfolio/alpinion/7.png")
+        },
+        {
+          img: require("./src/assets/portfolio/alpinion/8.png")
+        },
+        {
+          img: require("./src/assets/portfolio/alpinion/9.png")
         }
       ],
-      technologies: ["Computer Vision", "OpenCV", "AI", "Flask", "Sockets"],
-      category: "Algorithm",
-      date: "Jan, 2020 - Mar, 2020",
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      category: "Web App",
+      date: "Aug, 2021 - Mar, 2022",
       github:
         "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
       visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
       description:
-        "Music Sheet Recognizer (MSR) highlights basic Image Processing and Recognition. Like Optical Character Recognition, this tool is used to detect music notes and rests. It makes use of basic Computer Vision techniques such as Convolution, Edge Detections, Hough Transforms and Template Matching to detect notes and rests on a music sheet. "
+        "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
     },
     {
-      name: "NoQ Job Portal",
+      name: "경영자정보시스템(EIS) 구축",
       pictures: [
         {
-          img: require("./src/assets/portfolio/noq/logo.png")
+          img: require("./src/assets/portfolio/eis/0.png")
         },
         {
-          img: require("./src/assets/portfolio/noq/one.png")
+          img: require("./src/assets/portfolio/eis/1.png")
         },
         {
-          img: require("./src/assets/portfolio/noq/two.png")
+          img: require("./src/assets/portfolio/eis/2.png")
         },
         {
-          img: require("./src/assets/portfolio/noq/three.png")
+          img: require("./src/assets/portfolio/eis/3.png")
         },
         {
-          img: require("./src/assets/portfolio/noq/four.png")
+          img: require("./src/assets/portfolio/eis/4.png")
+        },
+        {
+          img: require("./src/assets/portfolio/eis/5.png")
         }
       ],
-      technologies: ["Node", "Vue", "Express", "MongoDB", "Heroku"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
       category: "Website",
       date: "Sep, 2019 - Dec  , 2019",
       github: "https://github.com/hrishikeshpaul/noq",
       visit: "https://noq-client.herokuapp.com/",
       description:
-        "No Q, is a revolutionary tool which allows for both employers and students to skip the hassle seen in modern day career fairs. For the students, there is an intuitive profile builder where you can add things like education, skills, certifications, honors, and experiences. No Q is not only good for students, but employers as well! A common problem at modern career fairs is the number of unqualified candidates who waste their time when they could be chatting with someone else. With No Q, only the students who meet the positions’ criteria will be able to apply, and from there the recruiter can invite them to talk in more detail at the career fair through our intuitive messaging system."
+        "클라우드 기반 실시간 경영자정보시스템(EIS), billboard chart 라이브러리 적용"
     },
     {
-      name: "POST",
+      name: "통합생산관리 시스템 구축",
       pictures: [
         {
-          img: require("./src/assets/portfolio/post/one.png")
+          img: require("./src/assets/portfolio/steel/0.png")
         },
         {
-          img: require("./src/assets/portfolio/post/two.png")
+          img: require("./src/assets/portfolio/steel/1.png")
+        },
+        {
+          img: require("./src/assets/portfolio/steel/2.png")
+        },
+        {
+          img: require("./src/assets/portfolio/steel/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/steel/4.png")
         }
       ],
-      technologies: [
-        "Markov Models",
-        "Python",
-        "Artificial Intelligence",
-        "Vue",
-        "Heroku"
-      ],
+      technologies: ["Java", "Spring-Framework", "Javascript", "Oracle-SQL"],
       category: "Algorithm",
       github: "https://github.com/hrishikeshpaul/pos-tagger",
       date: "Oct, 2019 - Nov, 2019",
       visit: "https://post-client.herokuapp.com/",
       description:
-        "Post is a simple algorithm that was developed to tagging a word corresponding to its part of speech. The algorithm makes of a probabilisitic approach along with some randomness, together which forms the basis of an algorithm called Gibbs Sampling."
+        "영업수주에서 생산계획, 생산지시, 생산실적, 분석에 이르기까지 현황을 조회 하고 처리 할 수 있는 시스템, 정보 집중과 관리 체계 수립 "
     },
     {
-      name: "Suicide Analyzer",
+      name: "E방제증서 시스템 고도화",
       pictures: [
         {
-          img: require("./src/assets/portfolio/suicide/suicide-analyzer.png")
+          img: require("./src/assets/portfolio/koem/0.png")
         },
         {
-          img: require("./src/assets/portfolio/suicide/suicide2-original.png")
+          img: require("./src/assets/portfolio/koem/1.png")
         }
       ],
-      technologies: ["Node", "Angular", "Express", "Leaflet", "Pandas"],
+      technologies: ["Java", "Spring-Framework", "Javascript", "Oracle-SQL", "Jsp"],
       category: "Website",
       date: "Oct, 2018 - Nov, 2018",
       github: "https://github.com/hrishikeshpaul/whodata",
@@ -259,22 +241,28 @@ let info = {
         "This is a web application, uses a map to demonstrate the number suicides committed around the globe, according to a dataset provided by the WHO. The application consists of a Leaflet map that colors every nation, based on the number of suicides that have been committed in that country, for that year. It provides us with the capability to select the data as well as the continent."
     },
     {
-      name: "Sentiment Analyzer",
+      name: "연말정산 버전 업데이트",
       pictures: [
         {
-          img: require("./src/assets/portfolio/smit/one.png")
-        },
-        {
-          img: require("./src/assets/portfolio/smit/two.png")
-        },
-        {
-          img: require("./src/assets/portfolio/smit/three.png")
-        },
-        {
-          img: require("./src/assets/portfolio/smit/four.png")
+          img: require("./src/assets/portfolio/thek/0.png")
         }
       ],
-      technologies: ["LSTM", "Keras", "Angular", "Tweepy", "Heroku", "Python"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis"],
+      category: "Alogrithm",
+      date: "Feb, 2018 - Apr  , 2018",
+      github: "https://github.com/hrishikeshpaul/sih",
+      visit: "https://angel.co/projects/1009777-sentiment-analysis",
+      description:
+          "Developing this for the final round of Smart India Hackathon 2018, the web application is a platform for showcasing the sentiment of the tweets of the people in the Telangana region in India on policy satisfaction, services and problem definitions. The minimal UI design consists of different bins, that have their respective tweets, all scraped from twitter. There is also a simple graphical representation denoting the sentiment of the tweets."
+    },
+    {
+      name: "통합인사시스템 구축",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/lotteglogis/0.png")
+        }
+      ],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
       category: "Alogrithm",
       date: "Feb, 2018 - Apr  , 2018",
       github: "https://github.com/hrishikeshpaul/sih",
@@ -283,19 +271,13 @@ let info = {
         "Developing this for the final round of Smart India Hackathon 2018, the web application is a platform for showcasing the sentiment of the tweets of the people in the Telangana region in India on policy satisfaction, services and problem definitions. The minimal UI design consists of different bins, that have their respective tweets, all scraped from twitter. There is also a simple graphical representation denoting the sentiment of the tweets."
     },
     {
-      name: "Clumpr",
+      name: "법인카드 연동시스템 구축",
       pictures: [
         {
-          img: require("./src/assets/portfolio/clumpr/logo.png")
-        },
-        {
-          img: require("./src/assets/portfolio/clumpr/one.png")
-        },
-        {
-          img: require("./src/assets/portfolio/clumpr/two.png")
+          img: require("./src/assets/portfolio/woori/0.png")
         }
       ],
-      technologies: ["Node", "Angular", "Express", "MySQL", "Facebook API"],
+      technologies: ["Java", "Javascript", "Oracle", "Jsp"],
       category: "Web App",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "Sep, 2017 - Nov, 2017",
@@ -304,34 +286,79 @@ let info = {
         'Clumpr is an online social event planning assistant that - using information about similar events happening in similar locations around the same time, friends who frequently attend the same events, and mutual friends - helps users to collaborate, combine, and attend events together, effectively "clumping" people and activities in a way that makes intuitive sense.'
     },
     {
-      name: "Nutricare",
+      name: "인사시스템(급여, 채용) 고도화",
       pictures: [
         {
-          img: require("./src/assets/portfolio/nc/one.png")
-        },
-        {
-          img: require("./src/assets/portfolio/nc/two.png")
-        },
-        {
-          img: require("./src/assets/portfolio/nc/three.png")
-        },
-        {
-          img: require("./src/assets/portfolio/nc/four.png")
-        },
-        {
-          img: require("./src/assets/portfolio/nc/five.png")
-        },
-        {
-          img: require("./src/assets/portfolio/nc/six.png")
+          img: require("./src/assets/portfolio/kf/0.png")
         }
       ],
-      technologies: ["Node", "Angular", "Express", "MongDB", "Medical"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      category: "Website",
+      github: "https://github.com/hrishikeshpaul/clumpr",
+      date: "May, 2017 - Aug, 2017",
+      visit: "https://www.kf.or.kr/recruit/",
+      description:
+        "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+    },
+    {
+      name: "연말정산 업데이트",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/kprc/0.png")
+        },
+      ],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
       category: "Website",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "May, 2017 - Aug, 2017",
       visit: "https://angel.co/projects/576300-nutricare",
       description:
-        "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+    },
+    {
+      name: "평가(근무평정)시스템 구축",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/komsco/0.png")
+        }
+      ],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      category: "Website",
+      github: "https://github.com/hrishikeshpaul/clumpr",
+      date: "May, 2017 - Aug, 2017",
+      visit: "https://angel.co/projects/576300-nutricare",
+      description:
+          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+    },
+    {
+      name: "인사시스템 근태관리 고도화",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/zara/0.png")
+        }
+      ],
+      technologies: ["Java", "Spring-Framework", "Javascript", "Ms-sql", "Jsp"],
+      category: "Website",
+      github: "https://github.com/hrishikeshpaul/clumpr",
+      date: "May, 2017 - Aug, 2017",
+      visit: "https://angel.co/projects/576300-nutricare",
+      description:
+          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+    },
+    {
+      name: "통합인사시스템 구축",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/chilsung/0.png")
+        }
+      ],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      category: "Website",
+      github: "https://github.com/hrishikeshpaul/clumpr",
+      date: "May, 2017 - Aug, 2017",
+      visit: "https://angel.co/projects/576300-nutricare",
+      description:
+          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
     }
   ],
   portfolio_design: [

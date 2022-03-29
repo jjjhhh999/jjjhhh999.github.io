@@ -54,7 +54,7 @@
           </div>
         </v-tab>
 
-        <v-tab title="design">
+        <v-tab title="award">
           <div class="row">
             <div
               v-for="(design, idx) in desgin_info"
@@ -168,7 +168,7 @@ export default {
       showDesignModal: false,
       modal_info: {},
       design_modal_info: {},
-      number: 3,
+      number: 6,
       showBtn: "show more",
       shower: 0,
       data: [
