@@ -85,22 +85,17 @@ let info = {
       icon: "fa fa-code"
     },
     {
-      title: "data frameworks",
+      title: "frameworks",
       info: [
-        "Keras",
-        "Numpy",
-        "Pandas",
-        "OpenCV",
-        "SciPy",
-        "Sklearn",
-        "LibROSA",
-        "Pillow"
+        "Spring-boot",
+        "Spring-Framework",
+        "Egov"
       ],
       icon: "fa fa-cubes"
     },
     {
       title: "web technologies",
-      info: ["Vue", "REST-API", "HTML", "CSS"],
+      info: ["Vue", "Rest-Api", "Html", "Css"],
       icon: "fas fa-laptop-code"
     },
     {
@@ -116,8 +111,8 @@ let info = {
       icon: "fas fa-tools"
     },
     {
-      title: "design",
-      info: ["Illustrator", "XD", "Photoshop", "Final Cut Pro"],
+      title: "erd tools",
+      info: ["Er-Win"],
       icon: "fa fa-pencil-square-o"
     }
   ],
@@ -260,6 +255,39 @@ let info = {
       pictures: [
         {
           img: require("./src/assets/portfolio/lotteglogis/0.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/1.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/2.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/4.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/5.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/6.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/7.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/8.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/9.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/10.png")
+        },
+        {
+          img: require("./src/assets/portfolio/lotteglogis/11.png")
         }
       ],
       technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
@@ -350,6 +378,21 @@ let info = {
       pictures: [
         {
           img: require("./src/assets/portfolio/chilsung/0.png")
+        },
+        {
+          img: require("./src/assets/portfolio/chilsung/1.png")
+        },
+        {
+          img: require("./src/assets/portfolio/chilsung/2.png")
+        },
+        {
+          img: require("./src/assets/portfolio/chilsung/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/chilsung/4.png")
+        },
+        {
+          img: require("./src/assets/portfolio/chilsung/5.png")
         }
       ],
       technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
