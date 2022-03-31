@@ -71,7 +71,7 @@ let info = {
       description:
         "이것저것 했어요",
         /*"인사, 회계, 예산 등 ERP시스템 구축하였으며 개발 PL로 프로젝트에 참여하여 개발 및 ERD설계, 업무협의 등 전반적인 SI프로젝트 경험을 하였습니다.",*/
-      skills: ["Java", "Spring-Framework", "Javascript", "Oracle", "Ms-sql", "Jsp"]
+      skills: ["Java", "Spring-Framework", "Javascript", "Oracle-SQL", "Ms-SQL", "Jsp"]
     }
   ],
   skills: [
@@ -100,7 +100,7 @@ let info = {
     },
     {
       title: "databases",
-      info: ["OracleSQL", "MySQL", "MsSQL"],
+      info: ["Oracle-SQL", "My-SQL", "Ms-SQL"],
       icon: "fa fa-database"
     },
     {
@@ -218,6 +218,36 @@ let info = {
         "영업수주에서 생산계획, 생산지시, 생산실적, 분석에 이르기까지 현황을 조회 하고 처리 할 수 있는 시스템, 정보 집중과 관리 체계 수립 "
     },
     {
+      name: "e-Po시스템 구축",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/eis/0.png")
+        },
+        {
+          img: require("./src/assets/portfolio/eis/1.png")
+        },
+        {
+          img: require("./src/assets/portfolio/eis/2.png")
+        },
+        {
+          img: require("./src/assets/portfolio/eis/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/eis/4.png")
+        },
+        {
+          img: require("./src/assets/portfolio/eis/5.png")
+        }
+      ],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      category: "Website",
+      date: "Sep, 2019 - Dec  , 2019",
+      github: "https://github.com/hrishikeshpaul/noq",
+      visit: "https://noq-client.herokuapp.com/",
+      description:
+          "클라우드 기반 실시간 경영자정보시스템(EIS), billboard chart 라이브러리 적용"
+    },
+    {
       name: "E방제증서 시스템 고도화",
       pictures: [
         {
@@ -242,7 +272,7 @@ let info = {
           img: require("./src/assets/portfolio/thek/0.png")
         }
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis"],
       category: "Alogrithm",
       date: "Feb, 2018 - Apr  , 2018",
       github: "https://github.com/hrishikeshpaul/sih",
@@ -290,7 +320,7 @@ let info = {
           img: require("./src/assets/portfolio/lotteglogis/11.png")
         }
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
       category: "Alogrithm",
       date: "Feb, 2018 - Apr  , 2018",
       github: "https://github.com/hrishikeshpaul/sih",
@@ -305,7 +335,7 @@ let info = {
           img: require("./src/assets/portfolio/woori/0.png")
         }
       ],
-      technologies: ["Java", "Javascript", "Oracle", "Jsp"],
+      technologies: ["Java", "Javascript", "Oracle-SQL", "Jsp"],
       category: "Web App",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "Sep, 2017 - Nov, 2017",
@@ -318,9 +348,39 @@ let info = {
       pictures: [
         {
           img: require("./src/assets/portfolio/kf/0.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/1.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/2.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/4.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/5.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/6.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/7.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/8.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/9.png")
+        },
+        {
+          img: require("./src/assets/portfolio/kf/10.png")
         }
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
       category: "Website",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "May, 2017 - Aug, 2017",
@@ -335,7 +395,7 @@ let info = {
           img: require("./src/assets/portfolio/kprc/0.png")
         },
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
       category: "Website",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "May, 2017 - Aug, 2017",
@@ -344,13 +404,13 @@ let info = {
           "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
     },
     {
-      name: "평가(근무평정)시스템 구축",
+      name: "근무평정(평가)시스템 구축",
       pictures: [
         {
           img: require("./src/assets/portfolio/komsco/0.png")
         }
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
       category: "Website",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "May, 2017 - Aug, 2017",
@@ -363,9 +423,39 @@ let info = {
       pictures: [
         {
           img: require("./src/assets/portfolio/zara/0.png")
+        },
+        {
+          img: require("./src/assets/portfolio/zara/1.png")
+        },
+        {
+          img: require("./src/assets/portfolio/zara/2.png")
+        },
+        {
+          img: require("./src/assets/portfolio/zara/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/zara/4.png")
         }
       ],
       technologies: ["Java", "Spring-Framework", "Javascript", "Ms-sql", "Jsp"],
+      category: "Website",
+      github: "https://github.com/hrishikeshpaul/clumpr",
+      date: "May, 2017 - Aug, 2017",
+      visit: "https://angel.co/projects/576300-nutricare",
+      description:
+          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+    },
+    {
+      name: "전자세금계산서 스마일빌 연계",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/foodpolis/0.png")
+        },
+        {
+          img: require("./src/assets/portfolio/foodpolis/1.png")
+        }
+      ],
+      technologies: ["Java", "Javascript", "Oracle-SQL", "Jsp"],
       category: "Website",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "May, 2017 - Aug, 2017",
@@ -395,7 +485,7 @@ let info = {
           img: require("./src/assets/portfolio/chilsung/5.png")
         }
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
       category: "Website",
       github: "https://github.com/hrishikeshpaul/clumpr",
       date: "May, 2017 - Aug, 2017",
