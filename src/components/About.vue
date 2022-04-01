@@ -26,7 +26,7 @@
       />
       <div class="row">
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
-          <Timeline :data="education" :nightMode="nightMode" />
+          <Timeline :data="certification" :nightMode="nightMode" />
         </div>
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
           <Timeline :data="experience" :nightMode="nightMode" />
@@ -52,9 +52,9 @@ export default {
   },
   data() {
     return {
-      education: {
-        title: "education",
-        data: info.education,
+      certification: {
+        title: "certifications",
+        data: info.certification,
       },
       experience: {
         title: "experiences",

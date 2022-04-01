@@ -26,7 +26,7 @@
       />
 
       <vue-tabs :activeTextColor="!nightMode ? '#535A5E' : '#dfdfdf'">
-        <v-tab title="development">
+        <v-tab title="projects">
           <br />
           <div class="row">
             <div
@@ -107,6 +107,36 @@
           </div>
           <br />
         </v-tab>
+
+        <v-tab title="education">
+          <br />
+          <div class="row">
+            <div
+                class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
+                v-for="(education, idx) in education_info"
+                :key="education.name"
+            >
+              <CardEducation
+                  :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }"
+                  :portfolio="education"
+                  @show="showEducationModalFn"
+                  data-aos="fade-up"
+                  :nightMode="nightMode"
+                  data-aos-offset="100"
+                  data-aos-delay="10"
+                  data-aos-duration="500"
+                  data-aos-easing="ease-in-out"
+                  data-aos-mirror="true"
+                  data-aos-once="true"
+              />
+            </div>
+          </div>
+          <div class="text-center py-3" v-if="showEducationBtn !== 'show less'">
+            <button class="btn" @click.prevent="showMoreEducation">{{ showEducationBtn }}</button>
+          </div>
+        </v-tab>
+
+
       </vue-tabs>
     </div>
     <transition name="modal">
@@ -127,13 +157,24 @@
         :nightMode="nightMode"
       />
     </transition>
+    <transition name="modal">
+      <EducationModal
+          :showEducationModal="showEducationModal"
+          @close="closeModal"
+          v-if="showEducationModal"
+          :portfolio="education_modal_info"
+          :nightMode="nightMode"
+      />
+    </transition>
   </div>
 </template>
 
 <script>
 import Card from "./helpers/Card";
+import CardEducation from "./helpers/CardEducation";
 import Modal from "./helpers/Modal";
 import DesignModal from "./helpers/DesignModal";
+import EducationModal from "./helpers/EducationModal";
 //import Carousel from "./helpers/Carousel";
 import info from "../../info";
 
@@ -147,12 +188,14 @@ export default {
   name: "Portfolio",
   components: {
     Card,
+    CardEducation,
     Modal,
     VueTabs,
     VTab,
     VueperSlides,
     VueperSlide,
     DesignModal,
+    EducationModal
   },
   props: {
     nightMode: {
@@ -163,14 +206,21 @@ export default {
     return {
       all_info: info.portfolio,
       desgin_info: info.portfolio_design,
+      all_education_info: info.portfolio_education,
+      education_info: [],
       portfolio_info: [],
       showModal: false,
       showDesignModal: false,
+      showEducationModal: false,
       modal_info: {},
       design_modal_info: {},
-      number: 9,
+      education_modal_info: {},
+      number: 3,
+      numberEducation: 3,
       showBtn: "show more",
+      showEducationBtn: "show more",
       shower: 0,
+      showerEducation: 0,
       data: [
         '<div class="example-slide">Slide 1</div>',
         '<div class="example-slide">Slide 2</div>',
@@ -182,6 +232,10 @@ export default {
     for (var i = 0; i < this.number; i++) {
       this.portfolio_info.push(this.all_info[i]);
     }
+    for (var j = 0; j < this.numberEducation; j++) {
+      this.education_info.push(this.all_education_info[j]);
+    }
+
   },
   watch: {
     number() {
@@ -190,6 +244,12 @@ export default {
         this.portfolio_info.push(this.all_info[i]);
       }
     },
+    numberEducation() {
+      this.education_info = [];
+      for (var j = 0; j < this.numberEducation; j++) {
+        this.education_info.push(this.all_education_info[j]);
+      }
+    }
   },
   methods: {
     next() {
@@ -202,6 +262,7 @@ export default {
     closeModal() {
       this.showModal = false;
       this.showDesignModal = false;
+      this.showEducationModal = false;
       document.getElementsByTagName("body")[0].classList.remove("modal-open");
     },
     showModalFn(portfolio) {
@@ -211,6 +272,10 @@ export default {
     showDesignModalFn(design_portfolio) {
       this.design_modal_info = design_portfolio;
       this.showDesignModal = true;
+    },
+    showEducationModalFn(education_portfolio) {
+      this.education_modal_info = education_portfolio;
+      this.showEducationModal = true;
     },
     showMore() {
       if (this.number != this.all_info.length) {
@@ -234,6 +299,30 @@ export default {
         this.shower = 0;
         this.number = 3;
         this.showBtn = "show more";
+      }
+    },
+    showMoreEducation() {
+      if (this.numberEducation != this.all_education_info.length) {
+        this.numberEducation += 3;
+
+        window.scrollBy({
+          top: document.getElementsByClassName("smcard")[0].clientHeight,
+          behavior: "smooth",
+        });
+
+        if (this.numberEducation > this.all_education_info.length)
+          this.numberEducation = this.all_education_info.length;
+      }
+
+      if (this.numberEducation == this.all_education_info.length && this.showerEducation == 0) {
+        this.showerEducation = 1;
+        this.showEducationBtn = "show less";
+      } else if (this.numberEducation == this.all_education_info.length && this.showerEducation == 1) {
+        var elementPosition = document.getElementById("portfolio").offsetTop;
+        window.scrollTo({ top: elementPosition + 5, behavior: "smooth" });
+        this.showerEducation = 0;
+        this.numberEducation = 3;
+        this.showEducationBtn = "show more";
       }
     },
   },

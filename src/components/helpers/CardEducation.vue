@@ -8,52 +8,37 @@
         'bg-dark3': nightMode,
       }"
     >
-      <div style="height: 180px;">
+      <div style="height: 480px;">
         <img
           class="card-img-top"
           :src="portfolio.pictures[0].img"
           alt="Card image cap"
         />
       </div>
-      <div class="card-body pborder-top">
-        <h5 class="title2">{{ portfolio.name }}</h5>
-        <div>
-          <div class="pb-1 bheight">
-            <span
-              class="badge mr-2 mb-2 "
-              v-for="tech in portfolio.technologies"
-              :key="tech"
-              :class="{ 'bg-dark4': nightMode }"
-              >{{ tech }}</span
-            >
-          </div>
-          <p
-            class="title3 m-0 pb-2 pheight pt-1"
-            v-html="
-              portfolio.description.length > 100
-                ? portfolio.description.substring(0, 105) + '...'
-                : portfolio.description
-            "
-          >
-          </p>
-        </div>
-        <div class="text-center mt-2">
-          <button
-            href=""
-            class="btn-sm btn btn-outline-secondary no-outline"
-            @click.prevent="showModal"
-          >
-            read more
-          </button>
-        </div>
-      </div>
+    </div>
+    <div class="text-center mt-2">
+      <button
+          href=""
+          class="btn-sm btn btn-outline-secondary no-outline"
+          @click.prevent="showModal"
+      >
+        read more
+      </button>
+      <button
+          href="#"
+          class="btn-sm btn btn-outline-secondary no-outline ml-4"
+          v-if="portfolio.visit"
+          @click.prevent="open(portfolio.visit)"
+      >
+        visit website
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Card",
+  name: "CardEducation",
   props: {
     portfolio: {
       type: Object,
@@ -108,9 +93,6 @@ div.img-div {
   position: absolute;
   width: 100%;
   height: 100%;
-}
-.pborder-top {
-  border-top: 1px solid rgb(193, 193, 193);
 }
 
 .pcard {
