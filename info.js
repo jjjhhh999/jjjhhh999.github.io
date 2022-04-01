@@ -9,7 +9,7 @@ let info = {
     }
   },
   description:
-    "손으로 10초면 충분히 할 수 있는 일을 컴퓨터로 하루 종일 프로그래밍해서 자동으로 수행될 때, 나는 더할 나위 없이 큰 행복을 느낀다.",
+    "",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -74,7 +74,7 @@ let info = {
       position: "DT사업팀, Full Stack Developer",
       description:
         "Digital Transformation팀에서 주로 프로젝트에 참여하여 Web 시스템을 개발하였습니다. ",
-      skills: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "Git"]
+      skills: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "Git", "CI/CD"]
     },
     {
       name: "Inbus",
@@ -173,7 +173,7 @@ let info = {
           img: require("./src/assets/portfolio/alpinion/9.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "Git", "CI/CD"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       github:
@@ -204,7 +204,7 @@ let info = {
           img: require("./src/assets/portfolio/eis/5.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "Git", "CI/CD"],
       category: "Website",
       date: "Sep, 2019 - Dec  , 2019",
       github: "",
@@ -261,7 +261,7 @@ let info = {
           img: require("./src/assets/portfolio/epo/5.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "Git", "CI/CD"],
       category: "Website",
       date: "Sep, 2019 - Dec  , 2019",
       github: "",
