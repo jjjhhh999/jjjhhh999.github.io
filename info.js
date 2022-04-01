@@ -9,7 +9,7 @@ let info = {
     }
   },
   description:
-    "개발에 관심있고 이것저것 개발하는 한량 개발자입니다.",
+    "손으로 10초면 충분히 할 수 있는 일을 컴퓨터로 하루 종일 프로그래밍해서 자동으로 수행될 때, 나는 더할 나위 없이 큰 행복을 느낀다.",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -73,7 +73,7 @@ let info = {
       date: "Jan, 2020 - Present",
       position: "DT사업팀, Full Stack Developer",
       description:
-        "이것저것 했어요",
+        "Digital Transformation팀에서 주로 프로젝트에 참여하여 Web 시스템을 개발하였습니다. ",
       skills: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "Git"]
     },
     {
@@ -82,7 +82,7 @@ let info = {
       date: "Jun, 2015 - Jan, 2020",
       position: "솔루션 1팀, Full Stack Developer",
       description:
-        "이것저것 했어요",
+        "프로젝트에 참여하여 주로 인사, 회계, 예산 등 전반적인 Web기반 ERP시스템을 개발하였습니다. ",
         /*"인사, 회계, 예산 등 ERP시스템 구축하였으며 개발 PL로 프로젝트에 참여하여 개발 및 ERD설계, 업무협의 등 전반적인 SI프로젝트 경험을 하였습니다.",*/
       skills: ["Java", "Spring-Framework", "Javascript", "Oracle-SQL", "Ms-SQL", "Jsp"]
     },

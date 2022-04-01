@@ -11,6 +11,7 @@
 
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
           <div class="text-center">
+            <!--
             <button
               class="btn btn-outline-secondary mx-2 "
               @click="open('linkedin')"
@@ -35,6 +36,7 @@
             >
               <i class="fa fa-file"></i>
             </button>
+            -->
           </div>
         </div>
       </div>

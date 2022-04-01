@@ -17,7 +17,7 @@
         <span
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >contact.</span
+          >contact me.</span
         >
       </div>
       <hr
