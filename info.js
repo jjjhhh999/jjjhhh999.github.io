@@ -267,10 +267,10 @@ let info = {
       github: "",
       visit: "https://noq-client.herokuapp.com/",
       description:
-          "클라우드 기반 실시간 경영자정보시스템(EIS), billboard chart 라이브러리 적용"
+          "클라우드 기반 실시간 e-Po시스템 구축"
     },
     {
-      name: "E방제증서 시스템 고도화",
+      name: "E방제증서 시스템 고도화 및 정보처리 의뢰서 등 구축",
       pictures: [
         {
           img: require("./src/assets/portfolio/koem/0.png")
@@ -285,7 +285,7 @@ let info = {
       github: "",
       visit: "https://skylarktiral.herokuapp.com/",
       description:
-        "This is a web application, uses a map to demonstrate the number suicides committed around the globe, according to a dataset provided by the WHO. The application consists of a Leaflet map that colors every nation, based on the number of suicides that have been committed in that country, for that year. It provides us with the capability to select the data as well as the continent."
+        "대국민 서비스 시스템 고도화 및 정보처리 의뢰서 구축"
     },
     {
       name: "연말정산 버전 업데이트",
@@ -300,7 +300,7 @@ let info = {
       github: "",
       visit: "https://angel.co/projects/1009777-sentiment-analysis",
       description:
-          "Developing this for the final round of Smart India Hackathon 2018, the web application is a platform for showcasing the sentiment of the tweets of the people in the Telangana region in India on policy satisfaction, services and problem definitions. The minimal UI design consists of different bins, that have their respective tweets, all scraped from twitter. There is also a simple graphical representation denoting the sentiment of the tweets."
+          "시스템 버전별 연말정산 세법 업데이트"
     },
     {
       name: "통합인사시스템 구축",
@@ -348,7 +348,7 @@ let info = {
       github: "",
       visit: "https://angel.co/projects/1009777-sentiment-analysis",
       description:
-        "Developing this for the final round of Smart India Hackathon 2018, the web application is a platform for showcasing the sentiment of the tweets of the people in the Telangana region in India on policy satisfaction, services and problem definitions. The minimal UI design consists of different bins, that have their respective tweets, all scraped from twitter. There is also a simple graphical representation denoting the sentiment of the tweets."
+        "개발 PL 경험, 인사관리, 채용관리, 교육관리 등 설계, 개발 담당"
     },
     {
       name: "법인카드 연동시스템 구축",
@@ -363,7 +363,7 @@ let info = {
       date: "Sep, 2017 - Nov, 2017",
       visit: "https://github.com/hrishikeshpaul/clumpr",
       description:
-        'Clumpr is an online social event planning assistant that - using information about similar events happening in similar locations around the same time, friends who frequently attend the same events, and mutual friends - helps users to collaborate, combine, and attend events together, effectively "clumping" people and activities in a way that makes intuitive sense.'
+        "BC카드 데이터 연계"
     },
     {
       name: "인사시스템(급여, 채용) 고도화",
@@ -408,7 +408,7 @@ let info = {
       date: "May, 2017 - Aug, 2017",
       visit: "https://www.kf.or.kr/recruit/",
       description:
-        "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+        "급여관리, 채용시스템 구축 및 고도화"
     },
     {
       name: "연말정산 업데이트",
@@ -423,7 +423,7 @@ let info = {
       date: "May, 2017 - Aug, 2017",
       visit: "https://angel.co/projects/576300-nutricare",
       description:
-          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+          "시스템 버전별 연말정산 세법 업데이트"
     },
     {
       name: "근무평정(평가)시스템 구축",
@@ -438,7 +438,7 @@ let info = {
       date: "May, 2017 - Aug, 2017",
       visit: "https://angel.co/projects/576300-nutricare",
       description:
-          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+          "근무평정(평가관리) 시스템 구축"
     },
     {
       name: "인사시스템 근태관리 고도화",
@@ -465,7 +465,7 @@ let info = {
       date: "May, 2017 - Aug, 2017",
       visit: "https://angel.co/projects/576300-nutricare",
       description:
-          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+          "직원 및 파트타이머별 근무 스케쥴 관리"
     },
     {
       name: "전자세금계산서 스마일빌 연계",
@@ -483,7 +483,7 @@ let info = {
       date: "May, 2017 - Aug, 2017",
       visit: "https://angel.co/projects/576300-nutricare",
       description:
-          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+          "세금계산서 SmildEDI 연계"
     },
     {
       name: "통합인사시스템 구축",
@@ -513,7 +513,7 @@ let info = {
       date: "May, 2017 - Aug, 2017",
       visit: "https://angel.co/projects/576300-nutricare",
       description:
-          "Nutricare is a basic health website for users(patients) to input nutrient intake data and researchers to analyse the data with the help of graphs and tables. A researcher can conduct studies on N different subjects (patient) for a particular problem statement. Typically, a researcher will enter food item consumed by subjects over a period of time (Ex - 24hrs, or 1 week, or 1 month etc)."
+          "인사시스템 구축 (문화복지, 4대보험, 학자금 등)"
     }
   ],
   portfolio_design: [
@@ -635,38 +635,40 @@ let info = {
     }
   ],
   recommendations: [
+      /*
     {
       title:
-        "In his internship, Hrishikesh has demonstrated excellent learning ability, and with a dedicated, task oriented approach, he was able to complete his assignment ahead of time.",
-      author: "Ushanas Shastri",
-      position: "CTO",
-      company: "Viteos Capital Market Services",
-      location: "Mumbai"
+        "",
+      author: "",
+      position: "",
+      company: "",
+      location: ""
     },
     {
       title:
-        "I feel his budding leadership abilities will become even more effective in a diverse and challenging environment.",
-      author: "Anil Dukkipatty",
-      position: "CTO",
-      company: "Elemential Labs",
-      location: "Mumbai"
+        "",
+      author: "",
+      position: "",
+      company: "",
+      location: ""
     },
     {
       title:
-        "He has gained great knowledge and experience of SDE, and has learned ot develop the application keeping in mind the client's perpective and also making it creative.",
-      author: "Chintan Shah",
-      position: "Director",
-      company: "Hridayam Soft Solution",
-      location: "Mumbai"
+          "",
+      author: "",
+      position: "",
+      company: "",
+      location: ""
     },
     {
       title:
-        "During the course of his employment we have found him to be a self-started who was motivated, duty bound and a highly commited team player.",
-      author: "Mrinal Pai",
-      position: "Co-Founder & Director",
-      company: "Skylark Drones",
-      location: "Bangalore"
+          "",
+      author: "",
+      position: "",
+      company: "",
+      location: ""
     }
+       */
   ]
 };
 

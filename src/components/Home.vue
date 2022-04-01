@@ -17,7 +17,7 @@
           <span
             class="home-title"
             :class="{ pgray: !nightMode, 'text-light': nightMode }"
-            >Hello</span
+            >안녕하세요.</span
           >
           <div>
             <p v-html="description"></p>
