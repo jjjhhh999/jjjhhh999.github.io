@@ -553,10 +553,24 @@ let info = {
       name: "SQL Tuning for Optimizing SW Performance",
       pictures: [
         {
+          img: require("./src/assets/education/git/git.png")
+        }
+      ],
+      technologies: ["git", "github", "형상관리"],
+      category: "Web App",
+      date: "Aug, 2021 - Mar, 2022",
+      visit: "https://hrd.hunet.co.kr/Contents/HunetContents",
+      description:
+          "Git과 GitHub의 개념 이해와 실습을 통한 활용"
+    },
+    {
+      name: "SQL Tuning for Optimizing SW Performance",
+      pictures: [
+        {
           img: require("./src/assets/education/sqlTuning/sqlTuning.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["sql", "Tuning", "Optimizing", "Performance"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "http://estudy.kitri.re.kr/usrs/eduRegMgnt/eduCrsScheduleByMonth.do?",
@@ -570,7 +584,7 @@ let info = {
           img: require("./src/assets/education/reactiveProgramming/Advanced Java Functional & Reactive Programming.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["Java", "Spring-boot", "Jpa"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "http://estudy.kitri.re.kr/usrs/eduRegMgnt/eduCrsScheduleByMonth.do?",
@@ -584,7 +598,7 @@ let info = {
           img: require("./src/assets/education/openAPI/openAPI.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["Java", "Spring-boot", "Jpa"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://www.multicampus.com/kr/index.html",
@@ -598,7 +612,7 @@ let info = {
           img: require("./src/assets/education/vueJs/vueJs.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["Vue"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "http://estudy.kitri.re.kr/usrs/eduRegMgnt/eduCrsScheduleByMonth.do?",
@@ -626,7 +640,7 @@ let info = {
           img: require("./src/assets/education/HTML5&JavaScript/HTML5&JavaScript.png")
         }
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["JavaScript", "HTML5"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://hrd.hunet.co.kr/Contents/HunetContents",
