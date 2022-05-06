@@ -640,7 +640,7 @@ let info = {
           img: require("./src/assets/education/HTML5&JavaScript/HTML5&JavaScript.png")
         }
       ],
-      technologies: ["JavaScript", "HTML5"],
+      technologies: ["JavaScript", "HTML5", "CSS"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://hrd.hunet.co.kr/Contents/HunetContents",
