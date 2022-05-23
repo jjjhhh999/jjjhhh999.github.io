@@ -548,7 +548,21 @@ let info = {
         "2016년 우수직원 포상"
     }
   ],
-  portfolio_education: [
+  portfolio_education:[
+    {
+      name: "SQL Tuning for Optimizing SW Performance",
+      pictures: [
+        {
+          img: require("./src/assets/education/tuning/tuning.png")
+        }
+      ],
+      technologies: ["tuning", "sql", "Optimizer"],
+      category: "Database",
+      date: "Mar, 2022 - Mar, 2022",
+      visit: "https://www.multicampus.com/kr/index.html",
+      description:
+          "SQL 튜닝의 개념 이해, 적절한 튜닝계획을 수립, SQL 문장의 속도 향상, 복잡한 SQL문을 고급함수를 이용하여 단순/명료한 SQL문을 작성"
+    },
     {
       name: "SQL Tuning for Optimizing SW Performance",
       pictures: [
@@ -557,7 +571,7 @@ let info = {
         }
       ],
       technologies: ["git", "github", "형상관리"],
-      category: "Web App",
+      category: "Git",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://hrd.hunet.co.kr/Contents/HunetContents",
       description:
