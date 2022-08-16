@@ -140,6 +140,40 @@ let info = {
   ],
   portfolio: [
     {
+      name: "일진전기 물류전산시스템 구축",
+      pictures: [
+        {
+          img: require("./src/assets/portfolio/elec/0.png")
+        },
+        {
+          img: require("./src/assets/portfolio/elec/1.png")
+        },
+        {
+          img: require("./src/assets/portfolio/elec/2.png")
+        },
+        {
+          img: require("./src/assets/portfolio/elec/3.png")
+        },
+        {
+          img: require("./src/assets/portfolio/elec/4.png")
+        },
+        {
+          img: require("./src/assets/portfolio/elec/5.png")
+        },
+        {
+          img: require("./src/assets/portfolio/elec/6.png")
+        },
+      ],
+      technologies: ["Java", "Spring-boot", "Jpa", "Oracle", "Vue", "Git", "CI/CD"],
+      category: "Web App",
+      date: "Apr, 2022 - Aug, 2022",
+      github:
+          "",
+      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      description:
+          "설계, 제조원가 산정, 물류 전자 입찰, 운송 관리 및 정산 등  '기업형 물류관리' 솔루션"
+    },
+    {
       name: "알피니언메디칼 전자전표 구축",
       pictures: [
         {
