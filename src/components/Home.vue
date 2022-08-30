@@ -17,10 +17,13 @@
           <span
             class="home-title"
             :class="{ pgray: !nightMode, 'text-light': nightMode }"
-            >Hello!</span
+            >Introduce</span
           >
           <div>
             <p v-html="description"></p>
+          </div>
+          <div>
+            <p v-html="email"></p>
           </div>
           <div class="text-center pb-4">
 
@@ -81,6 +84,7 @@
       return {
         picture: info.flat_picture,
         description: info.description,
+        email : info.email,
         name: info.name,
         linkedin: info.links.linkedin,
         github: info.links.github,
