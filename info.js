@@ -1,7 +1,8 @@
 let info = {
   name: "KooJaeHoon",
   logo_name: "Koo",
-  flat_picture: require("./src/assets/potrait.jpg"),
+  //flat_picture: require("./src/assets/potrait.jpg"),
+  flat_picture: require("./src/assets/koo.jpg"),
   config: {
     use_cookies: true,
     navbar: {
@@ -9,7 +10,11 @@ let info = {
     }
   },
   description:
-    "",
+    "8년 차 개발자로 현재 [일진그룹] 일진씨앤에스 DT사업팀에 재직중입니다. </br>"+
+    "주된 업무로는 설계/개발/시스템 환경 구축/배포(CI/CD)를 담당했습니다. </br>" +
+    "주로 타 시스템(ERP시스템 또는 기타시스템)과 연동, REST-API, VUE.js를 활용하여 시스템을 구축합니다. </br>" +
+    "음악을 들으면서 일하는 것을 좋아하며 새로운 기술을 배우고 적용해보는 것을 좋아합니다. </br>",
+  email : "email : jaehoon.gu@gmail.com 또는 하단 contact me 기능 활용 ",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -17,6 +22,19 @@ let info = {
     //resume: "https://github.com/hrishikeshpaul/portfolio-template/blob/master/src/assets/pdfs/Resume.pdf"
   },
   certification: [
+    {
+      name: '[국립] 강릉원주대학교 ',
+      date: 'Feb, 2008 - Feb, 2014',
+      degree: '정보통신공학',
+      gpa: '3.85/4.5',
+      description: '4년 장학생',
+      skills: ['Software Engineering', 'Database']
+    },
+    {
+      name: '성보고등학교',
+      date: 'Feb, 2005 - Feb, 2008',
+      degree: '인문계',
+    },
     {
       name: "정보처리기사",
       date: "Nov, 2013"
@@ -95,7 +113,7 @@ let info = {
   skills: [
     {
       title: "back-end",
-      info: [ "Java", "RESTful API", "JPA", "Open API"],
+      info: [ "Java(Lambda, Observable, RxJava)", "RESTful API", "JPA", "Open API"],
       icon: "fa fa-code"
     },
     {
@@ -398,6 +416,20 @@ let info = {
   ],
   portfolio_design: [
     {
+      name: "일진C&S, 2021년도 개인 KPI 평가",
+      title: "일진C&S, 2021년도 개인 KPI 평가",
+      pictures: [
+        {
+          img: require("./src/assets/awards/iljin/1.png"),
+          title: "KPI 평가"
+        }
+      ],
+      github: "",
+      date: "2022. 02" ,
+      visit: "",
+      description: "2021년도 개인 KPI 평가"
+    },
+    {
       name: "일진C&S, 2021년도 우수직원 포상",
       title: "일진C&S, 2021년도 우수직원 포상",
       pictures: [
@@ -428,7 +460,7 @@ let info = {
   ],
   portfolio_education:[
     {
-      name: "SQL Tuning for Optimizing SW Performance",
+      name: "업무에 바로쓰는 SQL튜닝",
       pictures: [
         {img: require("./src/assets/education/tuning/tuning.png")}
       ],
@@ -439,7 +471,7 @@ let info = {
       description: "SQL 튜닝의 개념 이해, 적절한 튜닝계획을 수립, SQL 문장의 속도 향상, 복잡한 SQL문을 고급함수를 이용하여 단순/명료한 SQL문을 작성"
     },
     {
-      name: "SQL Tuning for Optimizing SW Performance",
+      name: "git",
       pictures: [
         {img: require("./src/assets/education/git/git.png")}
       ],
