@@ -14,7 +14,7 @@ let info = {
     "주된 업무로는 설계/개발/시스템 환경 구축/배포(CI/CD)를 담당했습니다. </br>" +
     "주로 타 시스템(ERP시스템 또는 기타시스템)과 연동, REST-API, VUE.js를 활용하여 시스템을 구축합니다. </br>" +
     "음악을 들으면서 일하는 것을 좋아하며 새로운 기술을 배우고 적용해보는 것을 좋아합니다. </br>",
-  email : "email : jaehoon.gu@gmail.com 또는 하단 contact me 기능 활용 ",
+  email : "email : gu_0116@naver.com 또는 하단 contact me 기능 활용 ",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
