@@ -10,11 +10,10 @@ let info = {
     }
   },
   description:
-    "8년 차 개발자로 현재 [일진그룹] 일진씨앤에스 DT사업팀에 재직중입니다. </br>"+
-    "주된 업무로는 설계/개발/시스템 환경 구축/배포(CI/CD)를 담당했습니다. </br>" +
-    "주로 타 시스템(ERP시스템 또는 기타시스템)과 연동, REST-API, VUE.js를 활용하여 시스템을 구축합니다. </br>" +
-    "음악을 들으면서 코딩하는 것을 좋아하며 새로운 기술을 배우고 적용해보는 것을 좋아합니다. </br>",
-  email : "email : gu_0116@naver.com 또는 하단 contact me 기능 활용 ",
+    "음악을 들으면서 코딩하는 것을 좋아하는 8년 차 개발자로 현재 [일진그룹] 일진씨앤에스 DT사업팀에 재직 중입니다. " +
+    "주된 업무로는 설계/개발/시스템 환경구축/배포(CI/CD)를 담당하고 있습니다. " +
+    "주로 타 시스템(ERP시스템, 기타시스템)과 연동하며 REST-API, JPA VUE.js를 활용하여 시스템을 구축합니다. <br>",
+  email : "contact : gu_0116@naver.com 또는 하단 contact me 항목 email 전송 기능 활용 ",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -24,7 +23,7 @@ let info = {
   certification: [
     {
       name: '[국립] 강릉원주대학교 ',
-      date: 'Feb, 2008 - Feb, 2014',
+      date: 'Mar, 2008 - Feb, 2014',
       degree: '정보통신공학',
       gpa: '3.85/4.5',
       description: '4년 장학생',
@@ -32,7 +31,7 @@ let info = {
     },
     {
       name: '성보고등학교',
-      date: 'Feb, 2005 - Feb, 2008',
+      date: 'Mar, 2005 - Feb, 2008',
       degree: '인문계',
     },
     {
@@ -44,67 +43,27 @@ let info = {
       date: "Dec, 2019"
     }
   ],
-/*
-  certification: [
-    {
-      name: "Indiana University Bloomington",
-      place: "USA",
-      date: "Aug, 2019 - May, 2021",
-      degree: "Masters in Computer Science",
-      gpa: "3.7/4.0",
-      description:
-        "Currently pursuing my Master's in Computer Science, while specializing in the field of Artificial Intelligence and Machine Learning.",
-      skills: [
-        "Artificial Intelligence",
-        "Software Engineering",
-        "Algorithms",
-        "Computer Vision",
-        "Music Data Mining",
-        "OS"
-      ]
-    },
-    {
-      name: "Manipal Institute of Technology",
-      place: "India",
-      date: "Aug, 2015 - July, 2019",
-      degree: "Bachelors in Computer and Communication",
-      gpa: "8.0/10.0",
-      description:
-        "Graduated from Manipal Institute of Technology, Manipal with a bachelors degree in Computer and Communications Engineering.",
-      skills: [
-        "AI",
-        "Neural Netwroks",
-        "Data Mining",
-        "Computer Vision",
-        "Pattern Recognition",
-        "HCI",
-        "Software Engineering"
-      ]
-    }
-  ],
-
- */
   experience: [
     {
       name: "[일진그룹] 일진C&S",
-      place: "서울 마포구 마포대로 45 일진빌딩 14층",
+      //place: "서울 마포구 마포대로 45 일진빌딩 14층",
       date: "Jan, 2020 - Present",
       position: "DT사업팀, Full Stack Developer",
-      description: "Digital Transformation팀에서 주로 프로젝트에 참여하여 Web 시스템을 개발하였습니다. ",
-      skills: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "Git", "CI/CD"]
+      description: "Digital Transformation팀에서 주로 Web시스템 설계/개발/시스템 환경 구축/배포(CI/CD)를 담당하고 있습니다.",
+      skills: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "Git", "CI/CD", "Nginx", "AGgrid", "Node.js"]
     },
     {
       name: "Inbus",
-      place: "서울 구로구 디지털로 272 한신IT타워 8층",
+      //place: "서울 구로구 디지털로 272 한신IT타워 8층",
       date: "Jun, 2015 - Jan, 2020",
       position: "솔루션 1팀, Full Stack Developer",
-      description: "프로젝트에 참여하여 주로 인사, 회계, 예산 등 전반적인 Web기반 ERP시스템을 개발하였습니다. ",
+      description: "프로젝트를 수행하며 주로 인사, 회계, 예산 등 전반적인 Web기반 ERP시스템을 개발하였습니다. ",
         /*"인사, 회계, 예산 등 ERP시스템 구축하였으며 개발 PL로 프로젝트에 참여하여 개발 및 ERD설계, 업무협의 등 전반적인 SI프로젝트 경험을 하였습니다.",*/
-      skills: ["Java", "Spring-Framework", "Javascript", "Oracle-SQL", "Ms-SQL", "Jsp"]
+      skills: ["Java", "Spring-Framework", "Javascript", "RDMS(Oracle, Mssql)", "DB Modeling", "Jsp", "ERwin"]
     },
     {
       name: "중앙정보기술인재개발원",
-      place: "서울시 마포구 신촌로 176",
+      //place: "서울시 마포구 신촌로 176",
       date: "Dec, 2014 - May, 2015",
       description: "멀티디바이스 하이브리드 웹 & 앱 게임전문과정",
       skills: ["Java", "Spring-Framework", "Javascript", "Database", "Jsp"]
