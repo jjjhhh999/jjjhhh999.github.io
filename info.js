@@ -72,12 +72,12 @@ let info = {
   skills: [
     {
       title: "back-end",
-      info: [ "Java(Lambda, Observable, RxJava)", "RESTful API", "JPA", "Open API"],
+      info: [ "Java(Lambda, Stream, Optional, functional Interface)", "RESTful API", "JPA", "Open API"],
       icon: "fa fa-code"
     },
     {
       title: "front-end",
-      info: ["Vue", "Node.js", "Javascript", "Jsp",  "Jquery", "HTML-5"],
+      info: ["Vue", "Node.js", "Javascript", "Jsp",  "Jquery", "AgGrid", "HTML-5"],
       icon: "fas fa-laptop-code"
     },
     {
@@ -113,7 +113,7 @@ let info = {
         {img: require("./src/assets/portfolio/elec/5.png")},
         {img: require("./src/assets/portfolio/elec/6.png")},
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "Oracle", "Vue", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "Jpa", "Oracle", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2022. 04 ~ 2022. 08",
       github:"",
@@ -134,7 +134,7 @@ let info = {
         {img: require("./src/assets/portfolio/alpinion/8.png")},
         {img: require("./src/assets/portfolio/alpinion/9.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2021. 08 ~ 2022. 03",
       github: "",
@@ -167,7 +167,7 @@ let info = {
         {img: require("./src/assets/portfolio/eis/4.png")},
         {img: require("./src/assets/portfolio/eis/5.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2021. 01 ~ 2021. 05",
       github: "",
@@ -184,7 +184,7 @@ let info = {
         {img: require("./src/assets/portfolio/epo/4.png")},
         {img: require("./src/assets/portfolio/epo/5.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Website",
       date: "2020. 11 ~ 2021. 02",
       github: "",
@@ -200,7 +200,7 @@ let info = {
         {img: require("./src/assets/portfolio/bms/3.png")},
         {img: require("./src/assets/portfolio/bms/4.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2020. 07 ~ 2020. 11",
       github: "",

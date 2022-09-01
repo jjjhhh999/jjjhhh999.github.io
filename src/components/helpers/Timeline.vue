@@ -27,7 +27,10 @@
           >
             <li class="m-0 pb-2">
               <div>
+                <!--
                 <div class="px-2 title2">{{ e.name }}, {{ e.place }}</div>
+                -->
+                <div class="px-2 title2">{{ e.name }}</div>
                 <div class="px-2 title3">
                   {{ e.degree || e.position }}
                   {{ e.gpa ? "(" + e.gpa + ")" : "" }}
