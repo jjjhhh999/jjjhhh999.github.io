@@ -72,12 +72,12 @@ let info = {
   skills: [
     {
       title: "back-end",
-      info: [ "Java(Lambda, Stream, Optional, functional Interface)", "RESTful API", "JPA", "Open API"],
+      info: [ "Java", "RESTful API", "JPA", "Open API"],
       icon: "fa fa-code"
     },
     {
       title: "front-end",
-      info: ["Vue", "Node.js", "Javascript", "Jsp",  "Jquery", "AgGrid", "HTML-5"],
+      info: ["Vue", "Node.js(npm)", "Javascript", "Jsp",  "Jquery", "AgGrid", "HTML-5"],
       icon: "fas fa-laptop-code"
     },
     {
@@ -87,17 +87,17 @@ let info = {
     },
     {
       title: "databases",
-      info: ["RDMS(MariaDB, Oracle, MsSQL)", "Modeling"],
+      info: ["RDMS(MariaDB, Oracle, MsSQL, MySQL)", "Modeling"],
       icon: "fa fa-database"
     },
     {
-      title: "server & operating systems",
-      info: ["NginX", "Npm", "Linux"],
+      title: "OS & tools",
+      info: ["Linux(CentOS, Ubuntu)", "Window", "IntelliJ", "DBeaver"],
       icon: "fas fa-tools"
     },
     {
-      title: "Configuration Management",
-      info: ["CI/CD", "Git", "Svn"],
+      title: "VCS",
+      info: ["Git", "GitLab", "GitHub", "CI/CD"],
       icon: "fa fa-pencil-square-o"
     }
   ],
