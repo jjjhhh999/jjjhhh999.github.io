@@ -7,11 +7,13 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
+        <!--
         <span
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
           >recommendations.</span
         >
+        -->
       </div>
       <hr
         width="50%"
