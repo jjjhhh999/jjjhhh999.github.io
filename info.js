@@ -103,6 +103,18 @@ let info = {
   ],
   portfolio: [
     {
+      name: "PMCTECH - 전자전표시스템 구축(진행중)",
+      pictures: [
+        {img: require("./src/assets/portfolio/pmctech/0.png")}
+      ],
+      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      category: "Web App",
+      date: "2022. 09 ~ 2023. 01",
+      github:"",
+      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
+    },
+    {
       name: "일진전기 - 견적관리시스템 구축",
       pictures: [
         {img: require("./src/assets/portfolio/elec/0.png")},
