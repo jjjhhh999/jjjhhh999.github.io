@@ -1,6 +1,6 @@
 let info = {
-  name: "KooJaeHoon",
-  logo_name: "Koo",
+  name: "GuSiWan",
+  logo_name: "Siwan",
   //flat_picture: require("./src/assets/potrait.jpg"),
   flat_picture: require("./src/assets/koo.jpg"),
   config: {
@@ -10,10 +10,10 @@ let info = {
     }
   },
   description:
-    "음악을 들으면서 코딩하는 것을 좋아하는 8년 차 개발자로 현재 [일진그룹] 일진씨앤에스 DT사업팀에 재직 중입니다. " +
+    "음악을 들으면서 코딩하는 것을 좋아하는 10년 차 개발자로 현재 [일진그룹] 일진씨앤에스 R&D팀에 재직 중입니다. " +
     "주된 업무로는 설계/개발/시스템 환경구축/배포(CI/CD)를 담당하고 있습니다. " +
-    "주로 타 시스템(ERP시스템, 기타시스템)과 연동하며 REST-API, JPA VUE.js를 활용하여 시스템을 구축합니다. <br>",
-  email : "contact : gu_0116@naver.com 또는 하단 contact me 항목 email 전송 기능 활용 ",
+    "현재는 신규 구독형 서비스를 개발중이고 주로 entity 설계와 주로 여러 시스템과 연동하며 REST-API, JPA VUE.js를 활용하여 시스템을 구축합니다. <br>",
+  email : "contact : ggssww99@gmail.com 또는 하단 contact me 항목 email 전송 기능 활용 ",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -22,17 +22,12 @@ let info = {
   },
   certification: [
     {
-      name: '[국립] 강릉원주대학교 ',
-      date: 'Mar, 2008 - Feb, 2014',
-      degree: '정보통신공학',
-      gpa: '3.85/4.5',
-      description: '4년 장학생',
-      skills: ['Software Engineering', 'Database']
+      name: "AWS Certified Solutions Architect",
+      date: "Jan, 2025"
     },
     {
-      name: '성보고등학교',
-      date: 'Mar, 2005 - Feb, 2008',
-      degree: '인문계',
+      name: "AWS Certified Cloud Practitioner",
+      date: "Sep, 2024"
     },
     {
       name: "정보처리기사",
@@ -48,9 +43,9 @@ let info = {
       name: "[일진그룹] 일진C&S",
       //place: "서울 마포구 마포대로 45 일진빌딩 14층",
       date: "Jan, 2020 - Present",
-      position: "DT사업팀, Full Stack Developer",
-      description: "Digital Transformation팀에서 주로 Web시스템 설계/개발/시스템 환경 구축/배포(CI/CD)를 담당하고 있습니다.",
-      skills: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "Git", "CI/CD", "Nginx", "AGgrid", "Node.js"]
+      position: "R&D팀, Back-end Developer",
+      description: "R&D팀에서 주로 Web시스템 설계/개발/시스템 환경 구축/배포(CI/CD)를 담당하고 있습니다.",
+      skills: ["Java", "Spring-boot", "JPA", "REST-API", "JWT", "MariaDB", "Vue", "Git", "GitHub-Action", "GitLab-Runner", "Docker", "Docker-Hub", "CI/CD", "Nginx", "AWS"]
     },
     {
       name: "Inbus",
@@ -72,12 +67,12 @@ let info = {
   skills: [
     {
       title: "back-end",
-      info: [ "Java", "RESTful API", "JPA", "Open API"],
+      info: [ "Java", "RESTful API", "JPA", "JWT", "Open API"],
       icon: "fa fa-code"
     },
     {
       title: "front-end",
-      info: ["Vue", "Node.js(npm)", "Javascript", "Jsp",  "Jquery", "AgGrid", "HTML-5"],
+      info: ["Vue", "Node.js(npm)", "Javascript", "Jsp",  "Jquery", "AgGrid"],
       icon: "fas fa-laptop-code"
     },
     {
@@ -92,22 +87,58 @@ let info = {
     },
     {
       title: "OS & tools",
-      info: ["Linux(CentOS, Ubuntu)", "Window", "IntelliJ", "DBeaver"],
+      info: ["Linux(CentOS, Ubuntu)", "Window", "Mac", "IntelliJ", "DBeaver"],
       icon: "fas fa-tools"
     },
     {
       title: "VCS",
-      info: ["Git", "GitLab", "GitHub", "CI/CD"],
+      info: ["Git", "GitLab", "GitHub", "GitHub-Action", "GitLab-Runner", "CI/CD", "Docker"],
       icon: "fa fa-pencil-square-o"
     }
   ],
   portfolio: [
     {
-      name: "PMCTECH - 전자전표시스템 구축(진행중)",
+      name: "신규 구독형 서비스 제품화",
+      pictures: [
+        {img: require("./src/assets/portfolio/subscription/0.png")}
+      ],
+      technologies: ["Java21", "Spring-boot", "JPA", "JWT", "MariaDB", "Git", "GitHub", "GitHub-Action", "docker", "docker-Hub", "AWS", "Vue", "AgGrid",  "CI/CD"],
+      category: "Web App",
+      date: "2024. 03 ~ " ,
+      github:"",
+      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
+    },
+    {
+      name: "일진전기 전자전표 시스템 구축",
+      pictures: [
+        {img: require("./src/assets/portfolio/elec/0.png")}
+      ],
+      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      category: "Web App",
+      date: "2023. 08 ~ 2024. 02",
+      github:"",
+      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
+    },
+    {
+      name: "대우루컴즈 - AS시스템 구축",
+      pictures: [
+        {img: require("./src/assets/portfolio/lucoms/0.png")}
+      ],
+      technologies: ["Java", "Spring-boot", "JPA", "Oracle", "Vue", "AgGrid", "Git", "CI/CD"],
+      category: "Web App",
+      date: "2023. 03 ~ 2023. 07",
+      github:"",
+      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      description: "고객 요청 접수, 처리 현황 조회, 자동 알림 기능 등을 구현"
+    },
+    {
+      name: "포스코MC머티리얼즈 - 전자전표시스템 구축(진행중)",
       pictures: [
         {img: require("./src/assets/portfolio/pmctech/0.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2022. 09 ~ 2023. 01",
       github:"",
@@ -125,7 +156,7 @@ let info = {
         {img: require("./src/assets/portfolio/elec/5.png")},
         {img: require("./src/assets/portfolio/elec/6.png")},
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "Oracle", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "JPA", "Oracle", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2022. 04 ~ 2022. 08",
       github:"",
@@ -146,7 +177,7 @@ let info = {
         {img: require("./src/assets/portfolio/alpinion/8.png")},
         {img: require("./src/assets/portfolio/alpinion/9.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2021. 08 ~ 2022. 03",
       github: "",
@@ -179,7 +210,7 @@ let info = {
         {img: require("./src/assets/portfolio/eis/4.png")},
         {img: require("./src/assets/portfolio/eis/5.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2021. 01 ~ 2021. 05",
       github: "",
@@ -196,7 +227,7 @@ let info = {
         {img: require("./src/assets/portfolio/epo/4.png")},
         {img: require("./src/assets/portfolio/epo/5.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Website",
       date: "2020. 11 ~ 2021. 02",
       github: "",
@@ -212,7 +243,7 @@ let info = {
         {img: require("./src/assets/portfolio/bms/3.png")},
         {img: require("./src/assets/portfolio/bms/4.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
       category: "Web App",
       date: "2020. 07 ~ 2020. 11",
       github: "",
@@ -468,7 +499,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/education/reactiveProgramming/Advanced Java Functional & Reactive Programming.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa"],
+      technologies: ["Java", "Spring-boot", "JPA"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "http://estudy.kitri.re.kr/usrs/eduRegMgnt/eduCrsScheduleByMonth.do?",
@@ -479,7 +510,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/education/openAPI/openAPI.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa"],
+      technologies: ["Java", "Spring-boot", "JPA"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://www.multicampus.com/kr/index.html",
@@ -501,7 +532,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/education/java9/java9.png")}
       ],
-      technologies: ["Java", "Spring-boot", "Jpa", "MariaDB", "Vue"],
+      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://hrd.hunet.co.kr/Contents/HunetContents",
