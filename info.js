@@ -11,9 +11,10 @@ let info = {
   },
   description:
     "음악을 들으면서 코딩하는 것을 좋아하는 10년 차 개발자로 현재 [일진그룹] 일진씨앤에스 R&D팀에 재직 중입니다. " +
-    "주된 업무로는 설계/개발/시스템 환경구축/배포(CI/CD)를 담당하고 있습니다. " +
-    "현재는 신규 구독형 서비스를 개발중이고 주로 entity 설계와 주로 여러 시스템과 연동하며 REST-API, JPA VUE.js를 활용하여 시스템을 구축합니다. <br>",
-  email : "contact : ggssww99@gmail.com 또는 하단 contact me 항목 email 전송 기능 활용 ",
+    "현재 연구개발전담부서에서 그룹내 최연소 팀장으로 재직중이며 신규 구독형 서비스를 제품화 하고 있습니다." +
+    "주된 업무로는 설계/개발/시스템 환경구축/배포(CI/CD)를 담당하고 있으며 " +
+    "entity 설계와 인증, 인가와 팀내 개발 방향성을 정하며 있으며 여러 시스템과 연동하며 시스템을 구축합니다. <br>",
+  email : "contact : ggssww99dev@gmail.com 또는 하단 contact me 항목 email 전송 기능 활용 ",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -67,7 +68,7 @@ let info = {
   skills: [
     {
       title: "back-end",
-      info: [ "Java", "RESTful API", "JPA", "JWT", "Open API"],
+      info: [ "Java", "RESTful API", "JPA", "JWT", "Spring Security", "Open API"],
       icon: "fa fa-code"
     },
     {
@@ -134,7 +135,7 @@ let info = {
       description: "고객 요청 접수, 처리 현황 조회, 자동 알림 기능 등을 구현"
     },
     {
-      name: "포스코MC머티리얼즈 - 전자전표시스템 구축(진행중)",
+      name: "포스코MC머티리얼즈 - 전자전표시스템 구축",
       pictures: [
         {img: require("./src/assets/portfolio/pmctech/0.png")}
       ],
