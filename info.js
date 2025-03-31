@@ -46,8 +46,8 @@ let info = {
       //place: "서울 마포구 마포대로 45 일진빌딩 14층",
       date: "Jan, 2020 - Present",
       position: "R&D팀, Back-end Developer",
-      description: "R&D팀에서 주로 Web시스템 설계/개발/시스템 환경 구축/배포(CI/CD)를 담당하고 있습니다.",
-      skills: ["Java", "Spring-boot", "JPA", "REST-API", "JWT", "MariaDB", "Vue", "Git", "GitHub-Action", "GitLab-Runner", "Docker", "Docker-Hub", "CI/CD", "Nginx", "AWS"]
+      description: "신규 구독형 서비스를 제품화하는 프로젝트를 주도하고 있습니다.",
+      skills: ["Java", "Spring-boot", "JPA", "AWS", "Docker", "JWT", "JUnit 5", "Vue", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"]
     },
     {
       name: "Inbus",
@@ -420,6 +420,62 @@ let info = {
   ],
   portfolio_design: [
     {
+      name: "일진C&S, 2025년도 R&D팀 팀장 발령",
+      title: "일진C&S, 2025년도 R&D팀 팀장 발령",
+      pictures: [
+        {
+          img: require("./src/assets/awards/iljin/2.png"),
+          title: "인사발령"
+        }
+      ],
+      github: "",
+      date: "2025. 01" ,
+      visit: "",
+      description: "2025년도 인사발령"
+    },
+    {
+      name: "AWS Certified Solutions Architect – Associate",
+      title: "AWS Certified Solutions Architect – Associate",
+      pictures: [
+        {
+          img: require("./src/assets/awards/aws/saa.png"),
+          title: "AWS Certified Solutions Architect – Associate"
+        }
+      ],
+      github: "",
+      date: "2025. 01" ,
+      visit: "",
+      description: "AWS Certified Solutions Architect – Associate"
+    },
+    {
+      name: "AWS Certified Cloud Practitioner",
+      title: "AWS Certified Cloud Practitioner",
+      pictures: [
+        {
+          img: require("./src/assets/awards/aws/acp.png"),
+          title: "AWS Certified Cloud Practitioner"
+        }
+      ],
+      github: "",
+      date: "2024. 09" ,
+      visit: "",
+      description: "AWS Certified Cloud Practitioner"
+    },
+    {
+      name: "Saas Boot Camp",
+      title: "Saas Boot Camp",
+      pictures: [
+        {
+          img: require("./src/assets/awards/aws/saas_boot_camp.png"),
+          title: "Saas Boot Camp"
+        }
+      ],
+      github: "",
+      date: "2024. 03" ,
+      visit: "",
+      description: "Saas Boot Camp"
+    },
+    {
       name: "일진C&S, 2021년도 개인 KPI 평가",
       title: "일진C&S, 2021년도 개인 KPI 평가",
       pictures: [
@@ -463,6 +519,129 @@ let info = {
     }
   ],
   portfolio_education:[
+    {
+      name: "스스로 구축하는 AWS 클라우드 인프라 - 기본편",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/10.png")}
+      ],
+      technologies: ["AWS", "Cloud"],
+      category: "AWS",
+      date: "Jan, 2025 - Jan, 2025",
+      visit: "https://www.inflearn.com/",
+      description: "AWS 아키텍처 구현을 위한 기술과 관련 서비스, AWS의 핵심적인 주요 서비스들의 사용 방법과 세부 기능 및 옵션"
+    },
+    {
+      name: "AWS Certified Solutions Architect - Associate 자격증 준비하기",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/9.png")}
+      ],
+      technologies: ["AWS", "Cloud"],
+      category: "AWS",
+      date: "Oct, 2024 - Oct, 2024",
+      visit: "https://www.inflearn.com/",
+      description: "AWS Certified Solutions Architect - Associate 자격증 준비"
+    },
+    {
+      name: "개발자를 위한 쉬운 도커",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/8.png")}
+      ],
+      technologies: ["Docker", "Container", "Image", "Iac", "MSA", "Cloud"],
+      category: "Docker",
+      date: "Apr, 2024 - Apr, 2024",
+      visit: "https://www.inflearn.com/",
+      description: "3Tier 아키텍처 애플리케이션 컨테이너화, 도커 컴포즈 및 깃허브 액션 파이프라인 사용법"
+    },
+    {
+      name: "더 자바, 애플리케이션을 테스트하는 다양한 방법",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/7.png")}
+      ],
+      technologies: ["JUnit 5", "Mockito", "Testcontainers", "Chaos Monkey for Spring Boot", "JMeter", "ArchUnit"],
+      category: "TEST",
+      date: "Jan, 2024 - Jan, 2024",
+      visit: "https://www.inflearn.com/",
+      description: "자바 애플리케이션에서 테스트를 작성하는 방법, 자바 애플리케이션 성능을 테스트하는 방법"
+    },
+    {
+      name: "따라하며 배우는 도커와 CI환경",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/6.png")}
+      ],
+      technologies: ["Docker", "CI/CD"],
+      category: "Docker",
+      date: "Dec, 2023 - Dec, 2023",
+      visit: "https://www.inflearn.com/",
+      description: "AWS Cloud Services, Travis CI, Docker, ReactJS NodeJS Mysql"
+    },
+    {
+      name: "코딩으로 학습하는 GoF의 디자인 패턴",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/5.png")}
+      ],
+      technologies: ["JAVA", "Design Pattern"],
+      category: "JAVA",
+      date: "Oct, 2023 - Oct, 2023",
+      visit: "https://www.inflearn.com/",
+      description: "디자인 패턴 코딩하기, GoF의 총 23개 디자인 패턴, 자바와 스프링에 적용된 디자인 패턴"
+    },
+    {
+      name: "실전! Querydsl",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/4.png")}
+      ],
+      technologies: ["JPA", "JAVA", "API"],
+      category: "JAVA",
+      date: "May, 2023 - May, 2023",
+      visit: "https://www.inflearn.com/",
+      description: "Querydsl을 기초부터 실무활용, JPA를 사용할 때 동적 쿼리와 복잡한 쿼리 문제 활용 "
+    },
+    {
+      name: "실전! 스프링 데이터 JPA",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/3.png")}
+      ],
+      technologies: ["JPA", "JAVA", "API"],
+      category: "JAVA",
+      date: "Apr, 2023 - Apr, 2023",
+      visit: "https://www.inflearn.com/",
+      description: "JPA와 스프링 데이터 JPA의 차이를 명확하게 이해"
+    },
+    {
+      name: "실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/2.png")}
+      ],
+      technologies: ["JPA", "JAVA", "API"],
+      category: "JAVA",
+      date: "Mar, 2023 - Mar, 2023",
+      visit: "https://www.inflearn.com/",
+      description: "스프링 부트와 JPA를 활용해서 자바 웹 애플리케이션을 개발 <br>" +
+          "스프링 부트와 JPA를 활용하는 최적의 방법을 이해 <br> "+
+          "도메인 모델을 이해하고 주도적으로 설계 "
+    },
+    {
+      name: "실전! 스프링 부트와 JPA 활용2 - API 개발과 성능 최적화",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/1.png")}
+      ],
+      technologies: ["JPA", "JAVA", "API"],
+      category: "JAVA",
+      date: "Feb, 2023 - Feb, 2023",
+      visit: "https://www.inflearn.com/",
+      description: "JPA의 기본기, JPA의 내부 동작 방식, 객체와 DB 테이블을 올바르게 설계하고 매핑"
+    },
+    {
+      name: "실전! 스프링 부트와 JPA 활용2 - API 개발과 성능 최적화",
+      pictures: [
+        {img: require("./src/assets/education/inflearn/0.png")}
+      ],
+      technologies: ["JPA", "JAVA", "API"],
+      category: "JAVA",
+      date: "Dec, 2022 - Dec, 2022",
+      visit: "https://www.inflearn.com/",
+      description: "스프링 부트와 JPA를 활용해서 API를 개발하는 올바른 방법, API 조회 성능을 튜닝하는 방법, 실무 성능 최적화 방법"
+    },
     {
       name: "업무에 바로쓰는 SQL튜닝",
       pictures: [
