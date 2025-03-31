@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       certification: {
-        title: "education & certifications",
+        title: "certifications",
         data: info.certification,
       },
       experience: {

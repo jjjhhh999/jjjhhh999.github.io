@@ -10,11 +10,12 @@ let info = {
     }
   },
   description:
-    "음악을 들으면서 코딩하는 것을 좋아하는 10년 차 개발자로 현재 [일진그룹] 일진씨앤에스 R&D팀에 재직 중입니다. " +
-    "현재 연구개발전담부서에서 그룹내 최연소 팀장으로 재직중이며 신규 구독형 서비스를 제품화 하고 있습니다." +
-    "주된 업무로는 설계/개발/시스템 환경구축/배포(CI/CD)를 담당하고 있으며 " +
-    "entity 설계와 인증, 인가와 팀내 개발 방향성을 정하며 있으며 여러 시스템과 연동하며 시스템을 구축합니다. <br>",
-  email : "contact : ggssww99dev@gmail.com 또는 하단 contact me 항목 email 전송 기능 활용 ",
+    "음악을 들으며 코딩하는 것을 즐기는 10년 차 개발자로, 현재 일진그룹 일진씨앤에스 R&D팀에서 근무하고 있습니다. " +
+    "연구개발전담부서에서 그룹 내 최연소 팀장으로 재직 중이며, 신규 구독형 서비스를 제품화하는 프로젝트를 주도하고 있습니다. " +
+    "주요 업무는 설계, 개발, 시스템 환경 구축 및 배포(CI/CD) 전반을 담당하는 것입니다. " +
+    "특히 엔터티(Entity) 설계, 인증·인가 시스템 구축, 팀 내 개발 방향성 설정을 중점적으로 수행하며, " +
+    "다양한 시스템 간 연동을 통해 안정적이고 확장 가능한 아키텍처를 구현하고 있습니다.  <br>",
+  email : "contact : 하단의 Contact Me 항목을 통해 이메일 전송 기능을 활용해 주세요.\n",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -92,8 +93,8 @@ let info = {
       icon: "fas fa-tools"
     },
     {
-      title: "VCS",
-      info: ["Git", "GitLab", "GitHub", "GitHub-Action", "GitLab-Runner", "CI/CD", "Docker"],
+      title: "CI/CD",
+      info: ["Git", "GitLab", "GitHub", "GitHub-Action", "GitLab-Runner", "DockerHub", "Docker"],
       icon: "fa fa-pencil-square-o"
     }
   ],
@@ -103,7 +104,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/portfolio/subscription/0.png")}
       ],
-      technologies: ["Java21", "Spring-boot", "JPA", "JWT", "MariaDB", "Git", "GitHub", "GitHub-Action", "docker", "docker-Hub", "AWS", "Vue", "AgGrid",  "CI/CD"],
+      technologies: ["Java21", "Spring-boot", "JPA", "JWT", "docker", "AWS", "GitHub", "GitHub-Action", "MariaDB", "docker-Hub", "Git", "Vue", "AgGrid",  "CI/CD"],
       category: "Web App",
       date: "2024. 03 ~ " ,
       github:"",
