@@ -100,9 +100,15 @@ let info = {
   ],
   portfolio: [
     {
-      name: "신규 구독형 서비스 제품화",
+      name: "신규 솔루션 제품화",
       pictures: [
-        {img: require("./src/assets/portfolio/subscription/0.png")}
+        {img: require("./src/assets/portfolio/subscription/0.png")},
+        {img: require("./src/assets/portfolio/subscription/1.png")},
+        {img: require("./src/assets/portfolio/subscription/2.png")},
+        {img: require("./src/assets/portfolio/subscription/3.png")},
+        {img: require("./src/assets/portfolio/subscription/4.png")},
+        {img: require("./src/assets/portfolio/subscription/5.png")},
+        {img: require("./src/assets/portfolio/subscription/6.png")}
       ],
       technologies: ["Java21", "Spring-boot", "JPA", "JWT", "docker", "AWS", "GitHub", "GitHub-Action", "MariaDB", "docker-Hub", "Git", "Vue", "AgGrid",  "CI/CD"],
       category: "Web App",
