@@ -10,11 +10,15 @@ let info = {
     }
   },
   description:
-    "음악을 들으며 코딩하는 것을 즐기는 10년 차 개발자로, 현재 일진그룹 일진씨앤에스 R&D팀에서 근무하고 있습니다. " +
-    "연구개발전담부서에서 그룹 내 최연소 팀장으로 재직 중이며, 신규 구독형 서비스를 제품화하는 프로젝트를 주도하고 있습니다. " +
-    "주요 업무는 설계, 개발, 시스템 환경 구축 및 배포(CI/CD) 전반을 담당하는 것입니다. " +
-    "특히 엔터티(Entity) 설계, 인증·인가 시스템 구축, 팀 내 개발 방향성 설정을 중점적으로 수행하며, " +
-    "다양한 시스템 간 연동을 통해 안정적이고 확장 가능한 아키텍처를 구현하고 있습니다.  <br>",
+    "음악을 들으며 코딩하는 것을 즐기는 11년 차 개발자로, 현재 지에스 비즈플 HR사업팀에서 근무하고 있습니다. <br>" +
+    "솔루션 구축 및 고도화 프로젝트를 주도하며, 비즈니스 요구사항을 기술적으로 풀어내는 역할을 담당하고 있습니다. <br>" +
+    "주요 업무는 백엔드 API 설계 및 개발, Vue.js 기반 프론트엔드 개발, 시스템 아키텍처 설계, <br>" +
+    "그리고 시스템 환경 구축부터 CI/CD를 포함한 배포 전반까지 아우르고 있습니다. <br>" +
+    "특히 엔터티(Entity) 및 데이터 모델링, 인증·인가(JWT, 권한 기반 접근 제어) 시스템 구축, <br>" +
+    "그리고 팀 내 개발 표준 및 방향성 설정을 중점적으로 수행하고 있습니다. <br>" +
+    "또한 다양한 사내·외부 시스템 연동(API, 배치, 메시징 등) 경험을 바탕으로 안정적이고 확장 가능한 아키텍처를 구현해왔으며,  <br>" +
+    "프론트엔드에서는 Vue.js를 활용한 컴포넌트 설계, 상태 관리, 사용자 경험 개선에 집중하고 있습니다.  <br>" +
+    "단순한 기능 구현을 넘어, 유지보수성과 확장성을 고려한 코드, 협업하기 좋은 구조, 그리고 비즈니스 관점에서 가치 있는 시스템을 만드는 개발자를 지향합니다.  <br>",
   email : "contact : 하단의 Contact Me 항목을 통해 이메일 전송 기능을 활용해 주세요.\n",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
@@ -41,17 +45,24 @@ let info = {
     }
   ],
   experience: [
+      {
+          name: "[GS] 지에스 비즈플",
+          //place: "서울 마포구 마포대로 45 일진빌딩 14층",
+          date: "Jun, 2025 - Present",
+          position: "HR사업팀, Back-end Developer",
+          description: "솔루션 개발 및 프로젝트 구축 ",
+          skills: ["Java17", "Spring-boot", "JPA", "Azure", "jenkins", "JWT", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"]
+      },
     {
       name: "[일진그룹] 일진C&S",
       //place: "서울 마포구 마포대로 45 일진빌딩 14층",
       date: "Jan, 2020 - Present",
       position: "R&D팀, Back-end Developer",
-      description: "신규 구독형 서비스를 제품화하는 프로젝트를 주도하고 있습니다.",
-      skills: ["Java", "Spring-boot", "JPA", "AWS", "Docker", "JWT", "JUnit 5", "Vue", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"]
+      description: "R&D팀 연구개발전담부서에서 그룹 내 최연소 팀장으로 발탁되어, 신규 구독형 서비스의 제품화를 목표로 한 핵심 프로젝트를 주도적으로 이끌었습니다. ",
+      skills: ["Java21", "Spring-boot", "JPA", "AWS", "Docker", "JWT", "JUnit 5", "Vue", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"]
     },
     {
       name: "Inbus",
-      //place: "서울 구로구 디지털로 272 한신IT타워 8층",
       date: "Jun, 2015 - Jan, 2020",
       position: "솔루션 1팀, Full Stack Developer",
       description: "프로젝트를 수행하며 주로 인사, 회계, 예산 등 전반적인 Web기반 ERP시스템을 개발하였습니다. ",
@@ -99,6 +110,19 @@ let info = {
     }
   ],
   portfolio: [
+      {
+          name: "현대하이라이프손해사정 인사시스템 프로젝트 구축",
+          pictures: [
+              {img: require("./src/assets/portfolio/hilife/hilife-ci.png")}
+          ],
+          technologies: ["Java17", "Spring-boot", "JPA", "Azure", "jenkins", "JWT", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"],
+          category: "Web App",
+          date: "2025. 06 ~ " ,
+          github:"",
+          visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+          description: "HR 담당자의 고민을 한 번에 해결하는 스마트한 인사관리 통합 플랫폼 <br> " +
+          "인사, 근태, 급여, 재무관리 등 기업의 필수 인사업무를  플랫폼에서 관리할 수 있는 통합 인사 관리 솔루션 입니다."
+      },
     {
       name: "신규 솔루션 제품화",
       pictures: [
@@ -112,7 +136,7 @@ let info = {
       ],
       technologies: ["Java21", "Spring-boot", "JPA", "JWT", "docker", "AWS", "GitHub", "GitHub-Action", "MariaDB", "docker-Hub", "Git", "Vue", "AgGrid",  "CI/CD"],
       category: "Web App",
-      date: "2024. 03 ~ " ,
+      date: "2024. 03 ~ 2025. 05" ,
       github:"",
       visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
       description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
