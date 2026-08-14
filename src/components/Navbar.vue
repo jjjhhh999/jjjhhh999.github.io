@@ -11,7 +11,7 @@
       <div class="container">
         <a
           class="navbar-brand"
-          href="/"
+          href="#home"
           @click.prevent="$emit('scroll', 'home')"
         >
           <Logo :nightMode="nightMode" />
@@ -35,7 +35,7 @@
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
-                href="/about"
+                href="#about"
                 @click.prevent="$emit('scroll', 'about')"
                 :class="{ 'text-light': nightMode }"
                 >about</a
@@ -44,7 +44,7 @@
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
-                href="/skills"
+                href="#skills"
                 @click.prevent="$emit('scroll', 'skills')"
                 :class="{ 'text-light': nightMode }"
                 >skills</a
@@ -53,7 +53,7 @@
             <li class="nav-item mx-2 ">
               <a
                 class="nav-link"
-                href="/portfolio"
+                href="#portfolio"
                 @click.prevent="$emit('scroll', 'portfolio')"
                 :class="{ 'text-light': nightMode }"
                 >portfolio</a
@@ -62,7 +62,7 @@
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
-                href="/contact"
+                href="#contact"
                 @click.prevent="$emit('scroll', 'contact')"
                 :class="{ 'text-light': nightMode }"
                 >contact</a

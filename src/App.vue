@@ -2,7 +2,7 @@
   <div id="app" :class="{ 'text-dark': !nightMode, 'text-light': nightMode }">
     <Navbar @scroll="scrollTo" @nightMode="switchMode" :nightMode="nightMode" />
     <div class="parent">
-      <Home :nightMode="nightMode" />
+      <Home id="home" :nightMode="nightMode" />
       <About id="about" :nightMode="nightMode" />
       <Skills id="skills" :nightMode="nightMode" />
       <Portfolio id="portfolio" :nightMode="nightMode" />
@@ -49,12 +49,11 @@ export default {
     }
   },
   mounted() {
-    ["about", "contact", "skills", "portfolio"].forEach((l) => {
-      if (window.location.href.includes(l)) {
-        var elementPosition = document.getElementById(l).offsetTop;
-        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
-      }
-    });
+    window.addEventListener("popstate", this.handlePopState);
+    this.$nextTick(() => this.scrollToCurrentSection("auto"));
+  },
+  beforeDestroy() {
+    window.removeEventListener("popstate", this.handlePopState);
   },
   methods: {
     switchMode(mode) {
@@ -64,14 +63,31 @@ export default {
       this.nightMode = mode;
     },
     scrollTo(ele) {
-      if (ele == "home") {
-        this.$router.push(`/`);
-        window.scrollTo({ top: -80, behavior: "smooth" });
-      } else {
-        var elementPosition = document.getElementById(ele).offsetTop;
-        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
-        if (this.$router.history.current.path !== `/${ele}`)
-          this.$router.push(`/${ele}`);
+      const hash = ele === "home" ? "" : `#${ele}`;
+
+      if (window.location.hash !== hash) {
+        const url = hash || process.env.BASE_URL;
+        window.history.pushState(null, "", url);
+      }
+
+      this.scrollToSection(ele);
+    },
+    scrollToCurrentSection(behavior = "smooth") {
+      const section = window.location.hash.slice(1) || "home";
+      this.scrollToSection(section, behavior);
+    },
+    handlePopState() {
+      this.scrollToCurrentSection();
+    },
+    scrollToSection(section, behavior = "smooth") {
+      if (section === "home") {
+        window.scrollTo({ top: 0, behavior });
+        return;
+      }
+
+      const element = document.getElementById(section);
+      if (element) {
+        window.scrollTo({ top: element.offsetTop - 35, behavior });
       }
     },
   },
@@ -97,6 +113,14 @@ export default {
   margin-top: 38px;
   padding-top: 40px;
   position: relative;
+}
+
+#home,
+#about,
+#skills,
+#portfolio,
+#contact {
+  scroll-margin-top: 80px;
 }
 
 .pgray {

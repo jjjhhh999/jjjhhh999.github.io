@@ -121,7 +121,7 @@ let info = {
           category: "Web App",
           date: "2025. 06 ~ " ,
           github:"",
-          visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+          visit: "",
           description: "HR 담당자의 고민을 한 번에 해결하는 스마트한 인사관리 통합 플랫폼 <br> " +
           "인사, 근태, 급여, 재무관리 등 기업의 필수 인사업무를  플랫폼에서 관리할 수 있는 통합 인사 관리 솔루션 입니다."
       },
@@ -140,7 +140,7 @@ let info = {
       category: "Web App",
       date: "2024. 03 ~ 2025. 05" ,
       github:"",
-      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      visit: "",
       description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
     },
     {
@@ -152,7 +152,7 @@ let info = {
       category: "Web App",
       date: "2023. 08 ~ 2024. 02",
       github:"",
-      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      visit: "",
       description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
     },
     {
@@ -164,7 +164,7 @@ let info = {
       category: "Web App",
       date: "2023. 03 ~ 2023. 07",
       github:"",
-      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      visit: "",
       description: "고객 요청 접수, 처리 현황 조회, 자동 알림 기능 등을 구현"
     },
     {
@@ -176,7 +176,7 @@ let info = {
       category: "Web App",
       date: "2022. 09 ~ 2023. 01",
       github:"",
-      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      visit: "",
       description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
     },
     {
@@ -194,7 +194,7 @@ let info = {
       category: "Web App",
       date: "2022. 04 ~ 2022. 08",
       github:"",
-      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      visit: "",
       description: "설계, 제조원가 산정, 물류 전자 입찰, 운송 관리 및 정산 등  '기업형 물류관리' 솔루션"
     },
     {
@@ -215,7 +215,7 @@ let info = {
       category: "Web App",
       date: "2021. 08 ~ 2022. 03",
       github: "",
-      visit: "https://github.com/hrishikeshpaul/music-sheet-recognizer-backend",
+      visit: "",
       description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
     },
     {
@@ -231,7 +231,7 @@ let info = {
       category: "Web App",
       github: "",
       date: "2021. 06 ~ 2021. 08",
-      visit: "https://post-client.herokuapp.com/",
+      visit: "",
       description: "영업수주에서 생산계획, 생산지시, 생산실적, 분석에 이르기까지 현황을 조회 하고 처리 할 수 있는 시스템, 정보 집중과 관리 체계 수립 "
     },
     {
@@ -248,7 +248,7 @@ let info = {
       category: "Web App",
       date: "2021. 01 ~ 2021. 05",
       github: "",
-      visit: "https://noq-client.herokuapp.com/",
+      visit: "",
       description: "클라우드 기반 실시간 경영자정보시스템(EIS), billboard chart 라이브러리 적용"
     },
     {
@@ -265,7 +265,7 @@ let info = {
       category: "Website",
       date: "2020. 11 ~ 2021. 02",
       github: "",
-      visit: "https://noq-client.herokuapp.com/",
+      visit: "",
       description: "클라우드 기반 실시간 e-Po시스템 구축"
     },
     {
@@ -281,7 +281,7 @@ let info = {
       category: "Web App",
       date: "2020. 07 ~ 2020. 11",
       github: "",
-      visit: "https://noq-client.herokuapp.com/",
+      visit: "",
       description: "웹베이스로 물류비 정산을 위한 시스템을 구현하여 내부사용자/물류실행사와 정보를 공유하며, ERP 와 정산" +
                    "결과를 인터페이스 할 수 있는 시스템을 구축 함"
     },
@@ -295,7 +295,7 @@ let info = {
       category: "Website",
       date: "2020. 02 ~ 2020. 06",
       github: "",
-      visit: "https://skylarktiral.herokuapp.com/",
+      visit: "",
       description: "대국민 서비스 시스템 고도화 및 정보처리 의뢰서 구축"
     },
     {
@@ -307,7 +307,7 @@ let info = {
       category: "Alogrithm",
       date: "2019. 10 ~ 2020. 01",
       github: "",
-      visit: "https://angel.co/projects/1009777-sentiment-analysis",
+      visit: "",
       description: "시스템 버전별 연말정산 세법 업데이트"
     },
     {
@@ -330,7 +330,7 @@ let info = {
       category: "Web App",
       date: "2018. 10 ~ 2019. 08",
       github: "",
-      visit: "https://angel.co/projects/1009777-sentiment-analysis",
+      visit: "",
       description: "개발 PL 경험, 인사관리, 채용관리, 교육관리 등 설계, 개발 담당"
     },
     {
@@ -342,7 +342,7 @@ let info = {
       category: "Web App",
       github: "",
       date: "2018. 06 ~ 2018. 10",
-      visit: "https://github.com/hrishikeshpaul/clumpr",
+      visit: "",
       description: "BC카드 데이터 연계"
     },
     {
@@ -368,7 +368,7 @@ let info = {
       category: "Web App",
       github: "",
       date: "2017. 12  ~ 2018.03",
-      visit: "https://angel.co/projects/576300-nutricare",
+      visit: "",
       description: "시스템 버전별 연말정산 세법 업데이트"
     },
     {
@@ -380,7 +380,7 @@ let info = {
       category: "Web App",
       github: "",
       date: "2017. 07 - 2017. 12",
-      visit: "https://angel.co/projects/576300-nutricare",
+      visit: "",
       description: "근무평정(평가관리) 시스템 구축"
     },
     {
@@ -393,7 +393,7 @@ let info = {
       category: "Website",
       github: "",
       date: "2017. 01 ~ 2017. 06",
-      visit: "https://angel.co/projects/576300-nutricare",
+      visit: "",
       description: "세금계산서 SmildEDI 연계"
     },
     {
@@ -429,7 +429,7 @@ let info = {
       category: "Website",
       github: "",
       date: "2016. 01 ~ 2016. 06",
-      visit: "https://angel.co/projects/576300-nutricare",
+      visit: "",
       description: "직원 및 파트타이머별 근무 스케쥴 관리"
     },
     {
@@ -446,7 +446,7 @@ let info = {
       category: "Web App",
       github: "",
       date: "2015. 07 ~ 2016. 01",
-      visit: "https://angel.co/projects/576300-nutricare",
+      visit: "",
       description: "인사시스템 구축 (문화복지, 4대보험, 학자금 등)"
     }
   ],

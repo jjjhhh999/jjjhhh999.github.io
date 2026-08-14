@@ -11,14 +11,15 @@
           }"
         >
           <div class="title1 px-4 pt-3">
-            <span
-              ><a
-                href="#"
-                @click.prevent="open(portfolio.visit)"
-                :class="{ 'text-light': nightMode }"
-                >{{ portfolio.name }}</a
-              ></span
+            <a
+              v-if="portfolio.visit"
+              :href="portfolio.visit"
+              target="_blank"
+              rel="noopener noreferrer"
+              :class="{ 'text-light': nightMode }"
+              >{{ portfolio.name }}</a
             >
+            <span v-else>{{ portfolio.name }}</span>
             <a
               class="pull-right"
               style="font-size: 18px;"
@@ -61,9 +62,15 @@
               class="mt-1 mb-3"
               :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
             />
-            <button class="btn w-25 mr-3" @click="open(portfolio.github)">
+            <a
+              v-if="portfolio.github"
+              class="btn w-25 mr-3"
+              :href="portfolio.github"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               github
-            </button>
+            </a>
             <button class="btn w-25" @click="$emit('close')">close</button>
           </div>
         </div>
@@ -95,11 +102,6 @@ export default {
   },
   created() {
     document.getElementsByTagName("body")[0].classList.add("modal-open");
-  },
-  methods: {
-    open(url) {
-      window.open(url, "_blank");
-    },
   },
 };
 </script>
