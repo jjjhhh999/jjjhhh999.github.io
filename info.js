@@ -1,5 +1,5 @@
 let info = {
-  name: "GuSiWan",
+  name: "Gu Siwan",
   logo_name: "Siwan",
   //flat_picture: require("./src/assets/potrait.jpg"),
   flat_picture: require("./src/assets/koo.jpg"),
@@ -10,17 +10,9 @@ let info = {
     }
   },
   description:
-      "음악을 들으며 코딩하는 것을 즐기는 11년 차 개발자로, <br>" +
-      "현재 지에스비즈플 HR사업팀에서 근무하고 있습니다. <br><br>" +
-
-      "솔루션 구축 및 고도화 프로젝트를 수행하며 <br>" +
-      "백엔드 API 설계·개발을 중심으로 <br>" +
-      "시스템 아키텍처 설계, 배포 및 운영 전반을 경험해 왔고, <br>" +
-      "Vue.js 기반 프론트엔드 개발 경험도 보유하고 있습니다. <br><br>" +
-
-      "유지보수성과 확장성을 고려한 구조, <br>" +
-      "협업하기 좋은 코드, <br>" +
-      "그리고 비즈니스 가치를 만드는 시스템을 지향합니다. <br><br>",
+      "<p>기업용 솔루션을 설계·제품화하고 운영까지 책임져 온 11년 차 개발자입니다. HR·ERP·전자전표 도메인에서 백엔드 API와 데이터 모델, 시스템 아키텍처 및 CI/CD를 구축해 왔습니다.</p>" +
+      "<p>팀장과 개발 PL, Application Architect(AA) 역할을 수행하며 기술 의사결정, 개발 표준, 협업 프로세스와 배포·운영 체계를 주도했습니다.</p>" +
+      "<p>최근에는 Dorothy 기업용 AI 챗봇 플랫폼의 고도화를 준비하며, 기존 검색 구조를 바탕으로 그룹웨어 문서를 연계하는 RAG 기능을 설계·개발할 예정입니다. 안정성과 확장성, 팀 생산성을 고려해 기술을 비즈니스 가치로 연결하는 개발을 지향합니다.</p>",
     email : "contact : 하단의 Contact Me 항목을 통해 이메일 전송 기능을 활용해 주세요.\n",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
@@ -51,9 +43,9 @@ let info = {
           name: "[GS] 지에스 비즈플",
           //place: "서울 마포구 마포대로 45 일진빌딩 14층",
           date: "Jun, 2025 - Present",
-          position: "HR사업팀, Back-end Developer",
-          description: "솔루션 개발 및 프로젝트 구축 ",
-          skills: ["Java17", "Spring-boot", "JPA", "Azure", "jenkins", "JWT", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"]
+          position: "HR사업팀 · Application Architect / Back-end Developer",
+          description: "기업용 HR 솔루션 개발과 Application Architect(AA) 역할을 수행하며, EmbeddingGemma·FAISS 기반 검색 구조를 분석하고 AI 챗봇의 그룹웨어 연계 RAG 고도화를 추진하고 있습니다.",
+          skills: ["Application Architecture (AA)", "HR Solution", "Java 17/21", "Spring Boot", "AI Chatbot Enhancement", "RAG", "EmbeddingGemma", "FAISS", "Docker", "CI/CD"]
       },
     {
       name: "[일진그룹] 일진C&S",
@@ -81,52 +73,89 @@ let info = {
   ],
   skills: [
     {
-      title: "back-end",
-      info: [ "Java", "RESTful API", "JPA", "JWT", "Spring Security", "Open API"],
+      title: "architecture & AI",
+      info: ["Application Architecture (AA)", "System Design", "Domain Design", "API Design", "Integration Architecture", "RAG Architecture", "LLM Application", "Groupware Integration", "LangChain", "EmbeddingGemma", "FAISS", "AI Platform Enhancement"],
+      icon: "fas fa-project-diagram"
+    },
+    {
+      title: "back-end engineering",
+      info: ["Java 17/21", "Spring Boot", "Spring Security", "JPA", "QueryDSL", "MyBatis", "JWT", "REST API", "External API Integration"],
       icon: "fa fa-code"
     },
     {
-      title: "front-end",
-      info: ["Vue", "Node.js(npm)", "Javascript", "Jsp",  "Jquery", "AgGrid"],
-      icon: "fas fa-laptop-code"
-    },
-    {
-      title: "frameworks",
-      info: ["Spring-boot", "Spring-Framework", "Egov"],
-      icon: "fa fa-cubes"
-    },
-    {
-      title: "databases",
-      info: ["RDMS(MariaDB, Oracle, MsSQL, MySQL)", "Modeling"],
+      title: "data & performance",
+      info: ["MariaDB", "Oracle", "SQL Server", "MySQL", "Data Modeling", "ERD", "SQL Tuning", "Index", "Execution Plan", "Transaction"],
       icon: "fa fa-database"
     },
     {
-      title: "OS & tools",
-      info: ["Linux(CentOS, Ubuntu)", "Window", "Mac", "IntelliJ", "DBeaver"],
-      icon: "fas fa-tools"
+      title: "cloud & delivery",
+      info: ["AWS", "Azure", "Docker", "Docker Compose", "GitHub Actions", "GitLab Runner", "Jenkins", "Nginx", "CI/CD", "Linux"],
+      icon: "fas fa-cloud"
     },
     {
-      title: "CI/CD",
-      info: ["Git", "GitLab", "GitHub", "GitHub-Action", "GitLab-Runner", "DockerHub", "Docker"],
-      icon: "fa fa-pencil-square-o"
+      title: "quality & reliability",
+      info: ["JUnit 5", "Mockito", "Testcontainers", "ArchUnit", "JMeter", "Logging", "Monitoring", "Operations", "Incident Response"],
+      icon: "fas fa-vial"
+    },
+    {
+      title: "leadership & domain",
+      info: ["Tech Lead", "Application Architect", "Development PL", "Architecture Decision", "Code Review", "HR", "ERP", "Productization"],
+      icon: "fas fa-users"
+    },
+    {
+      title: "front-end",
+      info: ["Vue.js", "JavaScript", "Thymeleaf", "JSP", "jQuery", "AG Grid", "RealGrid"],
+      icon: "fas fa-laptop-code"
     }
   ],
   portfolio: [
       {
-          name: "현대하이라이프손해사정 인사시스템 프로젝트 구축",
+          name: "Dorothy — 기업용 AI 챗봇 플랫폼",
+          pictures: [
+              {img: require("./src/assets/portfolio/dorothy/cover.svg")}
+          ],
+          technologies: ["Java", "Spring Boot", "Spring Security", "MyBatis", "MariaDB", "Python", "FastAPI", "Sentence-Transformers", "EmbeddingGemma", "FAISS", "PyTorch", "KoNLPy", "Docker", "Docker Compose"],
+          category: "AI Chatbot Platform · Enhancement",
+          date: "진행 중",
+          github: "",
+          visit: "",
+          description: "관리자가 챗봇 시나리오, Q&A, 동의어 및 미응답 데이터를 관리하고 학습·테스트·배포할 수 있는 기업용 AI 챗봇 플랫폼입니다.<br><br>" +
+              "<strong>현행 구조</strong><br>기존 Dorothy는 문장 임베딩과 FAISS 기반 의미 검색으로 등록된 Q&A에서 유사 답변을 제공하며, Spring Boot 서비스와 FastAPI 모델 서버가 분리된 구조입니다.<br><br>" +
+              "<strong>고도화 담당</strong><br>기존 검색 구조를 분석하고 그룹웨어 문서와 업무 데이터를 연계하는 RAG 기능을 설계·개발하여 플랫폼을 고도화할 예정입니다."
+      },
+      {
+          name: "IM금융지주(대구은행) 인사시스템 구축(AA)",
+          pictures: [
+              {img: require("./src/assets/portfolio/imbank/im-financial-group-ci-official.png")}
+          ],
+          technologies: ["Java 21", "Spring Boot 3.4", "Spring Security", "JWT", "Spring Data JPA", "Hibernate", "QueryDSL", "Thymeleaf", "WebtoB", "JEUS", "GitLab", "GitHub", "GitHub Actions", "Jenkins", "Docker Compose", "Docker Hub"],
+          category: "Application Architecture · HR System",
+          date: "2026. 06 ~",
+          github: "",
+          visit: "",
+          description: "금융권 인사시스템의 Application Architect(AA)로 참여하여 시스템 설계부터 개발·운영 환경 구성, 애플리케이션 배포 체계 구축까지 담당하고 있습니다.<br><br>" +
+              "<strong>애플리케이션 아키텍처</strong><br>Java 21과 Spring Boot 3.4를 기반으로 애플리케이션 구조를 설계하고, Spring Security·JWT 인증과 Spring Data JPA(Hibernate)·QueryDSL 기반의 데이터 접근 환경을 구성했습니다.<br><br>" +
+              "<strong>미들웨어 및 운영환경</strong><br>WebtoB와 JEUS를 연계하여 개발·운영 서버 환경을 구성하고 Spring Boot 애플리케이션의 배포 환경을 구축했습니다. 운영 서버와 대기 서버를 Active-Standby 구조로 구성하고 이중화 환경의 배포를 지원했습니다.<br><br>" +
+              "<strong>형상관리 및 배포 자동화</strong><br>GitHub 기반의 형상관리·협업 프로세스를 운영하고, GitHub Actions와 Jenkins, Docker Compose 및 Docker Hub를 활용하여 환경 설정과 배포 과정을 자동화했습니다."
+      },
+      {
+          name: "현대하이라이프손해사정 인사시스템 솔루션 구축",
           pictures: [
               {img: require("./src/assets/portfolio/hilife/hilife-ci.png")}
           ],
-          technologies: ["Java17", "Spring-boot", "JPA", "Azure", "jenkins", "JWT", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"],
-          category: "Web App",
-          date: "2025. 06 ~ " ,
-          github:"",
+          technologies: ["Java 17", "Spring Boot", "Spring Security", "JWT", "Spring Data JPA", "Hibernate", "QueryDSL", "Thymeleaf", "GitLab", "GitHub", "GitHub Actions", "Jenkins", "Docker Compose", "Docker Hub", "Microsoft Azure"],
+          category: "HR System · Web Application",
+          date: "2025. 06 ~",
+          github: "",
           visit: "",
-          description: "HR 담당자의 고민을 한 번에 해결하는 스마트한 인사관리 통합 플랫폼 <br> " +
-          "인사, 근태, 급여, 재무관리 등 기업의 필수 인사업무를  플랫폼에서 관리할 수 있는 통합 인사 관리 솔루션 입니다."
+          description: "기업의 인사 업무를 통합 관리하는 인사시스템 솔루션 구축 프로젝트입니다. 새로운 업무 환경에 빠르게 적응하고 개발 표준과 협업 체계를 정비하여 프로젝트 초기 안정화와 기능 개선에 기여했습니다.<br><br>" +
+              "<strong>도메인 및 시스템 분석</strong><br>기존에 접하지 않았던 사내 솔루션 구조와 인사 업무 프로세스를 단기간에 분석·습득하고, 프로젝트 초기 시스템 안정화와 담당 기능 개선을 수행했습니다.<br><br>" +
+              "<strong>개발 표준 및 협업 리딩</strong><br>이전 프로젝트 리딩 경험을 바탕으로 코드 컨벤션과 개발 가이드를 정비하고, 스크럼 기반의 일정 공유와 이슈 관리 등 협업 프로세스 운영을 주도했습니다.<br><br>" +
+              "<strong>일정 및 품질 관리</strong><br>담당 기능의 개발 일정을 준수하고 주요 작업을 선제적으로 완료하여 후속 검증과 개선 시간을 확보함으로써 프로젝트 생산성 향상에 기여했습니다.<br><br>" +
+              "<strong>기술 구성</strong><br>Java 17과 Spring Boot를 기반으로 Spring Security·JWT 인증, Spring Data JPA(Hibernate)·QueryDSL 데이터 접근 환경을 활용했습니다. GitHub Actions와 Jenkins, Docker Compose 및 Docker Hub를 연계하고 Microsoft Azure 환경에서 개발·배포 체계를 운영했습니다."
       },
     {
-      name: "신규 솔루션 제품화",
+      name: "기업형 경비관리 전자전표 솔루션 제품화",
       pictures: [
         {img: require("./src/assets/portfolio/subscription/0.png")},
         {img: require("./src/assets/portfolio/subscription/1.png")},
@@ -136,12 +165,17 @@ let info = {
         {img: require("./src/assets/portfolio/subscription/5.png")},
         {img: require("./src/assets/portfolio/subscription/6.png")}
       ],
-      technologies: ["Java21", "Spring-boot", "JPA", "JWT", "docker", "AWS", "GitHub", "GitHub-Action", "MariaDB", "docker-Hub", "Git", "Vue", "AgGrid",  "CI/CD"],
-      category: "Web App",
-      date: "2024. 03 ~ 2025. 05" ,
-      github:"",
+      technologies: ["Java 21", "Spring Boot", "Spring Security", "JWT", "Spring Data JPA", "Hibernate", "QueryDSL", "DDD", "GitHub", "GitHub Actions", "Docker", "Docker Compose", "Docker Hub", "AWS EC2", "AWS RDS", "AWS S3", "NAVER CLOVA OCR", "Kakao Maps API"],
+      category: "Productization · Expense Management",
+      date: "2024. 03 ~ 2025. 05",
+      github: "",
       visit: "",
-      description: "증빙관리, 전표처리 등 경비처리와 관련된 토탈 서비스를 제공하는 '기업형 경비관리' 솔루션"
+      description: "기업의 증빙 관리, 전표 처리 및 경비 업무를 통합 지원하는 기업형 경비관리 전자전표 솔루션의 제품화 프로젝트입니다. 백엔드 3명, 프론트엔드 3명, 디자이너 1명으로 구성된 7인 팀에서 팀장을 맡았습니다.<br><br>" +
+          "<strong>팀 리딩 및 기여도</strong><br>Jira, Confluence, Slack을 기반으로 업무와 일정을 관리하고 백엔드·프론트엔드·디자인 간 협업을 조율했습니다. 프로젝트 전체 기여도는 40%이며, 아래의 백엔드 아키텍처·인증·조회 기능·CI/CD·인프라·파일 저장소 영역은 설계부터 구현까지 직접 담당했습니다(각 기여도 100%).<br><br>" +
+          "<strong>백엔드 아키텍처</strong><br>도메인 주도 설계(DDD)를 기반으로 백엔드 서비스와 데이터 모델 전반을 설계했습니다. Spring Boot와 Spring Security·JWT 기반 인증 체계를 구현하고, JPA(Hibernate) 연관관계 매핑과 QueryDSL 기반 동적 조회 기능을 개발했습니다.<br><br>" +
+          "<strong>클라우드 인프라 및 배포 자동화</strong><br>GitHub Actions, Docker Compose 및 Docker Hub 기반 CI/CD 파이프라인을 구축했습니다. AWS와 온프레미스에 개발·운영·데모 환경을 구성하고 운영을 자동화했으며, AWS S3 저장소를 운영용과 데모용으로 분리해 환경 간 파일을 안전하게 관리했습니다.<br><br>" +
+          "<strong>외부 서비스 연동</strong><br>NAVER CLOVA OCR을 활용한 증빙 인식, Kakao Maps API 기반 위치 정보 연동 및 환율 정보 크롤링 기능을 개발하여 경비 처리에 필요한 데이터 입력과 조회 과정을 개선했습니다.<br><br>" +
+          "<strong>AWS 도입 문제 해결</strong><br>회사와 개인 모두 AWS 도입 경험이 부족하고 참고할 내부 사례도 제한적인 상황이었습니다. AWS 기술 학습과 자격증 취득을 병행하고 실제 데모 시스템을 직접 구축·운영하며, 클라우드 인프라 도입에 필요한 설계와 운영 역량을 확보했습니다."
     },
     {
       name: "일진전기 전자전표 시스템 구축",
@@ -551,6 +585,19 @@ let info = {
     }
   ],
   portfolio_education:[
+    {
+      name: "RAG를 활용한 LLM Application 개발 (feat. LangChain)",
+      pictures: [
+        {img: require("./src/assets/education/getsmart/rag-llm-certificate-redacted.png")}
+      ],
+      technologies: ["RAG", "LLM Application", "LangChain"],
+      category: "AI · RAG",
+      date: "Aug, 2026",
+      visit: "",
+      description: "GetSmart Academy에서 RAG를 활용한 LLM Application 개발 과정을 수료했습니다.<br><br>" +
+          "<strong>교육 과정</strong><br>LangChain을 활용한 RAG 기반 LLM Application 개발<br><br>" +
+          "<strong>수료 정보</strong><br>수료일: 2026.08.11 · 교육시간: 3시간 36분"
+    },
     {
       name: "스스로 구축하는 AWS 클라우드 인프라 - 기본편",
       pictures: [

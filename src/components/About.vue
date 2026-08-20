@@ -14,10 +14,10 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span
+        <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >about me.</span
+          >about me.</h2
         >
       </div>
       <hr
@@ -69,5 +69,6 @@ export default {
 .title {
   font-size: 30px;
   font-weight: 500;
+  margin-bottom: 0;
 }
 </style>

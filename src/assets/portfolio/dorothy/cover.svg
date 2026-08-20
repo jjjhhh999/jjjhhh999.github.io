@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title description">
+  <title id="title">Dorothy 기업용 AI 챗봇 플랫폼</title>
+  <desc id="description">문장 임베딩과 벡터 검색을 표현한 Dorothy 프로젝트 커버</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17233d"/>
+      <stop offset="1" stop-color="#385f7a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#78dce8"/>
+      <stop offset="1" stop-color="#d7a6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="24" fill="url(#background)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="2">
+    <path d="M90 105 175 70l76 52 89-56 102 56 91-34"/>
+    <path d="M105 242 195 202l79 52 104-45 81 58 88-38"/>
+    <path d="m175 70 20 132m56-80 23 132m66-188 38 143m64-87 17 145"/>
+  </g>
+  <g fill="url(#accent)">
+    <circle cx="90" cy="105" r="7"/>
+    <circle cx="175" cy="70" r="9"/>
+    <circle cx="251" cy="122" r="6"/>
+    <circle cx="340" cy="66" r="10"/>
+    <circle cx="442" cy="122" r="7"/>
+    <circle cx="533" cy="88" r="8"/>
+    <circle cx="105" cy="242" r="8"/>
+    <circle cx="195" cy="202" r="6"/>
+    <circle cx="274" cy="254" r="9"/>
+    <circle cx="378" cy="209" r="7"/>
+    <circle cx="459" cy="267" r="10"/>
+    <circle cx="547" cy="229" r="6"/>
+  </g>
+  <rect x="170" y="126" width="300" height="108" rx="22" fill="#101827" fill-opacity=".86" stroke="#ffffff" stroke-opacity=".18"/>
+  <text x="320" y="174" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="600" text-anchor="middle">Dorothy</text>
+  <text x="320" y="207" fill="#b9dbe6" font-family="Montserrat, Arial, sans-serif" font-size="16" text-anchor="middle">Embedding · Semantic Search · FAISS</text>
+  <text x="320" y="318" fill="#ffffff" fill-opacity=".7" font-family="Montserrat, Arial, sans-serif" font-size="14" text-anchor="middle">ENTERPRISE AI CHATBOT PLATFORM</text>
+</svg>

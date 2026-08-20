@@ -1,160 +1,127 @@
-# Portfolio Template 🖐
+# 구시완 백엔드 개발자 포트폴리오
 
-> This is a simple, minimal and responsive personal website template, built using vue-js, html and css.
+11년 차 Java·Spring 백엔드 개발자 구시완의 경력과 프로젝트 경험을 소개하는 개인 포트폴리오입니다. HR·ERP 도메인의 시스템 구축과 고도화, API 및 아키텍처 설계, 배포와 운영 경험을 정리했습니다.
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://hrpaul.web.app/)
-[![npm version](https://img.shields.io/badge/npm-6.14-orange?style=flat&logo=appveyor)](https://github.com/npm/cli)
-[![license](https://img.shields.io/github/license/hrishikeshpaul/portfolio-template?style=flat&logo=appveyor)](https://github.com/hrishikeshpaul/portfolio-template/blob/master/LICENSE) 
-[![vue dependency](https://img.shields.io/badge/vue-2.6.11-brightgreen?style=flat&logo=appveyor)](https://github.com/vuejs/vue)
+**Live:** [https://jjjhhh999.github.io/](https://jjjhhh999.github.io/)
 
-### 🚀 New portoflio temaple [here](https://github.com/hrishikeshpaul/portfolio-template-v2)
+## 주요 콘텐츠
 
+- 경력과 자격증 타임라인
+- 백엔드, 프론트엔드, 데이터베이스 및 CI/CD 기술 역량
+- 프로젝트별 담당 기술과 구축 화면
+- 수상·자격 및 교육 이력
+- EmailJS 기반 연락 폼
 
---- 
+## 기술 스택
 
-![Portfolio Template](assets/main.png)
+- Vue 2, JavaScript
+- Bootstrap 4, AOS
+- GitHub Pages
+- EmailJS
 
-<!-- 
-![GIF](assets/gg.gif) -->
+## Architecture & AI Experience
 
-💻 Live [demo](https://hrpaul.web.app/)
+### Application Architect (AA)
 
----
+백엔드 개발 경험을 바탕으로 Application Architect 역할을 수행하며 시스템 구조와 기술 구성을 설계한 경험이 있습니다.
 
-## Table of Contents
+- 서비스와 모듈의 책임 및 연계 구조 설계
+- 백엔드 API, 데이터베이스 및 배포 아키텍처 검토
+- 인증·인가, 예외 처리, 로깅 등 공통 개발 기준 수립
+- 기술 스택 검토와 구현 방향 제시
+- 코드 리뷰를 통한 구조 일관성과 유지보수성 관리
 
-- [Installation](#installation)
-- [Features](#features)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Connect](#connect)
-- [License](#license)
+### Dorothy — 기업용 AI 챗봇 플랫폼
 
----
+관리자가 챗봇의 시나리오, Q&A, 동의어와 미응답 데이터를 관리하고 학습·테스트·배포할 수 있으며, 사용자의 자연어 질문과 의미적으로 가장 유사한 답변을 제공하는 기업용 챗봇 플랫폼입니다.
 
-## Installation 
+#### 시스템 구성
 
-### Dependencies
-These are the local dependencies that are needed for development,
+- **Admin:** 서비스, 시나리오, Q&A, 키워드, 학습, 사전 테스트 및 운영 배포 관리
+- **Front:** 사용자 챗봇 UI와 Model API 연동
+- **Model:** 문장 임베딩 생성, 벡터 검색 및 답변 제공 API
+- **운영 구조:** Spring Boot 서비스와 FastAPI 모델 서버를 분리하고 MariaDB를 중심으로 데이터 연계
+- **배포 환경:** Gradle, Docker, Docker Compose
 
-- npm
-- git
+#### 기존 AI 검색 구조
 
-### Clone
+기존 Dorothy는 Sentence-Transformers와 EmbeddingGemma로 사용자 질문을 문장 벡터로 변환하고, FAISS 기반 의미 유사도 검색으로 등록된 Q&A에서 답변을 찾도록 구성되어 있습니다.
 
-Get this repo to your local machine using,
-```shell
-$ git clone https://github.com/hrishikeshpaul/portfolio-template.git
+- 의도, Q&A, 동의어 및 미응답 데이터를 EmbeddingGemma 기반 문장 임베딩으로 변환
+- 서비스별 FAISS `IndexFlatL2` 인덱스를 메모리에 구성
+- 사용자 질문을 실시간으로 벡터화하여 유사 답변 검색
+- 거리 임계값을 충족하지 못하는 질문을 미응답으로 처리
+
+현재 구현의 핵심은 생성형 답변이나 LLM 파인튜닝이 아닌 **임베딩 기반 Dense Retrieval·Semantic Search**입니다.
+
+#### 고도화 담당 영역
+
+기존 임베딩·FAISS 검색 기능은 현행 플랫폼의 구현입니다. 담당 영역은 기존 구조를 분석하고 그룹웨어 문서와 업무 데이터를 연계하는 RAG 기능을 설계·개발하여 Dorothy 플랫폼을 고도화하는 것입니다.
+
+#### Dorothy 기술 스택
+
+`Java` `Spring Boot` `Spring Security` `MyBatis` `Thymeleaf` `MariaDB` `Python` `FastAPI` `Sentence-Transformers` `EmbeddingGemma` `FAISS` `PyTorch` `Pandas` `NumPy` `KoNLPy` `Docker` `Docker Compose`
+
+## 로컬 실행
+
+```bash
+npm install
+npm run serve
 ```
 
-### Setup 
+개발 서버가 시작되면 터미널에 표시되는 로컬 주소로 접속합니다.
 
-To install the node packages used in the project:
+## 명령어
 
-```shell
-$ cd portfolio-template
-$ npm install
+| 명령어 | 설명 |
+| --- | --- |
+| `npm run serve` | 개발 서버 실행 |
+| `npm run lint` | Vue 및 JavaScript 린트 검사 |
+| `npm run build` | 운영 배포용 정적 파일 생성 |
+| `npm run deploy` | `dist` 디렉터리를 GitHub Pages에 배포 |
+
+## 프로젝트 구조
+
+```text
+.
+├─ public/                 # HTML 템플릿과 정적 아이콘
+├─ src/
+│  ├─ assets/             # 프로필, 프로젝트, 수상 및 교육 이미지
+│  ├─ components/         # 화면 섹션과 공통 UI 컴포넌트
+│  ├─ mixins/             # 공통 접근성 동작
+│  ├─ App.vue
+│  └─ main.js
+├─ info.js                # 경력, 기술, 프로젝트 콘텐츠
+├─ config.js              # EmailJS 설정
+└─ vue.config.js
 ```
 
-Compiles and hot-reloads for development
+포트폴리오의 주요 텍스트와 프로젝트 데이터는 [`info.js`](./info.js)에서 관리합니다. 화면 구조와 스타일은 [`src/components`](./src/components)에서 수정할 수 있습니다.
 
-```shell
-$ npm run serve
+## 품질 기준
+
+- 한국어 문서 언어와 검색·공유용 메타데이터 제공
+- 하나의 `h1`과 섹션별 `h2`를 사용하는 시맨틱 문서 구조
+- 상세 모달의 `dialog` 역할, 포커스 트랩, ESC 닫기 및 포커스 복귀 지원
+- 데스크톱과 모바일 반응형 레이아웃 지원
+
+변경 후에는 다음 명령으로 기본 품질을 확인합니다.
+
+```bash
+npm run lint
+npm run build
 ```
 
-Compiles and minifies for production
-```shell
-$ npm run build
+## 배포
+
+이 프로젝트는 GitHub Pages에서 정적 사이트로 제공됩니다.
+
+```bash
+npm run deploy
 ```
 
----
+## 라이선스와 출처
 
-## Features 
+이 저장소는 [hrishikeshpaul/portfolio-template](https://github.com/hrishikeshpaul/portfolio-template)을 기반으로 개인 콘텐츠와 기능을 수정한 프로젝트입니다. 원본 템플릿과 이 저장소의 코드 라이선스는 [`LICENSE`](./LICENSE)를 따릅니다.
 
-A few notable elements that makes the website intuitive to use,
-| # | Feature | Screenshot |
-| - | - | - |
-| 1 |**Timeline**: Educations and Experiences are the in a timeline format. It shows most of the important details, a small description, and certain important keywords. The code to the timeline component can be found in [`/src/components/helpers/Timeline.vue`]("https://github.com/hrishikeshpaul/portfolio-template/blob/master/src/components/helpers/Timeline.vue"), that is placed in the `About.vue` component.| <img src="assets/timeline.png" width="800px"/> |
-| 2 |**Skills**: These display your skills by grouping them together. Along with a logo to depict each group, gives a great perception experience. The code to the skills component can be found in [`/src/components/Skills.vue`]("https://github.com/hrishikeshpaul/portfolio-template/blob/master/src/components/Skills.vue").| <img src="assets/skills.png" width="800px"/> |
-| 3 |**Portfolio**: This is the place where you can show off your work samples. It uses responsive cards to display a snippet of your work along with some important tags and a small description. Additional, it also gives you the option to read more, or visit your work sample. Upon clicking read more, a modal dialog is opened, that enlists all the details of your work sample. It also has a gallery that shows various snippets of your work. The code to the portfolio component can be found in [`/src/components/Portfolio.vue`]("https://github.com/hrishikeshpaul/portfolio-template/blob/master/src/components/Skills.vue"), with the respective components, `/helper/Card.vue`, `/helper/Modal.vue` and `/helper/Gallery.vue`| <img src="assets/portfolio.png" width="1800px"/> |
-| 4 | **Contact:** A contact form has been added to recieve feedback or any sort of message. This form uses an API called [emailjs](https://www.emailjs.com/). A detailed guide to set up your own emailing service is mentioned below (don't worry, it's free). All the code for the contact form can be found in `src/components/Contact.vue`| <img src="assets/contact.png" width="1400px"/> |
- 
---- 
-
-## Usage 
-
-This section goes over the tweaks that need to be made, and where can they be made. It also talks about the free emailing service that is been used.
-
-### Information 
-
-All the information on the template is present in `info.js` that can be found in the root director, or [here](https://github.com/hrishikeshpaul/portfolio-template/blob/master/info.js). This consists of various parameters that handle the information on the website. To add your own information, just edit the contents of this file, and the changes should be noticed. All the pictures need ot be present in `/src/assets` (or you can configure the path in the info.js file).
-
-### Email.js 
-
-The **contact** section of the template makes use of this API called [emailjs](https://www.emailjs.com/). It is a good service that provides 200 email free every month. You will need to configure your own emailjs account for the service to work.
-
-#### Configuration
-1. Head over to [emailjs](https://www.emailjs.com/) and create your account.
-2. Once logged in, select a service. In my case I selected **gmail**.
-3. Head over to **Email Templates** on the side and click on **Email Template Example**. Here, there are few changes to be made if you don't want to change the template's javascript code.
-    - Change the subject attribute to: `New message from {{from_name}}!`
-    - Change the body to, 
-    ```js
-    Hello {{to_name}},
-
-    You got a new message from {{from_name}}:
-
-    {{{message_html}}}
-
-    My contact is: {{user_email}}.
-    ```
-    You can configure this however you want, but the attributes in the `{{ }}` need to be those.
-4. Create a file called `config.js` in the root of the project. You'll notice that the `.gitignore` has the name of this file. This is where all the data that links your web app to emailjs will be stores.
-5. Create a object that looks like this,
-   ```js
-   let config = {
-        emailjs: {
-            serviceID: '<serviceID>',
-            templateID: '<templateID>',
-            userID: '<userID>'
-        }
-    }
-
-    export default config;
-   ```
-6. You need to get the above mentioned IDs from your emailjs account,
-   - **serviceID**: From `Email Services`
-   - **templateID**: From `Email Templates`
-   - **userID**: From `Account` > `API Keys`
-
-> Make sure your `config.js` is in `.gitignore` as you do not want to expose your keys to the public.
-
----
-
-## Contributing 
-
-### Option 1
-  - Clone this repo to your local machine using `https://github.com/hrishikeshpaul/portfolio-template.git`
-- Code code code!
-- Create a new pull request using <a href="https://github.com/hrishikeshpaul/portfolio-template/compare/" target="_blank">`https://github.com/hrishikeshpaul/portfolio-template/compare/`</a>
-
-
-### Option 2
-- Create an issue request, and I'll be certain to look at it as soon as possible!
----
-
-## Connect
-
-Reach out to me at one of the following places!
-
-- Website at <a href="https://hrishikeshpaul.github.io/" target="_blank">`https://hrishikeshpaul.github.io/`</a>
-- LinkedIn at <a href="https://www.linkedin.com/in/hrishikeshpaul/" target="_blank">`hrishikeshpaul`</a>
-
----
-
-## License
-
-[![license](https://img.shields.io/github/license/hrishikeshpaul/portfolio-template?style=flat&logo=appveyor)](https://github.com/hrishikeshpaul/portfolio-template/blob/master/LICENSE) 
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2020 © <a href="https://hrishikeshpaul.github.io/" target="_blank">Hrishikesh Paul</a>
+프로젝트 화면과 회사·서비스 관련 이미지의 권리는 각 소유자에게 있습니다.

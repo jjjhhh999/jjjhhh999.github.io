@@ -14,10 +14,10 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span
+        <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >contact me.</span
+          >contact me.</h2
         >
       </div>
       <hr
@@ -191,6 +191,7 @@ export default {
 .title {
   font-size: 30px;
   font-weight: 500;
+  margin-bottom: 0;
 }
 .title1 {
   font-size: 24px;

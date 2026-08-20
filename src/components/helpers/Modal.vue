@@ -3,7 +3,13 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div
+          ref="modalContainer"
           class="modal-container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
+          aria-describedby="project-modal-description"
+          tabindex="-1"
           :class="{
             'bg-light': !nightMode,
             'bg-dark': nightMode,
@@ -11,21 +17,25 @@
           }"
         >
           <div class="title1 px-4 pt-3">
-            <a
-              v-if="portfolio.visit"
-              :href="portfolio.visit"
-              target="_blank"
-              rel="noopener noreferrer"
-              :class="{ 'text-light': nightMode }"
-              >{{ portfolio.name }}</a
+            <h2 id="project-modal-title" class="modal-title">
+              <a
+                v-if="portfolio.visit"
+                :href="portfolio.visit"
+                target="_blank"
+                rel="noopener noreferrer"
+                :class="{ 'text-light': nightMode }"
+                >{{ portfolio.name }}</a
+              >
+              <span v-else>{{ portfolio.name }}</span>
+            </h2>
+            <button
+              type="button"
+              class="modal-close-button pull-right"
+              aria-label="프로젝트 상세 닫기"
+              @click="closeModal"
             >
-            <span v-else>{{ portfolio.name }}</span>
-            <a
-              class="pull-right"
-              style="font-size: 18px;"
-              @click="$emit('close')"
-              ><i class="fas fa-times"></i
-            ></a>
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
             <hr
               class="my-1"
               :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
@@ -48,7 +58,7 @@
               >
             </div>
 
-            <div style="text-align: justify;">
+            <div id="project-modal-description" style="text-align: justify;">
               <span v-html="portfolio.description"></span>
             </div>
             <hr />
@@ -71,7 +81,7 @@
             >
               github
             </a>
-            <button class="btn w-25" @click="$emit('close')">close</button>
+            <button class="btn w-25" type="button" @click="closeModal">close</button>
           </div>
         </div>
       </div>
@@ -82,9 +92,11 @@
 <script>
 //import Carousel from "./Carousel";
 import Gallery from "./Gallery";
+import accessibleModal from "../../mixins/accessibleModal";
 
 export default {
   name: "Modal",
+  mixins: [accessibleModal],
   components: {
     //Carousel,
     Gallery,
@@ -100,17 +112,10 @@ export default {
       type: Boolean,
     },
   },
-  created() {
-    document.getElementsByTagName("body")[0].classList.add("modal-open");
-  },
 };
 </script>
 
 <style scoped>
-body.modal-open {
-  overflow: hidden;
-}
-
 a {
   text-decoration: none;
   color: black;
@@ -121,6 +126,28 @@ a {
 a:hover {
   transition: all 0.2s;
   color: gray;
+}
+
+.modal-title {
+  display: inline;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+.modal-close-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0.25rem;
+}
+
+.modal-close-button:focus-visible {
+  outline: 2px solid #669db3;
+  outline-offset: 2px;
 }
 
 .date {

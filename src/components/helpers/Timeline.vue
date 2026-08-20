@@ -3,7 +3,7 @@
     <div class="mx-3 mt-3 mb-5">
       <div class="row">
         <div class="col-xl-12 col-bg-12 col-md-12 col-sm-12">
-          <p
+          <h3
             class="title1"
             data-aos="fade"
             data-aos-once="true"
@@ -12,7 +12,7 @@
             data-aos-duration="1000"
           >
             {{ data.title }}
-          </p>
+          </h3>
           <ul
             class="timeline m-0 pt-1"
             v-for="(e, idx) in data.data"
@@ -36,7 +36,7 @@
                   {{ e.gpa ? "(" + e.gpa + ")" : "" }}
                 </div>
                 <div class="px-2 date">{{ e.date }}</div>
-                <div class="px-2 pb-2 pt-2" style="text-align: justify;">
+                <div class="px-2 pb-2 pt-2 description">
                   {{ e.description }}
                 </div>
                 <span
@@ -74,6 +74,7 @@ export default {
 .title1 {
   font-size: 24px;
   font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .title2 {
@@ -95,6 +96,12 @@ export default {
 .date {
   font-size: 14px;
   font-weight: 300;
+}
+
+.description {
+  line-height: 1.65;
+  text-align: left;
+  white-space: pre-line;
 }
 
 ul.timeline {

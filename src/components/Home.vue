@@ -14,14 +14,12 @@
           <img :src="picture" />
         </div>
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pt-5">
-          <span
+          <h1
             class="home-title"
             :class="{ pgray: !nightMode, 'text-light': nightMode }"
-            >Introduce</span
+            >{{ name }} — Application Architect · Back-end Developer</h1
           >
-          <div>
-            <p v-html="description"></p>
-          </div>
+          <div class="description" v-html="description"></div>
           <div>
             <p v-html="email"></p>
           </div>
@@ -117,6 +115,7 @@
   .home-title {
     font-size: 28px;
     font-weight: 500;
+    margin-bottom: 0.5rem;
   }
 
   img {
@@ -162,8 +161,10 @@
     outline: none !important;
   }
 
+  .description,
   p {
-    text-align: justify;
+    line-height: 1.7;
+    text-align: left;
     font-weight: 400;
   }
 

@@ -7,10 +7,10 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span
+        <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >skills.</span
+          >core competencies.</h2
         >
       </div>
       <hr
@@ -18,7 +18,7 @@
         :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
       <br />
-      <div class="row">
+      <div class="row justify-content-center">
         <div
           class="col-xl-4 col-bg-4 col-md-4 col-sm-12 text-center pb-5 px-4"
           v-for="(skill, idx) in skills"
@@ -67,6 +67,7 @@ export default {
 .title {
   font-size: 30px;
   font-weight: 500;
+  margin-bottom: 0;
 }
 .title1 {
   font-size: 24px;
