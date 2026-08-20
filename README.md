@@ -126,9 +126,3 @@ npm run build
 ```bash
 npm run deploy
 ```
-
-## 라이선스와 출처
-
-이 저장소는 [hrishikeshpaul/portfolio-template](https://github.com/hrishikeshpaul/portfolio-template)을 기반으로 개인 콘텐츠와 기능을 수정한 프로젝트입니다. 원본 템플릿과 이 저장소의 코드 라이선스는 [`LICENSE`](./LICENSE)를 따릅니다.
-
-프로젝트 화면과 회사·서비스 관련 이미지의 권리는 각 소유자에게 있습니다.
