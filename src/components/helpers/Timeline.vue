@@ -56,18 +56,23 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, type PropType } from "vue";
+import type { TimelineGroup } from "../../types/content";
+
+export default defineComponent({
   name: "Timeline",
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<TimelineGroup>,
+      required: true,
     },
     nightMode: {
       type: Boolean,
+      required: true,
     },
   },
-};
+});
 </script>
 
 <style scoped>

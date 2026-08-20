@@ -23,56 +23,18 @@
           <div>
             <p v-html="email"></p>
           </div>
-          <div class="text-center pb-4">
-
-            <!--
-              <button
-                class="btn btn-outline-secondary mx-2 "
-                @click="open('linkedin')"
-                v-tooltip.bottom="'LinkedIn'"
-              >
-                <i class="fab fa-linkedin"></i>
-              </button>
-              <button
-                class="btn btn-outline-secondary mx-2"
-                @click="open('github')"
-                v-tooltip.bottom="'GitHub'"
-              >
-                <i class="fab fa-github"></i>
-              </button>
-
-              <button
-                class="btn btn-outline-secondary mx-2"
-                @click="open('angellist')"
-                v-tooltip.bottom="'AngelList'"
-              >
-                <i class="fab fa-angellist"></i>
-              </button>
-              <button
-                class="btn btn-outline-secondary mx-2"
-                @click="open('resume')"
-                v-tooltip.bottom="'Resume'"
-              >
-                <i class="fa fa-file"></i>
-              </button>
-              -->
-            </div>
+          <div class="text-center pb-4"></div>
           </div>
         </div>
       </div>
     </div>
   </template>
 
-  <script>
+<script lang="ts">
   import info from "../../info";
-
-  //import Wave from "./helpers/Wave";
 
   export default {
     name: "Home",
-    components: {
-      //Wave,
-    },
     props: {
       nightMode: {
         type: Boolean,
@@ -84,29 +46,8 @@
         description: info.description,
         email : info.email,
         name: info.name,
-        linkedin: info.links.linkedin,
-        github: info.links.github,
-        angellist: info.links.angellist,
-        resume: info.links.resume
+        github: info.links.github
       };
-    },
-    methods: {
-      open(link) {
-        switch (link) {
-          case "linkedin":
-            window.open(this.linkedin, "_blank");
-            break;
-          case "github":
-            window.open(this.github, "_blank");
-            break;
-          case "angellist":
-            window.open(this.angellist, "_blank");
-            break;
-          case "resume":
-            window.open(this.resume, "_blank");
-            break;
-        }
-      },
     },
   };
   </script>

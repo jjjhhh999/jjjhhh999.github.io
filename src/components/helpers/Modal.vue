@@ -30,7 +30,7 @@
             </h2>
             <button
               type="button"
-              class="modal-close-button pull-right"
+              class="modal-close-button float-end"
               aria-label="프로젝트 상세 닫기"
               @click="closeModal"
             >
@@ -50,7 +50,7 @@
             </div>
             <div class="pb-1 bheight">
               <span
-                class="badge mr-2 mb-2"
+                class="badge me-2 mb-2"
                 v-for="tech in portfolio.technologies"
                 :key="tech"
                 :class="{ 'bg-dark4': nightMode }"
@@ -74,7 +74,7 @@
             />
             <a
               v-if="portfolio.github"
-              class="btn w-25 mr-3"
+              class="btn w-25 me-3"
               :href="portfolio.github"
               target="_blank"
               rel="noopener noreferrer"
@@ -89,30 +89,34 @@
   </div>
 </template>
 
-<script>
-//import Carousel from "./Carousel";
-import Gallery from "./Gallery";
+<script lang="ts">
+import { defineComponent, type PropType } from "vue";
+import Gallery from "./Gallery.vue";
 import accessibleModal from "../../mixins/accessibleModal";
+import type { PortfolioItem } from "../../types/content";
 
-export default {
+export default defineComponent({
   name: "Modal",
   mixins: [accessibleModal],
   components: {
-    //Carousel,
     Gallery,
   },
   props: {
     showModal: {
       type: Boolean,
+      required: true,
     },
     portfolio: {
-      type: Object,
+      type: Object as PropType<PortfolioItem>,
+      required: true,
     },
     nightMode: {
       type: Boolean,
+      required: true,
     },
   },
-};
+  emits: ["close"],
+});
 </script>
 
 <style scoped>
@@ -210,16 +214,13 @@ a:hover {
   max-height: inherit;
 }
 
-.modal-enter {
+.modal-enter-from,
+.modal-leave-to {
   opacity: 0;
 }
 
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

@@ -10,22 +10,28 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "Snackbar",
   props: {
     showSnackbar: {
       type: Boolean,
+      required: true,
     },
     snackbarMessage: {
       type: String,
+      required: true,
     },
     snackbarColor: {
       type: String,
+      required: true,
     },
   },
+  emits: ["close"],
   watch: {
-    showSnackbar(nv) {
+    showSnackbar(nv: boolean) {
       if (nv) {
         setTimeout(() => {
           this.$emit("close", false);
@@ -33,7 +39,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 
 <style scoped>

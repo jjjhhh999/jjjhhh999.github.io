@@ -2,40 +2,39 @@
   "name": "siwan.gu",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "predeploy": "vue-cli-service build",
+    "dev": "vite",
+    "serve": "vite",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "clean": "gh-pages-clean",
-    "lint": "vue-cli-service lint"
+    "clean": "gh-pages-clean"
   },
   "dependencies": {
-    "@chenfengyuan/vue-carousel": "^1.0.5",
-    "aos": "^3.0.0-beta.6",
-    "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "core-js": "^3.6.4",
-    "emailjs-com": "^2.4.1",
-    "material-icons": "^0.3.1",
-    "serve": "^11.3.0",
-    "v-tooltip": "^2.0.3",
-    "vue": "^2.6.11",
-    "vue-cookie": "^1.1.4",
-    "vue-nav-tabs": "^0.5.7",
-    "vue-parallax-js": "^0.2.3",
-    "vue-scrollto": "^2.18.1",
-    "vue-selector": "0.0.1",
-    "vueperslides": "^2.10.2"
+    "@emailjs/browser": "^4.4.1",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
+    "vue": "^3.5.41"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "gh-pages": "^3.2.3",
-    "vue-template-compiler": "^2.6.11"
+    "@eslint/js": "^9.39.2",
+    "@types/aos": "^3.0.7",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "eslint": "^9.39.2",
+    "eslint-plugin-vue": "^10.10.0",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.5.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0",
+    "vite": "^8.2.0",
+    "vue-tsc": "^3.3.9"
   },
   "keywords": [],
   "description": ""

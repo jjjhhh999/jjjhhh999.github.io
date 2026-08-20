@@ -111,80 +111,67 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from "vue";
+import emailjs from "@emailjs/browser";
+
 import config from "../../config";
-import emailjs from "emailjs-com";
+import Snackbar from "./helpers/Snackbar.vue";
 
-import Snackbar from "./helpers/Snackbar";
+defineProps<{
+  nightMode: boolean;
+}>();
 
-export default {
-  name: "Contact",
-  components: {
-    Snackbar,
-  },
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
-  },
-  data() {
-    return {
-      email: "",
-      name: "",
-      text: "",
-      showSnackbar: false,
-      snackbarMessage: "",
-      snackbarColor: "",
-    };
-  },
-  methods: {
-    closeSnackbar(val) {
-      if (!val) {
-        setTimeout(() => {
-          this.showSnackbar = val;
-        }, 1000);
-      }
-    },
-    sendEmail() {
-      if (!this.email || !this.name || !this.text) {
-        this.showSnackbar = true;
-        this.snackbarMessage = "Please all the fields";
-        this.snackbarColor = "rgb(212, 149, 97)";
-      } else {
-        var obj = {
-          user_email: this.email,
-          from_name: this.name,
-          message_html: this.text,
-          to_name: "Gu Siwan",
-        };
+const email = ref("");
+const name = ref("");
+const text = ref("");
+const showSnackbar = ref(false);
+const snackbarMessage = ref("");
+const snackbarColor = ref("");
 
-        emailjs
-          .send(
-            config.emailjs.serviceID,
-            config.emailjs.templateID,
-            obj,
-            config.emailjs.userID
-          )
-          .then(
-            () => {
-              this.showSnackbar = true;
-              this.snackbarMessage = "Thanks! Message recieved.";
-              this.snackbarColor = "#1aa260";
+function showMessage(message: string, color: string) {
+  showSnackbar.value = true;
+  snackbarMessage.value = message;
+  snackbarColor.value = color;
+}
 
-              this.email = "";
-              this.text = "";
-              this.name = "";
-            },
-            () => {
-              this.showSnackbar = true;
-              this.snackbarMessage = "Oops! Something went wrong.";
-              this.snackbarColor = "rgb(212, 149, 97)";
-            }
-          );
-      }
-    },
-  },
-};
+function closeSnackbar(visible: boolean) {
+  if (!visible) {
+    window.setTimeout(() => {
+      showSnackbar.value = false;
+    }, 1000);
+  }
+}
+
+async function sendEmail() {
+  if (!email.value || !name.value || !text.value) {
+    showMessage("Please fill in all fields.", "rgb(212, 149, 97)");
+    return;
+  }
+
+  const templateParams = {
+    user_email: email.value,
+    from_name: name.value,
+    message_html: text.value,
+    to_name: "Gu Siwan",
+  };
+
+  try {
+    await emailjs.send(
+      config.emailjs.serviceID,
+      config.emailjs.templateID,
+      templateParams,
+      { publicKey: config.emailjs.publicKey },
+    );
+
+    showMessage("Thanks! Message received.", "#1aa260");
+    email.value = "";
+    text.value = "";
+    name.value = "";
+  } catch {
+    showMessage("Oops! Something went wrong.", "rgb(212, 149, 97)");
+  }
+}
 </script>
 
 <style scoped>

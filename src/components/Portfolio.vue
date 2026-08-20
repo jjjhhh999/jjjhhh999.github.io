@@ -17,316 +17,289 @@
         <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >portfolio.</h2
         >
+          portfolio.
+        </h2>
       </div>
       <hr
         width="50%"
         :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
 
-      <vue-tabs :activeTextColor="!nightMode ? '#535A5E' : '#dfdfdf'">
-        <v-tab title="projects">
-          <br />
-          <div class="row">
-            <div
-              class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
-              v-for="(portfolio, idx) in portfolio_info"
-              :key="portfolio.name"
+      <div class="portfolio-tabs" role="tablist" aria-label="포트폴리오 분류">
+        <button
+          v-for="tab in tabs"
+          :id="`${tab.id}-tab`"
+          :key="tab.id"
+          class="tab-button"
+          type="button"
+          role="tab"
+          :aria-controls="`${tab.id}-panel`"
+          :aria-selected="activeTab === tab.id"
+          :class="{
+            active: activeTab === tab.id,
+            'text-light': nightMode,
+          }"
+          @click="activeTab = tab.id"
+        >
+          {{ tab.label }}
+        </button>
+      </div>
+
+      <section
+        v-show="activeTab === 'projects'"
+        id="projects-panel"
+        role="tabpanel"
+        aria-labelledby="projects-tab"
+      >
+        <div class="row pt-3">
+          <div
+            v-for="(portfolio, idx) in portfolioInfo"
+            :key="portfolio.name"
+            class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
+          >
+            <Card
+              :style="{ 'transition-delay': `${(idx % 3) / 4.2}s` }"
+              :portfolio="portfolio"
+              :nightMode="nightMode"
+              data-aos="fade-up"
+              data-aos-offset="100"
+              data-aos-delay="10"
+              data-aos-duration="500"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="true"
+              @show="showProjectModal"
+            />
+          </div>
+        </div>
+        <div v-if="allInfo.length > initialVisibleCount" class="text-center py-3">
+          <button class="btn" type="button" @click="toggleProjects">
+            {{ projectButtonLabel }}
+          </button>
+        </div>
+      </section>
+
+      <section
+        v-show="activeTab === 'award'"
+        id="award-panel"
+        role="tabpanel"
+        aria-labelledby="award-tab"
+      >
+        <div class="row">
+          <div
+            v-for="design in designInfo"
+            :key="design.name"
+            class="col-xl-6 col-bg-6 col-md-12 col-sm-12 mt-4"
+          >
+            <button
+              class="award-preview"
+              type="button"
+              :aria-label="`${design.title || design.name} 상세 보기`"
+              @click="showDesignModal(design)"
             >
-              <Card
-                :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }"
-                :portfolio="portfolio"
-                @show="showModalFn"
-                data-aos="fade-up"
-                :nightMode="nightMode"
-                data-aos-offset="100"
-                data-aos-delay="10"
-                data-aos-duration="500"
-                data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
-                data-aos-once="true"
+              <img
+                :src="design.pictures[0]?.img"
+                :alt="design.pictures[0]?.title || design.title || design.name"
               />
-            </div>
-          </div>
-          <div class="text-center py-3" v-if="showBtn !== 'show less'">
-            <button class="btn" @click.prevent="showMore">{{ showBtn }}</button>
-          </div>
-        </v-tab>
-
-        <v-tab title="award">
-          <div class="row">
-            <div
-              v-for="(design, idx) in desgin_info"
-              :key="idx"
-              :class="{ 'mt-4': idx === 0 ? true : true }"
-              class="col-xl-6 col-bg-6 col-md-12 col-sm-12"
-              style="position: relative;"
-            >
-              <vueper-slides
-                :dragging-distance="50"
-                fixed-height="300px"
-                :bullets="false"
-                slide-content-outside="bottom"
-                style="position: aboslute"
-                  @click.prevent="showDesignModalFn(design)"
-
-              >
-                <vueper-slide
-                  v-for="(slide, i) in design.pictures"
-                  :key="i"
-                  :image="slide.img"
-                />
-              </vueper-slides>
-              <div
-                style="width: 100%; display: flex; justify-content: space-between"
-                class="mt-2"
-              >
-                <div>
-                  <div class="title2" style="font-weight: 500;">{{ design.title }}</div>
-                  <span
-                    class="badge mr-2 mb-2"
-                    v-for="tech in design.technologies"
-                    :key="tech"
-                    :class="{ 'bg-dark4': nightMode }"
-                    >{{ tech }}</span
-                  >
-                  •
-                  <span class="date ml-1">{{design.date}}</span>
-                </div>
-
-                <button
-                  style="height: 31px; margin-top: 5px;"
-                  class="btn-sm btn btn-outline-secondary no-outline"
-                  @click.prevent="showDesignModalFn(design)"
+            </button>
+            <div class="award-summary mt-2">
+              <div>
+                <div class="title2 fw-medium">{{ design.title }}</div>
+                <span
+                  v-for="tech in design.technologies || []"
+                  :key="tech"
+                  class="badge me-2 mb-2"
+                  :class="{ 'bg-dark4': nightMode }"
                 >
-                  read more
-                </button>
+                  {{ tech }}
+                </span>
+                <span class="date">{{ design.date }}</span>
               </div>
+
+              <button
+                class="btn-sm btn btn-outline-secondary no-outline award-more"
+                type="button"
+                @click="showDesignModal(design)"
+              >
+                read more
+              </button>
             </div>
           </div>
-          <br />
-        </v-tab>
+        </div>
+        <br />
+      </section>
 
-        <v-tab title="education">
-          <br />
-          <div class="row">
-            <div
-                class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
-                v-for="(education, idx) in education_info"
-                :key="education.name"
-            >
-              <CardEducation
-                  :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }"
-                  :portfolio="education"
-                  @show="showEducationModalFn"
-                  data-aos="fade-up"
-                  :nightMode="nightMode"
-                  data-aos-offset="100"
-                  data-aos-delay="10"
-                  data-aos-duration="500"
-                  data-aos-easing="ease-in-out"
-                  data-aos-mirror="true"
-                  data-aos-once="true"
-              />
-            </div>
+      <section
+        v-show="activeTab === 'education'"
+        id="education-panel"
+        role="tabpanel"
+        aria-labelledby="education-tab"
+      >
+        <div class="row pt-3">
+          <div
+            v-for="(education, idx) in educationInfo"
+            :key="education.name"
+            class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
+          >
+            <CardEducation
+              :style="{ 'transition-delay': `${(idx % 3) / 4.2}s` }"
+              :portfolio="education"
+              :nightMode="nightMode"
+              data-aos="fade-up"
+              data-aos-offset="100"
+              data-aos-delay="10"
+              data-aos-duration="500"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="true"
+              @show="showEducationModal"
+            />
           </div>
-          <div class="text-center py-3" v-if="showEducationBtn !== 'show less'">
-            <button class="btn" @click.prevent="showMoreEducation">{{ showEducationBtn }}</button>
-          </div>
-        </v-tab>
-
-
-      </vue-tabs>
+        </div>
+        <div
+          v-if="allEducationInfo.length > initialVisibleCount"
+          class="text-center py-3"
+        >
+          <button class="btn" type="button" @click="toggleEducation">
+            {{ educationButtonLabel }}
+          </button>
+        </div>
+      </section>
     </div>
-    <transition name="modal">
+
+    <Transition name="modal">
       <Modal
-        :showModal="showModal"
-        @close="closeModal"
-        v-if="showModal"
-        :portfolio="modal_info"
+        v-if="modalInfo"
+        :showModal="true"
+        :portfolio="modalInfo"
         :nightMode="nightMode"
+        @close="closeModal"
       />
-    </transition>
-    <transition name="modal">
+    </Transition>
+    <Transition name="modal">
       <DesignModal
-        :showModal="showDesignModal"
-        @close="closeModal"
-        v-if="showDesignModal"
-        :portfolio="design_modal_info"
+        v-if="designModalInfo"
+        :showModal="true"
+        :portfolio="designModalInfo"
         :nightMode="nightMode"
+        @close="closeModal"
       />
-    </transition>
-    <transition name="modal">
+    </Transition>
+    <Transition name="modal">
       <EducationModal
-          :showEducationModal="showEducationModal"
-          @close="closeModal"
-          v-if="showEducationModal"
-          :portfolio="education_modal_info"
-          :nightMode="nightMode"
+        v-if="educationModalInfo"
+        :showModal="true"
+        :portfolio="educationModalInfo"
+        :nightMode="nightMode"
+        @close="closeModal"
       />
-    </transition>
+    </Transition>
   </div>
 </template>
 
-<script>
-import Card from "./helpers/Card";
-import CardEducation from "./helpers/CardEducation";
-import Modal from "./helpers/Modal";
-import DesignModal from "./helpers/DesignModal";
-import EducationModal from "./helpers/EducationModal";
-//import Carousel from "./helpers/Carousel";
+<script setup lang="ts">
+import { computed, ref } from "vue";
+
 import info from "../../info";
+import type { PortfolioItem } from "../types/content";
+import Card from "./helpers/Card.vue";
+import CardEducation from "./helpers/CardEducation.vue";
+import DesignModal from "./helpers/DesignModal.vue";
+import EducationModal from "./helpers/EducationModal.vue";
+import Modal from "./helpers/Modal.vue";
 
-import { VueTabs, VTab } from "vue-nav-tabs";
-import "vue-nav-tabs/themes/vue-tabs.css";
+type TabId = "projects" | "award" | "education";
 
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
+defineProps<{
+  nightMode: boolean;
+}>();
 
-export default {
-  name: "Portfolio",
-  components: {
-    Card,
-    CardEducation,
-    Modal,
-    VueTabs,
-    VTab,
-    VueperSlides,
-    VueperSlide,
-    DesignModal,
-    EducationModal
-  },
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
-  },
-  data() {
-    return {
-      all_info: info.portfolio,
-      desgin_info: info.portfolio_design,
-      all_education_info: info.portfolio_education,
-      education_info: [],
-      portfolio_info: [],
-      showModal: false,
-      showDesignModal: false,
-      showEducationModal: false,
-      modal_info: {},
-      design_modal_info: {},
-      education_modal_info: {},
-      number: 3,
-      numberEducation: 3,
-      showBtn: "show more",
-      showEducationBtn: "show more",
-      shower: 0,
-      showerEducation: 0,
-      data: [
-        '<div class="example-slide">Slide 1</div>',
-        '<div class="example-slide">Slide 2</div>',
-        '<div class="example-slide">Slide 3</div>',
-      ],
-    };
-  },
-  created() {
-    for (var i = 0; i < this.number; i++) {
-      this.portfolio_info.push(this.all_info[i]);
-    }
-    for (var j = 0; j < this.numberEducation; j++) {
-      this.education_info.push(this.all_education_info[j]);
-    }
+const tabs: Array<{ id: TabId; label: string }> = [
+  { id: "projects", label: "projects" },
+  { id: "award", label: "award" },
+  { id: "education", label: "education" },
+];
+const initialVisibleCount = 3;
+const allInfo = info.portfolio as PortfolioItem[];
+const designInfo = info.portfolio_design as PortfolioItem[];
+const allEducationInfo = info.portfolio_education as PortfolioItem[];
+const activeTab = ref<TabId>("projects");
+const visibleProjectCount = ref(initialVisibleCount);
+const visibleEducationCount = ref(initialVisibleCount);
+const modalInfo = ref<PortfolioItem | null>(null);
+const designModalInfo = ref<PortfolioItem | null>(null);
+const educationModalInfo = ref<PortfolioItem | null>(null);
 
-  },
-  watch: {
-    number() {
-      this.portfolio_info = [];
-      for (var i = 0; i < this.number; i++) {
-        this.portfolio_info.push(this.all_info[i]);
-      }
-    },
-    numberEducation() {
-      this.education_info = [];
-      for (var j = 0; j < this.numberEducation; j++) {
-        this.education_info.push(this.all_education_info[j]);
-      }
-    }
-  },
-  methods: {
-    next() {
-      this.$refs.flickity.next();
-    },
+const portfolioInfo = computed(() =>
+  allInfo.slice(0, visibleProjectCount.value),
+);
+const educationInfo = computed(() =>
+  allEducationInfo.slice(0, visibleEducationCount.value),
+);
+const projectButtonLabel = computed(() =>
+  visibleProjectCount.value >= allInfo.length ? "show less" : "show more",
+);
+const educationButtonLabel = computed(() =>
+  visibleEducationCount.value >= allEducationInfo.length
+    ? "show less"
+    : "show more",
+);
 
-    previous() {
-      this.$refs.flickity.previous();
-    },
-    closeModal() {
-      this.showModal = false;
-      this.showDesignModal = false;
-      this.showEducationModal = false;
-      document.getElementsByTagName("body")[0].classList.remove("modal-open");
-    },
-    showModalFn(portfolio) {
-      this.modal_info = portfolio;
-      this.showModal = true;
-    },
-    showDesignModalFn(design_portfolio) {
-      this.design_modal_info = design_portfolio;
-      this.showDesignModal = true;
-    },
-    showEducationModalFn(education_portfolio) {
-      this.education_modal_info = education_portfolio;
-      this.showEducationModal = true;
-    },
-    showMore() {
-      if (this.number != this.all_info.length) {
-        this.number += 3;
+function scrollToPortfolio() {
+  document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+}
 
-        window.scrollBy({
-          top: document.getElementsByClassName("smcard")[0].clientHeight,
-          behavior: "smooth",
-        });
+function scrollByCardHeight() {
+  const card = document.querySelector<HTMLElement>(".smcard");
+  window.scrollBy({ top: card?.clientHeight ?? 0, behavior: "smooth" });
+}
 
-        if (this.number > this.all_info.length)
-          this.number = this.all_info.length;
-      }
+function toggleProjects() {
+  if (visibleProjectCount.value >= allInfo.length) {
+    visibleProjectCount.value = initialVisibleCount;
+    scrollToPortfolio();
+    return;
+  }
 
-      if (this.number == this.all_info.length && this.shower == 0) {
-        this.shower = 1;
-        this.showBtn = "show less";
-      } else if (this.number == this.all_info.length && this.shower == 1) {
-        var elementPosition = document.getElementById("portfolio").offsetTop;
-        window.scrollTo({ top: elementPosition + 5, behavior: "smooth" });
-        this.shower = 0;
-        this.number = 3;
-        this.showBtn = "show more";
-      }
-    },
-    showMoreEducation() {
-      if (this.numberEducation != this.all_education_info.length) {
-        this.numberEducation += 3;
+  visibleProjectCount.value = Math.min(
+    visibleProjectCount.value + initialVisibleCount,
+    allInfo.length,
+  );
+  scrollByCardHeight();
+}
 
-        window.scrollBy({
-          top: document.getElementsByClassName("smcard")[0].clientHeight,
-          behavior: "smooth",
-        });
+function toggleEducation() {
+  if (visibleEducationCount.value >= allEducationInfo.length) {
+    visibleEducationCount.value = initialVisibleCount;
+    scrollToPortfolio();
+    return;
+  }
 
-        if (this.numberEducation > this.all_education_info.length)
-          this.numberEducation = this.all_education_info.length;
-      }
+  visibleEducationCount.value = Math.min(
+    visibleEducationCount.value + initialVisibleCount,
+    allEducationInfo.length,
+  );
+  scrollByCardHeight();
+}
 
-      if (this.numberEducation == this.all_education_info.length && this.showerEducation == 0) {
-        this.showerEducation = 1;
-        this.showEducationBtn = "show less";
-      } else if (this.numberEducation == this.all_education_info.length && this.showerEducation == 1) {
-        var elementPosition = document.getElementById("portfolio").offsetTop;
-        window.scrollTo({ top: elementPosition + 5, behavior: "smooth" });
-        this.showerEducation = 0;
-        this.numberEducation = 3;
-        this.showEducationBtn = "show more";
-      }
-    },
-  },
-};
+function showProjectModal(portfolio: PortfolioItem) {
+  modalInfo.value = portfolio;
+}
+
+function showDesignModal(portfolio: PortfolioItem) {
+  designModalInfo.value = portfolio;
+}
+
+function showEducationModal(portfolio: PortfolioItem) {
+  educationModalInfo.value = portfolio;
+}
+
+function closeModal() {
+  modalInfo.value = null;
+  designModalInfo.value = null;
+  educationModalInfo.value = null;
+}
 </script>
 
 <style scoped>
@@ -335,169 +308,119 @@ export default {
   font-weight: 500;
   margin-bottom: 0;
 }
-.title1 {
-  font-size: 24px;
-  font-weight: 400;
-}
 
 .title2 {
   font-size: 20px;
   font-weight: 400;
 }
 
-.title3 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.modal-enter {
+.modal-enter-from,
+.modal-leave-to {
   opacity: 0;
 }
 
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
   transform: scale(1.1);
 }
 
-.btn {
-  border-color: rgb(212, 149, 97);
-  color: rgb(212, 149, 97);
+.portfolio-tabs {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 0.5rem 0;
 }
 
-.btn:hover {
-  background-color: rgb(212, 149, 97);
-  border-color: rgb(212, 149, 97);
-  color: white;
-}
-
-.btn:focus {
-  background-color: rgb(212, 149, 97);
-  border-color: rgb(212, 149, 97);
-  color: white;
-}
-
-/deep/ .vue-tabs .nav-tabs {
-  border: none;
+.tab-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #a0a0a0;
+  cursor: pointer;
   font-size: 20px;
   font-weight: 500;
-  display: flex;
-
-  justify-content: center;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-/deep/ .vue-tabs .tabs__link {
-  color: #a0a0a0;
-}
-
-/deep/ .vue-tabs .nav-tabs > li.active > a {
-  background: transparent;
-  border: none;
-  transition: all 0.5s;
-  padding-right: 0;
-  padding-left: 0;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-/deep/ .vue-tabs .nav-tabs > li > a:hover {
-  background: transparent;
-  color: #cbcbcb;
-  transition: all 0.5s;
-}
-
-/deep/ .vue-tabs .nav-tabs > li > a {
-  background: transparent;
-  border: none;
-  transition: all 0.5s;
-}
-
-/deep/ .vue-tabs .nav-tabs > li > a:after {
+.tab-button::after {
+  border-bottom: 2px solid currentColor;
+  bottom: 0;
   content: "";
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
   width: 20%;
-  position: absolute;
-  bottom: 3px;
-  border-width: 0 0 2px;
-  border-style: solid;
-  transition: all 0.5s;
 }
 
-/deep/ .vue-tabs .nav-tabs > li.active > a:after {
+.tab-button:hover,
+.tab-button.active {
+  color: #535a5e;
+}
+
+.tab-button.active::after {
   width: 100%;
-  transition: all 0.5s;
 }
 
-.design-img {
+.tab-button:focus-visible,
+.award-preview:focus-visible {
+  outline: 2px solid #669db3;
+  outline-offset: 4px;
+}
+
+.award-preview {
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  display: block;
+  overflow: hidden;
+  padding: 0;
   width: 100%;
-  border-radius: 15px;
-  transition: all 0.5s;
 }
 
-.dimg {
-  position: relative;
-  border-radius: 15px;
-}
-.middle {
-  transition: all 0.5s;
-  opacity: 0;
-  position: absolute;
-  bottom: 0px;
-  left: 70px;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 20px;
+.award-preview img {
+  background: #fff;
+  height: 300px;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+  width: 100%;
 }
 
-.dimg:hover .design-img {
-  position: relative;
-  border-radius: 15px;
-  opacity: 0.1;
-  cursor: pointer;
+.award-preview:hover img {
+  opacity: 0.8;
 }
 
-.dimg:hover .middle {
-  opacity: 1;
+.award-summary {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-/deep/.vueperslide {
-  border-radius: 10px !important;
-}
-/deep/.vueperslides__parallax-wrapper {
-  border-radius: 10px !important;
+.award-more {
+  height: 31px;
+  margin-top: 5px;
+  white-space: nowrap;
 }
 
 .btn {
-  border-color: #669db3ff;
-  color: #669db3ff;
+  border-color: #669db3;
+  color: #669db3;
 }
 
-.btn:hover {
-  background-color: #669db3ff;
-  border-color: #669db3ff;
-  color: white;
-}
-
+.btn:hover,
 .btn:focus {
-  background-color: #669db3ff;
-  border-color: #669db3ff;
+  background-color: #669db3;
+  border-color: #669db3;
   color: white;
-}
-/deep/ .vueperslides__arrow {
-  outline: none !important;
-  border: none;
-  color: grey;
 }
 
 .badge {
   background-color: rgb(211, 227, 233);
-  transition: all 0.5s;
-  font-weight: 500;
   font-size: 13px;
+  font-weight: 500;
+  transition: all 0.5s;
 }
 
 .bg-dark4 {
@@ -507,6 +430,6 @@ export default {
 .date {
   font-size: 14px;
   font-weight: 400;
-  opacity: 0.75
+  opacity: 0.75;
 }
 </style>

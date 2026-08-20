@@ -1,3 +1,19 @@
+const assetModules = import.meta.glob("./src/assets/**/*", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const require = (path) => {
+  const asset = assetModules[path];
+
+  if (typeof asset !== "string") {
+    throw new Error(`Asset not found: ${path}`);
+  }
+
+  return asset;
+};
+
 let info = {
   name: "Gu Siwan",
   logo_name: "Siwan",
@@ -104,7 +120,7 @@ let info = {
     },
     {
       title: "front-end",
-      info: ["Vue.js", "JavaScript", "Thymeleaf", "JSP", "jQuery", "AG Grid", "RealGrid"],
+      info: ["Vue 3", "TypeScript", "JavaScript", "Thymeleaf", "JSP", "jQuery", "AG Grid", "RealGrid"],
       icon: "fas fa-laptop-code"
     }
   ],

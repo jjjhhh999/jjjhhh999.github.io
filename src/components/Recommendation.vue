@@ -35,7 +35,7 @@
             <span>"{{ d.title }}"</span>
           </div>
           <div
-            class="title3 float-right py-2 pl-5"
+            class="title3 float-end py-2 ps-5"
             data-aos="fade-up"
             data-aos-once="true"
             data-aos-easing="ease-in-out"
@@ -52,8 +52,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import info from "../../info";
+import type { RecommendationItem } from "../types/content";
 
 export default {
   name: "Recommendation",
@@ -64,7 +65,7 @@ export default {
   },
   data() {
     return {
-      data: info.recommendations,
+      data: info.recommendations as RecommendationItem[],
     };
   },
 };

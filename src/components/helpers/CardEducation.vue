@@ -26,7 +26,7 @@
       </button>
       <button
           href="#"
-          class="btn-sm btn btn-outline-secondary no-outline ml-4"
+          class="btn-sm btn btn-outline-secondary no-outline ms-4"
           v-if="portfolio.visit"
           @click.prevent="open(portfolio.visit)"
       >
@@ -36,26 +36,32 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, type PropType } from "vue";
+import type { PortfolioItem } from "../../types/content";
+
+export default defineComponent({
   name: "CardEducation",
   props: {
     portfolio: {
-      type: Object,
+      type: Object as PropType<PortfolioItem>,
+      required: true,
     },
     nightMode: {
       type: Boolean,
+      required: true,
     },
   },
+  emits: ["show"],
   methods: {
-    open(url) {
+    open(url: string) {
       window.open(url, "_blank");
     },
     showModal() {
       this.$emit("show", this.portfolio);
     },
   },
-};
+});
 </script>
 
 <style scoped>

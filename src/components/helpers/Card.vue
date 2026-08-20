@@ -20,7 +20,7 @@
         <div>
           <div class="pb-1 bheight">
             <span
-              class="badge mr-2 mb-2 "
+              class="badge me-2 mb-2"
               v-for="tech in portfolio.technologies"
               :key="tech"
               :class="{ 'bg-dark4': nightMode }"
@@ -51,26 +51,29 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, type PropType } from "vue";
+import type { PortfolioItem } from "../../types/content";
+
+export default defineComponent({
   name: "Card",
   props: {
     portfolio: {
-      type: Object,
+      type: Object as PropType<PortfolioItem>,
+      required: true,
     },
     nightMode: {
       type: Boolean,
+      required: true,
     },
   },
+  emits: ["show"],
   methods: {
-    open(url) {
-      window.open(url, "_blank");
-    },
     showModal() {
       this.$emit("show", this.portfolio);
     },
   },
-};
+});
 </script>
 
 <style scoped>

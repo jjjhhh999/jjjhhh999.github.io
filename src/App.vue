@@ -1,6 +1,9 @@
 <template>
-  <div id="app" :class="{ 'text-dark': !nightMode, 'text-light': nightMode }">
-    <Navbar @scroll="scrollTo" @nightMode="switchMode" :nightMode="nightMode" />
+  <div
+    id="portfolio-app"
+    :class="{ 'text-dark': !nightMode, 'text-light': nightMode }"
+  >
+    <Navbar @scroll="scrollTo" @night-mode="switchMode" :nightMode="nightMode" />
     <div class="parent">
       <Home id="home" :nightMode="nightMode" />
       <About id="about" :nightMode="nightMode" />
@@ -13,89 +16,79 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import Navbar from "./components/Navbar.vue";
-import Home from "./components/Home";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Portfolio from "./components/Portfolio";
-import Recommendation from "./components/Recommendation";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Home from "./components/Home.vue";
+import About from "./components/About.vue";
+import Skills from "./components/Skills.vue";
+import Portfolio from "./components/Portfolio.vue";
+import Recommendation from "./components/Recommendation.vue";
+import Contact from "./components/Contact.vue";
+import Footer from "./components/Footer.vue";
 
 import info from "../info";
 
-export default {
-  name: "App",
-  components: {
-    Navbar,
-    Home,
-    About,
-    Skills,
-    Portfolio,
-    Recommendation,
-    Contact,
-    Footer,
-  },
-  data() {
-    return {
-      nightMode: false,
-      config: info.config,
-    };
-  },
-  created() {
-    if (this.config.use_cookies) {
-      this.nightMode = this.$cookie.get("nightMode") === "true" ? true : false;
-    }
-  },
-  mounted() {
-    window.addEventListener("popstate", this.handlePopState);
-    this.$nextTick(() => this.scrollToCurrentSection("auto"));
-  },
-  beforeDestroy() {
-    window.removeEventListener("popstate", this.handlePopState);
-  },
-  methods: {
-    switchMode(mode) {
-      if (this.config.use_cookies) {
-        this.$cookie.set("nightMode", mode);
-      }
-      this.nightMode = mode;
-    },
-    scrollTo(ele) {
-      const hash = ele === "home" ? "" : `#${ele}`;
+type SectionId = "home" | "about" | "skills" | "portfolio" | "contact";
 
-      if (window.location.hash !== hash) {
-        const url = hash || process.env.BASE_URL;
-        window.history.pushState(null, "", url);
-      }
+const nightMode = ref(false);
+const config = info.config;
 
-      this.scrollToSection(ele);
-    },
-    scrollToCurrentSection(behavior = "smooth") {
-      const section = window.location.hash.slice(1) || "home";
-      this.scrollToSection(section, behavior);
-    },
-    handlePopState() {
-      this.scrollToCurrentSection();
-    },
-    scrollToSection(section, behavior = "smooth") {
-      if (section === "home") {
-        window.scrollTo({ top: 0, behavior });
-        return;
-      }
+if (config.use_cookies) {
+  nightMode.value = window.localStorage.getItem("nightMode") === "true";
+}
 
-      const element = document.getElementById(section);
-      if (element) {
-        window.scrollTo({ top: element.offsetTop - 35, behavior });
-      }
-    },
-  },
-};
+function switchMode(mode: boolean) {
+  if (config.use_cookies) {
+    window.localStorage.setItem("nightMode", String(mode));
+  }
+
+  nightMode.value = mode;
+}
+
+function scrollToSection(section: SectionId, behavior: ScrollBehavior = "smooth") {
+  if (section === "home") {
+    window.scrollTo({ top: 0, behavior });
+    return;
+  }
+
+  const element = document.getElementById(section);
+  if (element) {
+    window.scrollTo({ top: element.offsetTop - 35, behavior });
+  }
+}
+
+function scrollToCurrentSection(behavior: ScrollBehavior = "smooth") {
+  const section = (window.location.hash.slice(1) || "home") as SectionId;
+  scrollToSection(section, behavior);
+}
+
+function handlePopState() {
+  scrollToCurrentSection();
+}
+
+function scrollTo(section: SectionId) {
+  const hash = section === "home" ? "" : `#${section}`;
+
+  if (window.location.hash !== hash) {
+    window.history.pushState(null, "", hash || import.meta.env.BASE_URL);
+  }
+
+  scrollToSection(section);
+}
+
+onMounted(() => {
+  window.addEventListener("popstate", handlePopState);
+  void nextTick(() => scrollToCurrentSection("auto"));
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("popstate", handlePopState);
+});
 </script>
 
 <style>
-#app {
+#portfolio-app {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -104,7 +97,7 @@ export default {
 }
 
 @media screen and (max-width: 580px) {
-  #app {
+  #portfolio-app {
     width: fit-content;
   }
 }
@@ -167,110 +160,4 @@ export default {
   background: #555;
 }
 
-.tooltip {
-  display: block !important;
-  z-index: 10000;
-}
-
-.tooltip .tooltip-inner {
-  background: rgb(212, 149, 97);
-  color: white;
-  border-radius: 8px;
-  font-size: 10px;
-  /* padding: 5px 10px 4px; */
-}
-
-.tooltip .tooltip-arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  position: absolute;
-  margin: 5px;
-  border-color: rgb(212, 149, 97);
-  z-index: 1;
-}
-
-.tooltip[x-placement^="top"] {
-  margin-bottom: 5px;
-}
-
-.tooltip[x-placement^="top"] .tooltip-arrow {
-  border-width: 5px 5px 0 5px;
-  border-left-color: transparent !important;
-  border-right-color: transparent !important;
-  border-bottom-color: transparent !important;
-  bottom: -5px;
-  left: calc(50% - 5px);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.tooltip[x-placement^="bottom"] {
-  margin-top: 10px;
-}
-
-.tooltip[x-placement^="bottom"] .tooltip-arrow {
-  border-width: 0 5px 5px 5px;
-  border-left-color: transparent !important;
-  border-right-color: transparent !important;
-  border-top-color: transparent !important;
-  top: -5px;
-  left: calc(50% - 5px);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.tooltip[x-placement^="right"] {
-  margin-left: 5px;
-}
-
-.tooltip[x-placement^="right"] .tooltip-arrow {
-  border-width: 5px 5px 5px 0;
-  border-left-color: transparent !important;
-  border-top-color: transparent !important;
-  border-bottom-color: transparent !important;
-  left: -5px;
-  top: calc(50% - 5px);
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.tooltip[x-placement^="left"] {
-  margin-right: 5px;
-}
-
-.tooltip[x-placement^="left"] .tooltip-arrow {
-  border-width: 5px 0 5px 5px;
-  border-top-color: transparent !important;
-  border-right-color: transparent !important;
-  border-bottom-color: transparent !important;
-  right: -5px;
-  top: calc(50% - 5px);
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.tooltip.popover .popover-inner {
-  background: #f9f9f9;
-  color: black;
-  padding: 24px;
-  border-radius: 5px;
-  box-shadow: 0 5px 30px rgba(black, 0.1);
-}
-
-.tooltip.popover .popover-arrow {
-  border-color: #f9f9f9;
-}
-
-.tooltip[aria-hidden="true"] {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.5s, visibility 0.5s;
-}
-
-.tooltip[aria-hidden="false"] {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.5s;
-}
 </style>

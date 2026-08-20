@@ -29,7 +29,7 @@ export default {
       }
     });
   },
-  beforeDestroy() {
+  beforeUnmount() {
     document.removeEventListener('keydown', this.handleModalKeydown);
     document.body.style.overflow = this.previousBodyOverflow;
 

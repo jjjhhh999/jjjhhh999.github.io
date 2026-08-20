@@ -31,15 +31,20 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, type PropType } from "vue";
+import type { Picture } from "../../types/content";
+
+export default defineComponent({
   name: "Gallery",
   props: {
     images: {
-      type: Array,
+      type: Array as PropType<Picture[]>,
+      required: true,
     },
     design: {
       type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -48,14 +53,23 @@ export default {
     };
   },
   methods: {
-    showImg(idx) {
-      var modal = document.getElementById("myModal");
-      var img = document.getElementById(`gi${idx}`);
-      var modalImg = document.getElementById("modalImg");
+    showImg(idx: number) {
+      const modal = document.getElementById("myModal");
+      const img = document.getElementById(`gi${idx}`) as HTMLImageElement | null;
+      const modalImg = document.getElementById("modalImg") as HTMLImageElement | null;
+
+      if (!modal || !img || !modalImg) {
+        return;
+      }
+
       modal.style.display = "block";
       modalImg.src = img.src;
 
-      var span = document.getElementsByClassName("close")[0];
+      const span = modal.querySelector<HTMLElement>(".close");
+
+      if (!span) {
+        return;
+      }
 
       span.onclick = function() {
         modalImg.classList.add("closeModal");
@@ -68,7 +82,7 @@ export default {
       };
     },
   },
-};
+});
 </script>
 
 <style scoped>

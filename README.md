@@ -14,8 +14,9 @@
 
 ## 기술 스택
 
-- Vue 2, JavaScript
-- Bootstrap 4, AOS
+- Vue 3, TypeScript
+- Vite 8, Bootstrap 5, AOS
+- ESLint Flat Config, vue-tsc
 - GitHub Pages
 - EmailJS
 
@@ -66,34 +67,40 @@
 
 ```bash
 npm install
-npm run serve
+npm run dev
 ```
 
 개발 서버가 시작되면 터미널에 표시되는 로컬 주소로 접속합니다.
+
+> Node.js 22.18 이상이 필요하며 Node.js 24 LTS 사용을 권장합니다.
 
 ## 명령어
 
 | 명령어 | 설명 |
 | --- | --- |
-| `npm run serve` | 개발 서버 실행 |
-| `npm run lint` | Vue 및 JavaScript 린트 검사 |
+| `npm run dev` | Vite 개발 서버 실행 |
+| `npm run type-check` | Vue 및 TypeScript 타입 검사 |
+| `npm run lint` | Vue, TypeScript 린트 검사 |
 | `npm run build` | 운영 배포용 정적 파일 생성 |
+| `npm run preview` | 프로덕션 빌드 로컬 미리보기 |
 | `npm run deploy` | `dist` 디렉터리를 GitHub Pages에 배포 |
 
 ## 프로젝트 구조
 
 ```text
 .
-├─ public/                 # HTML 템플릿과 정적 아이콘
+├─ public/                 # 정적 아이콘과 GitHub Pages 보조 파일
 ├─ src/
 │  ├─ assets/             # 프로필, 프로젝트, 수상 및 교육 이미지
 │  ├─ components/         # 화면 섹션과 공통 UI 컴포넌트
 │  ├─ mixins/             # 공통 접근성 동작
 │  ├─ App.vue
-│  └─ main.js
+│  └─ main.ts
+├─ index.html              # Vite HTML 진입점
 ├─ info.js                # 경력, 기술, 프로젝트 콘텐츠
-├─ config.js              # EmailJS 설정
-└─ vue.config.js
+├─ config.ts              # EmailJS 설정
+├─ tsconfig.json          # TypeScript 설정
+└─ vite.config.ts         # Vite 설정
 ```
 
 포트폴리오의 주요 텍스트와 프로젝트 데이터는 [`info.js`](./info.js)에서 관리합니다. 화면 구조와 스타일은 [`src/components`](./src/components)에서 수정할 수 있습니다.
