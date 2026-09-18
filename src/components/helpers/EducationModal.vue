@@ -68,7 +68,7 @@
               class="mt-1 mb-3"
               :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
             />
-            <button class="btn w-25" type="button" @click="closeModal">close</button>
+            <button class="btn w-25" type="button" @click="closeModal">닫기</button>
           </div>
         </div>
       </div>

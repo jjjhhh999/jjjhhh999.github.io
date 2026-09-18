@@ -65,6 +65,12 @@
 
 ## 로컬 실행
 
+`config.example.ts`를 `config.ts`로 복사한 뒤 EmailJS 설정값을 입력합니다.
+
+```bash
+cp config.example.ts config.ts
+```
+
 ```bash
 npm install
 npm run dev

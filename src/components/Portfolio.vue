@@ -18,7 +18,7 @@
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
         >
-          portfolio.
+          포트폴리오
         </h2>
       </div>
       <hr
@@ -26,7 +26,12 @@
         :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
 
-      <div class="portfolio-tabs" role="tablist" aria-label="포트폴리오 분류">
+      <div
+        class="portfolio-tabs"
+        :class="{ 'portfolio-tabs-dark': nightMode }"
+        role="tablist"
+        aria-label="포트폴리오 분류"
+      >
         <button
           v-for="tab in tabs"
           :id="`${tab.id}-tab`"
@@ -122,7 +127,7 @@
                 type="button"
                 @click="showDesignModal(design)"
               >
-                read more
+                상세 보기
               </button>
             </div>
           </div>
@@ -216,9 +221,9 @@ defineProps<{
 }>();
 
 const tabs: Array<{ id: TabId; label: string }> = [
-  { id: "projects", label: "projects" },
-  { id: "award", label: "award" },
-  { id: "education", label: "education" },
+  { id: "projects", label: "프로젝트" },
+  { id: "award", label: "수상·자격" },
+  { id: "education", label: "교육" },
 ];
 const initialVisibleCount = 3;
 const allInfo = info.portfolio as PortfolioItem[];
@@ -238,12 +243,12 @@ const educationInfo = computed(() =>
   allEducationInfo.slice(0, visibleEducationCount.value),
 );
 const projectButtonLabel = computed(() =>
-  visibleProjectCount.value >= allInfo.length ? "show less" : "show more",
+  visibleProjectCount.value >= allInfo.length ? "접기" : "더 보기",
 );
 const educationButtonLabel = computed(() =>
   visibleEducationCount.value >= allEducationInfo.length
-    ? "show less"
-    : "show more",
+    ? "접기"
+    : "더 보기",
 );
 
 function scrollToPortfolio() {
@@ -325,43 +330,55 @@ function closeModal() {
 }
 
 .portfolio-tabs {
+  background-color: #e9f0f3;
+  border: 1px solid #d7e1e5;
+  border-radius: 12px;
   display: flex;
-  gap: 1.5rem;
+  gap: 0.35rem;
   justify-content: center;
-  padding: 0.5rem 0;
+  margin: 0.75rem auto 0;
+  padding: 0.35rem;
+  width: fit-content;
+}
+
+.portfolio-tabs-dark {
+  background-color: #292f34;
+  border-color: #454c52;
 }
 
 .tab-button {
   appearance: none;
   background: transparent;
   border: 0;
-  color: #a0a0a0;
+  border-radius: 8px;
+  color: #5f676b;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
-  padding: 0.5rem 0;
+  min-width: 110px;
+  padding: 0.65rem 1rem;
   position: relative;
-  transition: color 0.3s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
-.tab-button::after {
-  border-bottom: 2px solid currentColor;
-  bottom: 0;
-  content: "";
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-  width: 20%;
+.tab-button:hover {
+  background-color: rgba(102, 157, 179, 0.12);
+  color: #3f484c;
 }
 
-.tab-button:hover,
 .tab-button.active {
-  color: #535a5e;
+  background-color: #669db3;
+  box-shadow: 0 2px 6px rgba(62, 92, 104, 0.25);
+  color: #fff !important;
 }
 
-.tab-button.active::after {
-  width: 100%;
+.portfolio-tabs-dark .tab-button:not(.active) {
+  color: #e1e6e9 !important;
+}
+
+.portfolio-tabs-dark .tab-button:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff !important;
 }
 
 .tab-button:focus-visible,
@@ -431,5 +448,18 @@ function closeModal() {
   font-size: 14px;
   font-weight: 400;
   opacity: 0.75;
+}
+
+@media screen and (max-width: 580px) {
+  .portfolio-tabs {
+    width: 100%;
+  }
+
+  .tab-button {
+    flex: 1;
+    font-size: 14px;
+    min-width: 0;
+    padding: 0.6rem 0.35rem;
+  }
 }
 </style>

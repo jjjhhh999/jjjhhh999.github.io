@@ -1,5 +1,5 @@
 <template>
-  <div class="my-3 mx-3">
+  <div class="card-shell my-3 mx-3">
     <div
       class="card smcard"
       :class="{
@@ -8,42 +8,45 @@
         'bg-dark3': nightMode,
       }"
     >
-      <div style="height: 180px;">
+      <div class="card-media">
         <img
           class="card-img-top"
-          :src="portfolio.pictures[0].img"
-          alt="Card image cap"
+          :src="portfolio.cover?.img ?? portfolio.pictures[0].img"
+          :alt="`${portfolio.name} 대표 이미지`"
         />
       </div>
       <div class="card-body pborder-top">
         <h3 class="title2">{{ portfolio.name }}</h3>
-        <div>
-          <div class="pb-1 bheight">
-            <span
-              class="badge me-2 mb-2"
-              v-for="tech in portfolio.technologies"
-              :key="tech"
-              :class="{ 'bg-dark4': nightMode }"
-              >{{ tech }}</span
-            >
-          </div>
-          <p
-            class="title3 m-0 pb-2 pheight pt-1"
-            v-html="
-              portfolio.description.length > 100
-                ? portfolio.description.substring(0, 105) + '...'
-                : portfolio.description
-            "
-          >
-          </p>
+        <div v-if="portfolio.date" class="project-meta">
+          <span>{{ portfolio.date }}</span>
         </div>
-        <div class="text-center mt-2">
+        <p class="title3 card-summary m-0">
+          {{ summaryText(portfolio.description) }}
+        </p>
+        <div v-if="portfolio.technologies?.length" class="tech-list">
+          <span
+            v-for="tech in portfolio.technologies.slice(0, 6)"
+            :key="tech"
+            class="badge me-2 mb-2"
+            :class="{ 'bg-dark4': nightMode }"
+          >
+            {{ tech }}
+          </span>
+          <span
+            v-if="portfolio.technologies.length > 6"
+            class="badge me-2 mb-2 tech-more"
+            :class="{ 'bg-dark4': nightMode }"
+          >
+            +{{ portfolio.technologies.length - 6 }}
+          </span>
+        </div>
+        <div class="card-actions text-center mt-2">
           <button
             href=""
             class="btn-sm btn btn-outline-secondary no-outline"
             @click.prevent="showModal"
           >
-            read more
+            상세 보기
           </button>
         </div>
       </div>
@@ -69,6 +72,15 @@ export default defineComponent({
   },
   emits: ["show"],
   methods: {
+    summaryText(description: string) {
+      const text = description
+        .replace(/<br\s*\/?>/gi, " ")
+        .replace(/<[^>]+>/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      return text.length > 115 ? `${text.slice(0, 115).trim()}…` : text;
+    },
     showModal() {
       this.$emit("show", this.portfolio);
     },
@@ -77,41 +89,72 @@ export default defineComponent({
 </script>
 
 <style scoped>
-img {
+.card-shell {
+  height: calc(100% - 2rem);
+}
+
+.card-media {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  height: 180px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.card-img-top {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-.img-div img {
-  /* object-fit: cover;
-    overflow: hidden; */
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  /* object-position: 50% 120%;
-    max-width: 300px !important; */
-}
-
-.bheight {
-  height: 65px;
-  overflow: auto;
-}
-
-.pheight {
-  height: 110px;
-  max-height: 130px;
-  overflow: auto;
-  text-align: justify;
-}
-
-div.img-div {
-  position: absolute;
-  width: 100%;
   height: 100%;
+  object-fit: contain;
+  width: 100%;
 }
+
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.card-summary {
+  display: -webkit-box;
+  line-height: 1.55;
+  min-height: 6.2rem;
+  overflow: hidden;
+  text-align: left;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.project-meta {
+  align-items: center;
+  color: #6c757d;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  gap: 0.35rem;
+  line-height: 1.4;
+  margin: -0.15rem 0 0.65rem;
+}
+
+.pcard-dark .project-meta {
+  color: #c4cbd1;
+}
+
+.tech-list {
+  margin-top: 0.75rem;
+  min-height: 3.5rem;
+}
+
+.tech-more {
+  opacity: 0.8;
+}
+
+.card-actions {
+  margin-top: auto !important;
+}
+
 .pborder-top {
   border-top: 1px solid rgb(193, 193, 193);
 }
@@ -122,7 +165,8 @@ div.img-div {
   border: none;
   box-shadow: 1px 1px 12px rgb(233, 233, 233);
   transition: all 0.5s;
-  height: 460px;
+  height: 100%;
+  min-height: 470px;
 }
 
 .pcard:hover {
@@ -137,7 +181,8 @@ div.img-div {
   background-color: #30363a !important;
   /* box-shadow: 1px 1px 12px rgb(53, 53, 53); */
   transition: all 0.5s;
-  height: 460px;
+  height: 100%;
+  min-height: 470px;
 }
 
 .pcard-dark:hover {

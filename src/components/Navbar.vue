@@ -41,7 +41,7 @@
                 href="#about"
                 @click.prevent="navigate('about')"
                 :class="{ 'text-light': nightMode }"
-                >about</a
+                >소개</a
               >
             </li>
             <li class="nav-item mx-2">
@@ -50,7 +50,7 @@
                 href="#skills"
                 @click.prevent="navigate('skills')"
                 :class="{ 'text-light': nightMode }"
-                >skills</a
+                >핵심 역량</a
               >
             </li>
             <li class="nav-item mx-2 ">
@@ -59,7 +59,7 @@
                 href="#portfolio"
                 @click.prevent="navigate('portfolio')"
                 :class="{ 'text-light': nightMode }"
-                >portfolio</a
+                >포트폴리오</a
               >
             </li>
             <li class="nav-item mx-2">
@@ -68,7 +68,7 @@
                 href="#contact"
                 @click.prevent="navigate('contact')"
                 :class="{ 'text-light': nightMode }"
-                >contact</a
+                >문의</a
               >
             </li>
             <li class="nav-item ms-2">

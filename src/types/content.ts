@@ -6,6 +6,7 @@ export interface Picture {
 export interface PortfolioItem {
   name: string;
   title?: string;
+  cover?: Picture;
   pictures: Picture[];
   technologies?: string[];
   category?: string;
@@ -23,7 +24,14 @@ export interface TimelineEntry {
   position?: string;
   gpa?: string;
   description?: string;
+  sections?: TimelineSection[];
+  highlights?: string[];
   skills?: string[];
+}
+
+export interface TimelineSection {
+  title: string;
+  items: string[];
 }
 
 export interface TimelineGroup {

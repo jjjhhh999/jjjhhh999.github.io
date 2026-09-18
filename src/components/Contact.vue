@@ -17,7 +17,7 @@
         <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >contact me.</h2
+          >문의</h2
         >
       </div>
       <hr
@@ -25,7 +25,7 @@
         :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
       <br />
-      <div class="text-center">
+      <form class="text-center" @submit.prevent="sendEmail">
         <div
           class="mb-3"
           data-aos="fade-up"
@@ -36,7 +36,9 @@
             type="text"
             name="user_name"
             v-model="name"
-            placeholder="name"
+            placeholder="이름"
+            autocomplete="name"
+            required
             class="pinput"
             :class="{
               pgray: !nightMode,
@@ -57,7 +59,9 @@
             type="email"
             name="user_email"
             v-model="email"
-            placeholder="email"
+            placeholder="이메일"
+            autocomplete="email"
+            required
             class="pinput"
             :class="{
               pgray: !nightMode,
@@ -77,7 +81,8 @@
           <textarea
             name="message"
             v-model="text"
-            placeholder="message"
+            placeholder="문의 내용"
+            required
             class="pinput"
             rows="4"
             :class="{
@@ -90,16 +95,17 @@
         </div>
 
         <button
-          @click.prevent="sendEmail"
+          type="submit"
+          :disabled="isSending"
           class="mt-1 btn mb-3"
           data-aos="fade"
           data-aos-once="true"
           data-aos-duration="1000"
           data-aos-offset="50"
         >
-          Send
+          {{ isSending ? "전송 중..." : "메일 보내기" }}
         </button>
-      </div>
+      </form>
 
       <Snackbar
         :showSnackbar="showSnackbar"
@@ -113,7 +119,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import emailjs from "@emailjs/browser";
+import emailjs, { type EmailJSResponseStatus } from "@emailjs/browser";
 
 import config from "../../config";
 import Snackbar from "./helpers/Snackbar.vue";
@@ -128,6 +134,7 @@ const text = ref("");
 const showSnackbar = ref(false);
 const snackbarMessage = ref("");
 const snackbarColor = ref("");
+const isSending = ref(false);
 
 function showMessage(message: string, color: string) {
   showSnackbar.value = true;
@@ -144,17 +151,26 @@ function closeSnackbar(visible: boolean) {
 }
 
 async function sendEmail() {
+  if (isSending.value) {
+    return;
+  }
+
   if (!email.value || !name.value || !text.value) {
-    showMessage("Please fill in all fields.", "rgb(212, 149, 97)");
+    showMessage("이름, 이메일, 문의 내용을 모두 입력해 주세요.", "rgb(212, 149, 97)");
     return;
   }
 
   const templateParams = {
-    user_email: email.value,
     from_name: name.value,
+    user_name: name.value,
+    user_email: email.value,
+    reply_to: email.value,
+    message: text.value,
     message_html: text.value,
     to_name: "Gu Siwan",
   };
+
+  isSending.value = true;
 
   try {
     await emailjs.send(
@@ -164,12 +180,27 @@ async function sendEmail() {
       { publicKey: config.emailjs.publicKey },
     );
 
-    showMessage("Thanks! Message received.", "#1aa260");
+    showMessage("메일이 정상적으로 전송되었습니다.", "#1aa260");
     email.value = "";
     text.value = "";
     name.value = "";
-  } catch {
-    showMessage("Oops! Something went wrong.", "rgb(212, 149, 97)");
+  } catch (error) {
+    const emailError = error as EmailJSResponseStatus;
+    console.error("EmailJS send failed", {
+      status: emailError.status,
+      text: emailError.text,
+    });
+
+    if (emailError.status === 429) {
+      showMessage("전송 요청이 많습니다. 잠시 후 다시 시도해 주세요.", "rgb(212, 149, 97)");
+    } else if (emailError.status === 401 || emailError.status === 403) {
+      showMessage(`메일 서비스 연결을 확인해 주세요. (오류 ${emailError.status})`, "rgb(212, 149, 97)");
+    } else {
+      const errorCode = emailError.status ? ` (오류 ${emailError.status})` : "";
+      showMessage(`메일 전송에 실패했습니다.${errorCode}`, "rgb(212, 149, 97)");
+    }
+  } finally {
+    isSending.value = false;
   }
 }
 </script>

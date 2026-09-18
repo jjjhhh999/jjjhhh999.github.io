@@ -48,22 +48,28 @@
             >
               <span>{{ portfolio.date }} • {{ portfolio.category }}</span>
             </div>
-            <div class="pb-1 bheight">
-              <span
-                class="badge me-2 mb-2"
-                v-for="tech in portfolio.technologies"
-                :key="tech"
-                :class="{ 'bg-dark4': nightMode }"
-                >{{ tech }}</span
-              >
-            </div>
+            <div class="project-content">
+              <h3 class="detail-section-title">프로젝트 개요</h3>
+              <div id="project-modal-description" class="project-description">
+                <span v-html="portfolio.description"></span>
+              </div>
 
-            <div id="project-modal-description" style="text-align: justify;">
-              <span v-html="portfolio.description"></span>
-            </div>
-            <hr />
-            <div>
-              <Gallery :images="portfolio.pictures" />
+              <h3 class="detail-section-title">프로젝트 화면</h3>
+              <div class="project-gallery">
+                <Gallery :images="portfolio.pictures" />
+              </div>
+
+              <div v-if="portfolio.technologies?.length" class="tech-stack">
+                <h3 class="detail-section-title">기술 스택</h3>
+                <span
+                  v-for="tech in portfolio.technologies"
+                  :key="tech"
+                  class="badge me-2 mb-2"
+                  :class="{ 'bg-dark4': nightMode }"
+                >
+                  {{ tech }}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -81,7 +87,7 @@
             >
               github
             </a>
-            <button class="btn w-25" type="button" @click="closeModal">close</button>
+            <button class="btn w-25" type="button" @click="closeModal">닫기</button>
           </div>
         </div>
       </div>
@@ -180,8 +186,9 @@ a:hover {
 }
 
 .modal-container {
-  width: 40%;
-  max-height: 70%;
+  width: min(80vw, 1100px);
+  height: 88vh;
+  max-height: 900px;
   margin: 0px auto;
   border-radius: 7px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -190,28 +197,69 @@ a:hover {
   display: flex; /*added*/
 }
 
-@media screen and (max-width: 1600px) {
-  .modal-container {
-    width: 60%;
-  }
+.modal-body {
+  flex: 1;
+  margin: 0;
+  max-height: none;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.project-content {
+  margin-top: 0.5rem;
+}
+
+.detail-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 1.5rem 0 0.65rem;
+}
+
+.detail-section-title:first-child {
+  margin-top: 0;
+}
+
+.project-description {
+  background-color: rgba(102, 157, 179, 0.09);
+  border-left: 4px solid #669db3;
+  border-radius: 6px;
+  line-height: 1.7;
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+
+.project-gallery {
+  min-width: 0;
+}
+
+.tech-stack {
+  margin-top: 1.5rem;
+}
+
+.tech-stack .detail-section-title {
+  margin-top: 0;
 }
 
 @media screen and (max-width: 1200px) {
   .modal-container {
-    width: 80%;
+    width: 92vw;
   }
 }
 
 @media screen and (max-width: 580px) {
   .modal-container {
-    width: 90%;
+    height: 94vh;
+    width: 96vw;
   }
-}
 
-.modal-body {
-  margin: 20px 0;
-  overflow-y: scroll;
-  max-height: inherit;
+  .modal-body {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .project-description {
+    padding: 0.85rem 1rem;
+  }
 }
 
 .modal-enter-from,

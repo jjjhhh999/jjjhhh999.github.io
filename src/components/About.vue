@@ -17,7 +17,7 @@
         <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >about me.</h2
+          >경력 및 자격</h2
         >
       </div>
       <hr
@@ -25,11 +25,11 @@
         :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
       <div class="row">
-        <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
-          <Timeline :data="certification" :nightMode="nightMode" />
-        </div>
-        <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
+        <div class="col-xl-8 col-lg-8 col-md-7 col-sm-12">
           <Timeline :data="experience" :nightMode="nightMode" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-5 col-sm-12">
+          <Timeline :data="certification" :nightMode="nightMode" />
         </div>
       </div>
     </div>
@@ -53,11 +53,11 @@ export default {
   data() {
     return {
       certification: {
-        title: "certifications",
+        title: "자격증",
         data: info.certification,
       },
       experience: {
-        title: "experiences",
+        title: "경력",
         data: info.experience,
       },
     };

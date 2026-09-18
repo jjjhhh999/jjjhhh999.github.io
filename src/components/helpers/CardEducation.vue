@@ -12,7 +12,7 @@
         <img
           class="card-img-top"
           :src="portfolio.pictures[0].img"
-          alt="Card image cap"
+          :alt="`${portfolio.name} 대표 이미지`"
         />
       </div>
     </div>
@@ -22,7 +22,7 @@
           class="btn-sm btn btn-outline-secondary no-outline"
           @click.prevent="showModal"
       >
-        read more
+        상세 보기
       </button>
       <button
           href="#"
@@ -30,7 +30,7 @@
           v-if="portfolio.visit"
           @click.prevent="open(portfolio.visit)"
       >
-        visit website
+        웹사이트 보기
       </button>
     </div>
   </div>

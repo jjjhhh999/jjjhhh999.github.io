@@ -15,10 +15,10 @@ const require = (path) => {
 };
 
 let info = {
-  name: "Gu Siwan",
+  name: "구 시 완",
   logo_name: "Siwan",
   //flat_picture: require("./src/assets/potrait.jpg"),
-  flat_picture: require("./src/assets/koo.jpg"),
+  flat_picture: require("./src/assets/profile-view.jpg"),
   config: {
     use_cookies: true,
     navbar: {
@@ -26,10 +26,11 @@ let info = {
     }
   },
   description:
-      "<p>기업용 솔루션을 설계·제품화하고 운영까지 책임져 온 11년 차 개발자입니다. HR·ERP·전자전표 도메인에서 백엔드 API와 데이터 모델, 시스템 아키텍처 및 CI/CD를 구축해 왔습니다.</p>" +
-      "<p>팀장과 개발 PL, Application Architect(AA) 역할을 수행하며 기술 의사결정, 개발 표준, 협업 프로세스와 배포·운영 체계를 주도했습니다.</p>" +
-      "<p>최근에는 Dorothy 기업용 AI 챗봇 플랫폼의 고도화를 준비하며, 기존 검색 구조를 바탕으로 그룹웨어 문서를 연계하는 RAG 기능을 설계·개발할 예정입니다. 안정성과 확장성, 팀 생산성을 고려해 기술을 비즈니스 가치로 연결하는 개발을 지향합니다.</p>",
-    email : "contact : 하단의 Contact Me 항목을 통해 이메일 전송 기능을 활용해 주세요.\n",
+      "<p><strong>11년 경력 · Java/Spring 백엔드 개발 · Application Architect</strong><br>" +
+      "HR·ERP·전자전표 솔루션 설계·구축·제품화·배포·운영<br>" +
+      "팀장·개발 PL 경험 · 기술 설계·개발 표준·협업·일정 관리<br>" +
+      "기업용 AI 챗봇 Dorothy 고도화 · 임베딩·벡터 검색·OCR·RAG·LLM 연계</p>",
+    email: "<strong>문의</strong><br>협업 및 채용 관련 문의는 하단의 문의하기를 통해 이메일로 보내주세요.",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
     github: "https://github.com/jjjhhh999",
@@ -39,96 +40,129 @@ let info = {
   certification: [
     {
       name: "AWS Certified Solutions Architect",
-      date: "Jan, 2025"
+      date: "2025.01"
     },
     {
       name: "AWS Certified Cloud Practitioner",
-      date: "Sep, 2024"
+      date: "2024.09"
     },
     {
       name: "정보처리기사",
-      date: "Nov, 2013"
+      date: "2013.11"
     },
     {
       name: "SQLD",
-      date: "Dec, 2019"
+      date: "2019.12"
     }
   ],
   experience: [
       {
           name: "[GS] 지에스 비즈플",
           //place: "서울 마포구 마포대로 45 일진빌딩 14층",
-          date: "Jun, 2025 - Present",
-          position: "HR사업팀 · Application Architect / Back-end Developer",
-          description: "기업용 HR 솔루션 개발과 Application Architect(AA) 역할을 수행하며, EmbeddingGemma·FAISS 기반 검색 구조를 분석하고 AI 챗봇의 그룹웨어 연계 RAG 고도화를 추진하고 있습니다.",
+          date: "2025.06 ~ 현재",
+          sections: [
+              {
+                  title: "USTRA AI 챗봇 | Back-end Developer",
+                  items: [
+                      "AI 챗봇 백엔드 API 및 임베딩·벡터 유사도 검색 기능 개발",
+                      "RAG 파이프라인, LLM 답변 생성 및 OCR 기반 문서 처리 기능 개발",
+                      "AWS 기반 개발·배포 환경과 Docker 컨테이너 실행 환경 구축"
+                  ]
+              },
+              {
+                  title: "USTRA HR 인사시스템 | Application Architect · PL",
+                  items: [
+                      "인사시스템 애플리케이션 구조 설계 및 개발·운영 서버 환경 구성",
+                      "인사·조직·평가·교육·채용·급여 모듈 설계·개발",
+                      "AWS·Azure 기반 개발·배포 환경 구성 및 프로젝트 일정·품질 관리"
+                  ]
+              }
+          ],
           skills: ["Application Architecture (AA)", "HR Solution", "Java 17/21", "Spring Boot", "AI Chatbot Enhancement", "RAG", "EmbeddingGemma", "FAISS", "Docker", "CI/CD"]
       },
     {
-      name: "[일진그룹] 일진C&S",
+      name: "일진C&S",
       //place: "서울 마포구 마포대로 45 일진빌딩 14층",
-      date: "Jan, 2020 - Present",
-      position: "R&D팀, Back-end Developer",
-      description: "R&D팀 연구개발전담부서에서 그룹 내 최연소 팀장으로 발탁되어, 신규 구독형 서비스의 제품화를 목표로 한 핵심 프로젝트를 주도적으로 이끌었습니다. ",
-      skills: ["Java21", "Spring-boot", "JPA", "AWS", "Docker", "JWT", "JUnit 5", "Vue", "Git", "GitHub-Action", "GitLab-Runner", "MariaDB", "Docker-Hub", "CI/CD", "Nginx", "REST-API"]
+      date: "2020.01 ~ 2025.05",
+      position: "R&D 팀장 · Back-end Developer",
+      highlights: [
+          "전자전표·경비관리 솔루션 설계·개발 및 제품화 주도",
+          "백엔드 3명, 프론트엔드 3명, 디자이너 1명으로 구성된 7인 프로젝트 팀 리딩",
+          "백엔드 아키텍처와 데이터 모델 설계 및 인증·조회 핵심 기능 개발",
+          "ERP·카드사·SSO·OCR 등 외부 시스템 인터페이스 개발",
+          "AWS·온프레미스 인프라 구성 및 CI/CD 기반 배포 자동화"
+      ],
+      skills: ["Java 21", "Spring Boot", "JPA", "AWS", "Docker", "JWT", "JUnit 5", "Vue", "Git", "GitHub Actions", "GitLab Runner", "MariaDB", "Docker Hub", "CI/CD", "Nginx", "REST API"]
     },
     {
       name: "Inbus",
-      date: "Jun, 2015 - Jan, 2020",
-      position: "솔루션 1팀, Full Stack Developer",
-      description: "프로젝트를 수행하며 주로 인사, 회계, 예산 등 전반적인 Web기반 ERP시스템을 개발하였습니다. ",
-        /*"인사, 회계, 예산 등 ERP시스템 구축하였으며 개발 PL로 프로젝트에 참여하여 개발 및 ERD설계, 업무협의 등 전반적인 SI프로젝트 경험을 하였습니다.",*/
-      skills: ["Java", "Spring-Framework", "Javascript", "RDMS(Oracle, Mssql)", "DB Modeling", "Jsp", "ERwin"]
+      date: "2015.06 ~ 2020.01",
+      position: "Full Stack Developer · 개발 PL",
+      highlights: [
+          "인사·급여·채용·근태·평가 시스템 설계·개발",
+          "데이터 모델 설계, 데이터 이행 및 시스템 간 인터페이스 개발",
+          "SAP·카드사 및 외부 업무 시스템 연계",
+          "요구사항·일정·개발 품질 관리",
+          "고객사 요구사항과 제도 변경에 따른 기능 개선·운영 지원"
+      ],
+      skills: ["Java", "Spring Framework", "JavaScript", "RDBMS (Oracle, SQL Server)", "DB Modeling", "JSP", "ERwin"]
     },
-    {
-      name: "중앙정보기술인재개발원",
-      //place: "서울시 마포구 신촌로 176",
-      date: "Dec, 2014 - May, 2015",
-      description: "멀티디바이스 하이브리드 웹 & 앱 게임전문과정",
-      skills: ["Java", "Spring-Framework", "Javascript", "Database", "Jsp"]
-    }
   ],
   skills: [
     {
-      title: "architecture & AI",
-      info: ["Application Architecture (AA)", "System Design", "Domain Design", "API Design", "Integration Architecture", "RAG Architecture", "LLM Application", "Groupware Integration", "LangChain", "EmbeddingGemma", "FAISS", "AI Platform Enhancement"],
+      title: "백엔드 & 아키텍처",
+      info: ["Java 17/21", "Spring Boot", "JPA", "QueryDSL", "MyBatis", "REST API", "도메인·데이터 설계"],
       icon: "fas fa-project-diagram"
     },
     {
-      title: "back-end engineering",
-      info: ["Java 17/21", "Spring Boot", "Spring Security", "JPA", "QueryDSL", "MyBatis", "JWT", "REST API", "External API Integration"],
-      icon: "fa fa-code"
+      title: "인증·인가 & SSO",
+      info: ["Spring Security", "인증·인가 설계", "SSO", "OAuth 2.0", "JWT", "외부 인증 시스템 연계"],
+      icon: "fas fa-shield-alt"
     },
     {
-      title: "data & performance",
-      info: ["MariaDB", "Oracle", "SQL Server", "MySQL", "Data Modeling", "ERD", "SQL Tuning", "Index", "Execution Plan", "Transaction"],
+      title: "데이터 & 성능",
+      info: ["MariaDB", "Oracle", "SQL Server", "데이터 모델링", "SQL 튜닝", "인덱스", "실행계획", "트랜잭션"],
       icon: "fa fa-database"
     },
     {
-      title: "cloud & delivery",
-      info: ["AWS", "Azure", "Docker", "Docker Compose", "GitHub Actions", "GitLab Runner", "Jenkins", "Nginx", "CI/CD", "Linux"],
+      title: "AI & 시스템 연계",
+      info: ["FastAPI", "RAG", "EmbeddingGemma", "FAISS", "OCR", "LLM", "업무 시스템 API 연계"],
+      icon: "fas fa-brain"
+    },
+    {
+      title: "클라우드 & 배포",
+      info: ["AWS", "Azure", "Docker", "GitHub Actions", "GitLab Runner", "Jenkins", "Nginx", "CI/CD"],
       icon: "fas fa-cloud"
     },
     {
-      title: "quality & reliability",
-      info: ["JUnit 5", "Mockito", "Testcontainers", "ArchUnit", "JMeter", "Logging", "Monitoring", "Operations", "Incident Response"],
-      icon: "fas fa-vial"
-    },
-    {
-      title: "leadership & domain",
-      info: ["Tech Lead", "Application Architect", "Development PL", "Architecture Decision", "Code Review", "HR", "ERP", "Productization"],
+      title: "리더십 & 품질",
+      info: ["Application Architect", "Tech Lead", "개발 PL", "개발 표준", "코드 리뷰", "JUnit 5", "모니터링"],
       icon: "fas fa-users"
     },
     {
-      title: "front-end",
-      info: ["Vue 3", "TypeScript", "JavaScript", "Thymeleaf", "JSP", "jQuery", "AG Grid", "RealGrid"],
+      title: "프론트엔드",
+      info: ["Vue 3", "TypeScript", "JavaScript", "Thymeleaf", "JSP", "AG Grid", "RealGrid"],
       icon: "fas fa-laptop-code"
     }
   ],
   portfolio: [
       {
           name: "Dorothy — 기업용 AI 챗봇 플랫폼",
+          cover: {img: require("./src/assets/portfolio/dorothy/0_chatbotIcon.png")},
           pictures: [
-              {img: require("./src/assets/portfolio/dorothy/cover.svg")}
+              {img: require("./src/assets/portfolio/dorothy/1_메인.png")},
+              {img: require("./src/assets/portfolio/dorothy/2_대시보드.png")},
+              {img: require("./src/assets/portfolio/dorothy/3_의도관리.png")},
+              {img: require("./src/assets/portfolio/dorothy/4_Q&A.png")},
+              {img: require("./src/assets/portfolio/dorothy/5_키워드관리.png")},
+              {img: require("./src/assets/portfolio/dorothy/6_연계자료배포.png")},
+              {img: require("./src/assets/portfolio/dorothy/7_파일직접등록.png")},
+              {img: require("./src/assets/portfolio/dorothy/8_연계대상추가.png")},
+              {img: require("./src/assets/portfolio/dorothy/9_연계자료현황.png")},
+              {img: require("./src/assets/portfolio/dorothy/10_챗봇화면.png")},
+              {img: require("./src/assets/portfolio/dorothy/11_교육훈련신청서.png")},
+              {img: require("./src/assets/portfolio/dorothy/12_챗봇pdf.png")},
+              {img: require("./src/assets/portfolio/dorothy/13_교육훈련신청서 작성가이드.png")}
           ],
           technologies: ["Java", "Spring Boot", "Spring Security", "MyBatis", "MariaDB", "Python", "FastAPI", "Sentence-Transformers", "EmbeddingGemma", "FAISS", "PyTorch", "KoNLPy", "Docker", "Docker Compose"],
           category: "AI Chatbot Platform · Enhancement",
@@ -136,8 +170,8 @@ let info = {
           github: "",
           visit: "",
           description: "관리자가 챗봇 시나리오, Q&A, 동의어 및 미응답 데이터를 관리하고 학습·테스트·배포할 수 있는 기업용 AI 챗봇 플랫폼입니다.<br><br>" +
-              "<strong>현행 구조</strong><br>기존 Dorothy는 문장 임베딩과 FAISS 기반 의미 검색으로 등록된 Q&A에서 유사 답변을 제공하며, Spring Boot 서비스와 FastAPI 모델 서버가 분리된 구조입니다.<br><br>" +
-              "<strong>고도화 담당</strong><br>기존 검색 구조를 분석하고 그룹웨어 문서와 업무 데이터를 연계하는 RAG 기능을 설계·개발하여 플랫폼을 고도화할 예정입니다."
+              "<strong>기존 플랫폼</strong><br>기존 Dorothy는 문장 임베딩과 FAISS 기반 의미 검색으로 등록된 Q&A에서 유사 답변을 제공하며, Spring Boot 서비스와 FastAPI 모델 서버가 분리된 구조입니다.<br><br>" +
+              "<strong>고도화 진행 현황</strong><br>기존 검색 구조를 분석하고 업무 문서 임베딩·벡터 검색 기능을 구현했습니다. 현재 OCR 기반 문서 처리 품질을 검증하고 있으며, 그룹웨어·Notion·Google Drive 문서를 활용한 RAG 파이프라인과 LLM 답변 생성 기능을 개발하고 있습니다."
       },
       {
           name: "IM금융지주(대구은행) 인사시스템 구축(AA)",
@@ -161,7 +195,7 @@ let info = {
           ],
           technologies: ["Java 17", "Spring Boot", "Spring Security", "JWT", "Spring Data JPA", "Hibernate", "QueryDSL", "Thymeleaf", "GitLab", "GitHub", "GitHub Actions", "Jenkins", "Docker Compose", "Docker Hub", "Microsoft Azure"],
           category: "HR System · Web Application",
-          date: "2025. 06 ~",
+          date: "2025. 06 ~ 2026. 05",
           github: "",
           visit: "",
           description: "기업의 인사 업무를 통합 관리하는 인사시스템 솔루션 구축 프로젝트입니다. 새로운 업무 환경에 빠르게 적응하고 개발 표준과 협업 체계를 정비하여 프로젝트 초기 안정화와 기능 개선에 기여했습니다.<br><br>" +
@@ -173,7 +207,7 @@ let info = {
     {
       name: "기업형 경비관리 전자전표 솔루션 제품화",
       pictures: [
-        {img: require("./src/assets/portfolio/subscription/0.png")},
+        {img: require("./src/assets/portfolio/iljin-steel/basic_jpg.jpg")},
         {img: require("./src/assets/portfolio/subscription/1.png")},
         {img: require("./src/assets/portfolio/subscription/2.png")},
         {img: require("./src/assets/portfolio/subscription/3.png")},
@@ -196,9 +230,9 @@ let info = {
     {
       name: "일진전기 전자전표 시스템 구축",
       pictures: [
-        {img: require("./src/assets/portfolio/elec/0.png")}
+        {img: require("./src/assets/portfolio/iljin-steel/basic_jpg.jpg")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "MariaDB", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Web App",
       date: "2023. 08 ~ 2024. 02",
       github:"",
@@ -210,7 +244,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/portfolio/lucoms/0.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "Oracle", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "Oracle", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Web App",
       date: "2023. 03 ~ 2023. 07",
       github:"",
@@ -222,7 +256,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/portfolio/pmctech/0.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "MariaDB", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Web App",
       date: "2022. 09 ~ 2023. 01",
       github:"",
@@ -232,7 +266,7 @@ let info = {
     {
       name: "일진전기 - 견적관리시스템 구축",
       pictures: [
-        {img: require("./src/assets/portfolio/elec/0.png")},
+        {img: require("./src/assets/portfolio/iljin-steel/basic_jpg.jpg")},
         {img: require("./src/assets/portfolio/elec/1.png")},
         {img: require("./src/assets/portfolio/elec/2.png")},
         {img: require("./src/assets/portfolio/elec/3.png")},
@@ -240,7 +274,7 @@ let info = {
         {img: require("./src/assets/portfolio/elec/5.png")},
         {img: require("./src/assets/portfolio/elec/6.png")},
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "Oracle", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "Oracle", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Web App",
       date: "2022. 04 ~ 2022. 08",
       github:"",
@@ -261,7 +295,7 @@ let info = {
         {img: require("./src/assets/portfolio/alpinion/8.png")},
         {img: require("./src/assets/portfolio/alpinion/9.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "MariaDB", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Web App",
       date: "2021. 08 ~ 2022. 03",
       github: "",
@@ -271,13 +305,13 @@ let info = {
     {
       name: "일진제강 - 통합생산관리 시스템 구축",
       pictures: [
-        {img: require("./src/assets/portfolio/steel/0.png")},
+        {img: require("./src/assets/portfolio/iljin-steel/basic_jpg.jpg")},
         {img: require("./src/assets/portfolio/steel/1.png")},
         {img: require("./src/assets/portfolio/steel/2.png")},
         {img: require("./src/assets/portfolio/steel/3.png")},
         {img: require("./src/assets/portfolio/steel/4.png")}
       ],
-      technologies: ["Java", "Spring-Framework", "Javascript", "Oracle-SQL"],
+      technologies: ["Java", "Spring Framework", "JavaScript", "Oracle SQL"],
       category: "Web App",
       github: "",
       date: "2021. 06 ~ 2021. 08",
@@ -294,7 +328,7 @@ let info = {
         {img: require("./src/assets/portfolio/eis/4.png")},
         {img: require("./src/assets/portfolio/eis/5.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "MariaDB", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Web App",
       date: "2021. 01 ~ 2021. 05",
       github: "",
@@ -311,7 +345,7 @@ let info = {
         {img: require("./src/assets/portfolio/epo/4.png")},
         {img: require("./src/assets/portfolio/epo/5.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "MariaDB", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Website",
       date: "2020. 11 ~ 2021. 02",
       github: "",
@@ -321,13 +355,13 @@ let info = {
     {
       name: "일진제강 - 물류비정산관리 개발",
       pictures: [
-        {img: require("./src/assets/portfolio/bms/0.png")},
+        {img: require("./src/assets/portfolio/iljin-steel/basic_jpg.jpg")},
         {img: require("./src/assets/portfolio/bms/1.png")},
         {img: require("./src/assets/portfolio/bms/2.png")},
         {img: require("./src/assets/portfolio/bms/3.png")},
         {img: require("./src/assets/portfolio/bms/4.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue", "AgGrid", "Git", "CI/CD"],
+      technologies: ["Java", "Spring Boot", "JPA", "MariaDB", "Vue", "AG Grid", "Git", "CI/CD"],
       category: "Web App",
       date: "2020. 07 ~ 2020. 11",
       github: "",
@@ -341,7 +375,7 @@ let info = {
         {img: require("./src/assets/portfolio/koem/0.png")},
         {img: require("./src/assets/portfolio/koem/1.png")}
       ],
-      technologies: ["Java", "Spring-Framework", "Javascript", "Oracle-SQL", "Jsp"],
+      technologies: ["Java", "Spring Framework", "JavaScript", "Oracle SQL", "JSP"],
       category: "Website",
       date: "2020. 02 ~ 2020. 06",
       github: "",
@@ -353,7 +387,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/portfolio/thek/0.png")}
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis"],
+      technologies: ["Java", "JavaScript", "Spring Framework", "Oracle SQL", "jQuery", "iBATIS"],
       category: "Alogrithm",
       date: "2019. 10 ~ 2020. 01",
       github: "",
@@ -376,7 +410,7 @@ let info = {
         {img: require("./src/assets/portfolio/lotteglogis/10.png")},
         {img: require("./src/assets/portfolio/lotteglogis/11.png")}
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "JavaScript", "Spring Framework", "Oracle SQL", "jQuery", "iBATIS", "ERwin"],
       category: "Web App",
       date: "2018. 10 ~ 2019. 08",
       github: "",
@@ -386,9 +420,9 @@ let info = {
     {
       name: "우리신용정보 - 법인카드 연동시스템 구축",
       pictures: [
-        {img: require("./src/assets/portfolio/woori/0.png")}
+        {img: require("./src/assets/portfolio/woori/우리금융그룹.png")}
       ],
-      technologies: ["Java", "Javascript", "Oracle-SQL", "Jsp"],
+      technologies: ["Java", "JavaScript", "Oracle SQL", "JSP"],
       category: "Web App",
       github: "",
       date: "2018. 06 ~ 2018. 10",
@@ -402,7 +436,7 @@ let info = {
         {img: require("./src/assets/portfolio/kf/1.png")},
         {img: require("./src/assets/portfolio/kf/2.png")}
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "JavaScript", "Spring Framework", "Oracle SQL", "jQuery", "iBATIS", "ERwin"],
       category: "Web App",
       github: "",
       date: "2018. 03 - 2018. 05",
@@ -412,9 +446,9 @@ let info = {
     {
       name: "연말정산 업데이트",
       pictures: [
-        {img: require("./src/assets/portfolio/kprc/0.png")},
+        {img: require("./src/assets/portfolio/thek/0.png")},
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "JavaScript", "Spring Framework", "Oracle SQL", "jQuery", "iBATIS", "ERwin"],
       category: "Web App",
       github: "",
       date: "2017. 12  ~ 2018.03",
@@ -426,7 +460,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/portfolio/komsco/0.png")}
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "JavaScript", "Spring Framework", "Oracle SQL", "jQuery", "iBATIS", "ERwin"],
       category: "Web App",
       github: "",
       date: "2017. 07 - 2017. 12",
@@ -439,7 +473,7 @@ let info = {
         {img: require("./src/assets/portfolio/foodpolis/0.png")},
         {img: require("./src/assets/portfolio/foodpolis/1.png")}
       ],
-      technologies: ["Java", "Javascript", "Oracle-SQL", "Jsp"],
+      technologies: ["Java", "JavaScript", "Oracle SQL", "JSP"],
       category: "Website",
       github: "",
       date: "2017. 01 ~ 2017. 06",
@@ -459,7 +493,7 @@ let info = {
         {img: require("./src/assets/portfolio/kf/9.png")},
         {img: require("./src/assets/portfolio/kf/10.png")}
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "JavaScript", "Spring Framework", "Oracle SQL", "jQuery", "iBATIS", "ERwin"],
       category: "Web App",
       github: "",
       date: "2016. 06 - 2016. 12",
@@ -475,7 +509,7 @@ let info = {
         {img: require("./src/assets/portfolio/zara/3.png")},
         {img: require("./src/assets/portfolio/zara/4.png")}
       ],
-      technologies: ["Java", "Spring-Framework", "Javascript", "Ms-sql", "Jsp"],
+      technologies: ["Java", "Spring Framework", "JavaScript", "SQL Server", "JSP"],
       category: "Website",
       github: "",
       date: "2016. 01 ~ 2016. 06",
@@ -492,7 +526,7 @@ let info = {
         {img: require("./src/assets/portfolio/chilsung/4.png")},
         {img: require("./src/assets/portfolio/chilsung/5.png")}
       ],
-      technologies: ["Java", "Javascript", "Spring-Framework", "Oracle-SQL", "Jquery", "Ibatis", "Er-Win"],
+      technologies: ["Java", "JavaScript", "Spring Framework", "Oracle SQL", "jQuery", "iBATIS", "ERwin"],
       category: "Web App",
       github: "",
       date: "2015. 07 ~ 2016. 01",
@@ -775,7 +809,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/education/reactiveProgramming/Advanced Java Functional & Reactive Programming.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA"],
+      technologies: ["Java", "Spring Boot", "JPA"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "http://estudy.kitri.re.kr/usrs/eduRegMgnt/eduCrsScheduleByMonth.do?",
@@ -786,7 +820,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/education/openAPI/openAPI.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA"],
+      technologies: ["Java", "Spring Boot", "JPA"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://www.multicampus.com/kr/index.html",
@@ -808,7 +842,7 @@ let info = {
       pictures: [
         {img: require("./src/assets/education/java9/java9.png")}
       ],
-      technologies: ["Java", "Spring-boot", "JPA", "MariaDB", "Vue"],
+      technologies: ["Java", "Spring Boot", "JPA", "MariaDB", "Vue"],
       category: "Web App",
       date: "Aug, 2021 - Mar, 2022",
       visit: "https://hrd.hunet.co.kr/Contents/HunetContents",

@@ -6,9 +6,9 @@ interface EmailJsConfig {
 
 const config: { emailjs: EmailJsConfig } = {
   emailjs: {
-    serviceID: "service_rrz0qfc",
-    templateID: "template_23yezl7",
-    publicKey: "8YtR19jCLhnT-ZUHV",
+    serviceID: "YOUR_SERVICE_ID",
+    templateID: "YOUR_TEMPLATE_ID",
+    publicKey: "YOUR_PUBLIC_KEY",
   },
 };
 

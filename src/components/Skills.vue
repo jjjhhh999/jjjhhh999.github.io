@@ -10,7 +10,7 @@
         <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >core competencies.</h2
+          >핵심 역량</h2
         >
       </div>
       <hr
@@ -38,7 +38,7 @@
             width="50%"
             :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
           />
-          <span class="title3">{{ skill.info.join(", ") }}</span>
+          <span class="title3">{{ skill.info.join(" · ") }}</span>
         </div>
       </div>
     </div>
