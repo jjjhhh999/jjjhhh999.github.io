@@ -31,7 +31,7 @@
             <button
               type="button"
               class="modal-close-button float-end"
-              aria-label="프로젝트 상세 닫기"
+              :aria-label="$t('modal.projectClose')"
               @click="closeModal"
             >
               <i class="fas fa-times" aria-hidden="true"></i>
@@ -49,18 +49,18 @@
               <span>{{ portfolio.date }} • {{ portfolio.category }}</span>
             </div>
             <div class="project-content">
-              <h3 class="detail-section-title">프로젝트 개요</h3>
+              <h3 class="detail-section-title">{{ $t("modal.overview") }}</h3>
               <div id="project-modal-description" class="project-description">
                 <span v-html="portfolio.description"></span>
               </div>
 
-              <h3 class="detail-section-title">프로젝트 화면</h3>
+              <h3 class="detail-section-title">{{ $t("modal.screens") }}</h3>
               <div class="project-gallery">
                 <Gallery :images="portfolio.pictures" />
               </div>
 
               <div v-if="portfolio.technologies?.length" class="tech-stack">
-                <h3 class="detail-section-title">기술 스택</h3>
+                <h3 class="detail-section-title">{{ $t("modal.techStack") }}</h3>
                 <span
                   v-for="tech in portfolio.technologies"
                   :key="tech"
@@ -87,7 +87,9 @@
             >
               github
             </a>
-            <button class="btn w-25" type="button" @click="closeModal">닫기</button>
+            <button class="btn w-25" type="button" @click="closeModal">
+              {{ $t("common.close") }}
+            </button>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@
         <img
           class="card-img-top"
           :src="portfolio.pictures[0].img"
-          :alt="`${portfolio.name} 대표 이미지`"
+          :alt="$t('portfolio.coverAlt', { name: portfolio.name })"
         />
       </div>
     </div>
@@ -22,7 +22,7 @@
           class="btn-sm btn btn-outline-secondary no-outline"
           @click.prevent="showModal"
       >
-        상세 보기
+        {{ $t("common.viewDetails") }}
       </button>
       <button
           href="#"
@@ -30,7 +30,7 @@
           v-if="portfolio.visit"
           @click.prevent="open(portfolio.visit)"
       >
-        웹사이트 보기
+        {{ $t("common.viewWebsite") }}
       </button>
     </div>
   </div>

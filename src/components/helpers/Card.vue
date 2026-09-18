@@ -12,7 +12,7 @@
         <img
           class="card-img-top"
           :src="portfolio.cover?.img ?? portfolio.pictures[0].img"
-          :alt="`${portfolio.name} 대표 이미지`"
+          :alt="$t('portfolio.coverAlt', { name: portfolio.name })"
         />
       </div>
       <div class="card-body pborder-top">
@@ -46,7 +46,7 @@
             class="btn-sm btn btn-outline-secondary no-outline"
             @click.prevent="showModal"
           >
-            상세 보기
+            {{ $t("common.viewDetails") }}
           </button>
         </div>
       </div>

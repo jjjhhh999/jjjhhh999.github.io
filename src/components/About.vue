@@ -17,7 +17,7 @@
         <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >경력 및 자격</h2
+          >{{ t("about.title") }}</h2
         >
       </div>
       <hr
@@ -26,7 +26,7 @@
       />
       <div class="row">
         <div class="col-xl-8 col-lg-8 col-md-7 col-sm-12">
-          <Timeline :data="experience" :nightMode="nightMode" />
+          <Timeline :data="experience" :nightMode="nightMode" :isExperience="true" />
         </div>
         <div class="col-xl-4 col-lg-4 col-md-5 col-sm-12">
           <Timeline :data="certification" :nightMode="nightMode" />
@@ -36,33 +36,27 @@
   </div>
 </template>
 
-<script lang="ts">
-import Timeline from "./helpers/Timeline.vue";
-import info from "../../info";
+<script setup lang="ts">
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-export default {
-  name: "About",
-  components: {
-    Timeline,
-  },
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
-  },
-  data() {
-    return {
-      certification: {
-        title: "자격증",
-        data: info.certification,
-      },
-      experience: {
-        title: "경력",
-        data: info.experience,
-      },
-    };
-  },
-};
+import Timeline from "./helpers/Timeline.vue";
+import { getLocalizedInfo } from "../localizedInfo";
+
+defineProps<{
+  nightMode: boolean;
+}>();
+
+const { locale, t } = useI18n();
+const content = computed(() => getLocalizedInfo(locale.value));
+const certification = computed(() => ({
+  title: t("about.certification"),
+  data: content.value.certification,
+}));
+const experience = computed(() => ({
+  title: t("about.experience"),
+  data: content.value.experience,
+}));
 </script>
 
 <style scoped>

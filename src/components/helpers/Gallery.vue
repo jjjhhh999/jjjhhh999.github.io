@@ -4,13 +4,13 @@
       <button
         class="main-preview"
         type="button"
-        :aria-label="`${activeImage.title || `프로젝트 화면 ${activeIndex + 1}`} 크게 보기`"
+        :aria-label="$t('gallery.enlarge', { name: activeImage.title || $t('gallery.screen', { number: activeIndex + 1 }) })"
         @click="showActiveImage"
       >
         <img
           class="main-image"
           :src="activeImage.img"
-          :alt="activeImage.title || `프로젝트 화면 ${activeIndex + 1}`"
+          :alt="activeImage.title || $t('gallery.screen', { number: activeIndex + 1 })"
         />
       </button>
 
@@ -22,7 +22,7 @@
         v-if="images.length > 1"
         class="gallery-nav gallery-nav-prev"
         type="button"
-        aria-label="이전 프로젝트 화면"
+        :aria-label="$t('gallery.previous')"
         @click="previousImage"
       >
         <i class="fas fa-chevron-left" aria-hidden="true"></i>
@@ -31,7 +31,7 @@
         v-if="images.length > 1"
         class="gallery-nav gallery-nav-next"
         type="button"
-        aria-label="다음 프로젝트 화면"
+        :aria-label="$t('gallery.next')"
         @click="nextImage"
       >
         <i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -42,13 +42,17 @@
       <button
         class="thumbnail-scroll"
         type="button"
-        aria-label="이전 썸네일 보기"
+        :aria-label="$t('gallery.previousThumbnails')"
         @click="scrollThumbnails(-1)"
       >
         <i class="fas fa-chevron-left" aria-hidden="true"></i>
       </button>
 
-      <div ref="thumbnailList" class="thumbnail-list" aria-label="프로젝트 화면 목록">
+      <div
+        ref="thumbnailList"
+        class="thumbnail-list"
+        :aria-label="$t('gallery.list')"
+      >
         <button
           v-for="(image, idx) in images"
           :key="`${image.img}-${idx}`"
@@ -56,13 +60,13 @@
           class="thumbnail-button"
           :class="{ active: activeIndex === idx }"
           type="button"
-          :aria-label="`${image.title || `프로젝트 화면 ${idx + 1}`} 선택`"
+          :aria-label="$t('gallery.select', { name: image.title || $t('gallery.screen', { number: idx + 1 }) })"
           :aria-pressed="activeIndex === idx"
           @click="selectImage(idx)"
         >
           <img
             :src="image.img"
-            :alt="image.title || `프로젝트 화면 ${idx + 1}`"
+            :alt="image.title || $t('gallery.screen', { number: idx + 1 })"
           />
           <span class="thumbnail-number">{{ idx + 1 }}</span>
         </button>
@@ -71,7 +75,7 @@
       <button
         class="thumbnail-scroll"
         type="button"
-        aria-label="다음 썸네일 보기"
+        :aria-label="$t('gallery.nextThumbnails')"
         @click="scrollThumbnails(1)"
       >
         <i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -86,7 +90,7 @@
       <button
         type="button"
         class="close"
-        aria-label="확대 이미지 닫기"
+        :aria-label="$t('gallery.close')"
         @click="closeImage"
       >
         &times;
@@ -94,7 +98,7 @@
       <img
         ref="modalImage"
         class="modal-content"
-        :alt="activeImage?.title || `프로젝트 화면 ${activeIndex + 1}`"
+        :alt="activeImage?.title || $t('gallery.screen', { number: activeIndex + 1 })"
       />
     </div>
   </div>

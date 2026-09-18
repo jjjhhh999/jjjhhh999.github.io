@@ -10,7 +10,7 @@
         <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >핵심 역량</h2
+          >{{ t("skills.title") }}</h2
         >
       </div>
       <hr
@@ -45,22 +45,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import info from "../../info";
+<script setup lang="ts">
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-export default {
-  name: "Skills",
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
-  },
-  data() {
-    return {
-      skills: info.skills,
-    };
-  },
-};
+import { getLocalizedInfo } from "../localizedInfo";
+
+defineProps<{
+  nightMode: boolean;
+}>();
+
+const { locale, t } = useI18n();
+const content = computed(() => getLocalizedInfo(locale.value));
+const skills = computed(() => content.value.skills);
 </script>
 
 <style scoped>

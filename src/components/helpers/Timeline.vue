@@ -32,7 +32,7 @@
                 -->
                 <div
                   class="px-2 title2"
-                  :class="{ 'company-title': data.title === '경력' }"
+                  :class="{ 'company-title': isExperience }"
                 >
                   {{ e.name }}
                 </div>
@@ -86,6 +86,10 @@ export default defineComponent({
     nightMode: {
       type: Boolean,
       required: true,
+    },
+    isExperience: {
+      type: Boolean,
+      default: false,
     },
   },
 });

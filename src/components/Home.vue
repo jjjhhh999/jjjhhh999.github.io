@@ -11,19 +11,19 @@
     >
       <div class="row align-items-center">
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 text-center">
-          <img class="profile-photo" :src="picture" alt="구시완 프로필 사진" />
+          <img class="profile-photo" :src="content.flat_picture" :alt="t('home.profileAlt')" />
         </div>
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pt-5">
           <h1
             class="home-title"
             :class="{ pgray: !nightMode, 'text-light': nightMode }"
           >
-            <span class="home-name">{{ name }}</span>
-            <span class="home-role">Back-end Developer · Application Architect</span>
+            <span class="home-name">{{ content.name }}</span>
+            <span class="home-role">{{ t("home.role") }}</span>
           </h1>
-          <div class="description" v-html="description"></div>
+          <div class="description" v-html="content.description"></div>
           <div>
-            <p v-html="email"></p>
+            <p v-html="content.email"></p>
           </div>
           <div class="text-center pb-4"></div>
           </div>
@@ -32,27 +32,19 @@
     </div>
   </template>
 
-<script lang="ts">
-  import info from "../../info";
+<script setup lang="ts">
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-  export default {
-    name: "Home",
-    props: {
-      nightMode: {
-        type: Boolean,
-      },
-    },
-    data() {
-      return {
-        picture: info.flat_picture,
-        description: info.description,
-        email : info.email,
-        name: info.name,
-        github: info.links.github
-      };
-    },
-  };
-  </script>
+import { getLocalizedInfo } from "../localizedInfo";
+
+defineProps<{
+  nightMode: boolean;
+}>();
+
+const { locale, t } = useI18n();
+const content = computed(() => getLocalizedInfo(locale.value));
+</script>
 
   <style scoped>
   .home-title {

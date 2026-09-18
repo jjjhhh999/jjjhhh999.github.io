@@ -21,7 +21,7 @@
           type="button"
           aria-controls="navbarSupportedContent"
           :aria-expanded="menuOpen"
-          aria-label="Toggle navigation"
+          :aria-label="t('nav.menu')"
           @click="menuOpen = !menuOpen"
         >
           <span style="color: gray; font-size: 23px;"
@@ -41,7 +41,7 @@
                 href="#about"
                 @click.prevent="navigate('about')"
                 :class="{ 'text-light': nightMode }"
-                >소개</a
+                >{{ t("nav.about") }}</a
               >
             </li>
             <li class="nav-item mx-2">
@@ -50,7 +50,7 @@
                 href="#skills"
                 @click.prevent="navigate('skills')"
                 :class="{ 'text-light': nightMode }"
-                >핵심 역량</a
+                >{{ t("nav.skills") }}</a
               >
             </li>
             <li class="nav-item mx-2 ">
@@ -59,7 +59,7 @@
                 href="#portfolio"
                 @click.prevent="navigate('portfolio')"
                 :class="{ 'text-light': nightMode }"
-                >포트폴리오</a
+                >{{ t("nav.portfolio") }}</a
               >
             </li>
             <li class="nav-item mx-2">
@@ -68,8 +68,21 @@
                 href="#contact"
                 @click.prevent="navigate('contact')"
                 :class="{ 'text-light': nightMode }"
-                >문의</a
+                >{{ t("nav.contact") }}</a
               >
+            </li>
+            <li class="nav-item ms-2 language-item">
+              <button
+                class="nav-link language-switch"
+                type="button"
+                :class="{ 'text-light': nightMode }"
+                :aria-label="t('nav.switchToEnglish')"
+                @click="switchLanguage"
+              >
+                <span :class="{ active: locale === 'ko' }">KO</span>
+                <span class="language-divider" aria-hidden="true">/</span>
+                <span :class="{ active: locale === 'en' }">EN</span>
+              </button>
             </li>
             <li class="nav-item ms-2">
               <a
@@ -77,8 +90,8 @@
                 href="#"
                 @click.prevent="switchMode"
                 :class="{ 'text-light': nightMode }"
-                :title="nightMode ? 'Light Mode' : 'Night Mode'"
-                :aria-label="nightMode ? 'Light Mode' : 'Night Mode'"
+                :title="nightMode ? t('nav.lightMode') : t('nav.darkMode')"
+                :aria-label="nightMode ? t('nav.lightMode') : t('nav.darkMode')"
                 ><i
                   :class="{
                     'fas fa-moon': nightMode,
@@ -97,8 +110,10 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 import Logo from "./helpers/Logo.vue";
 import info from "../../info";
+import { messages } from "../i18n";
 
 type SectionId = "home" | "about" | "skills" | "portfolio" | "contact";
 
@@ -113,6 +128,7 @@ const emit = defineEmits<{
 
 const navbarConfig = info.config.navbar;
 const menuOpen = ref(false);
+const { locale, t } = useI18n();
 
 function navigate(section: SectionId) {
   emit("scroll", section);
@@ -122,11 +138,51 @@ function navigate(section: SectionId) {
 function switchMode() {
   emit("night-mode", !props.nightMode);
 }
+
+function switchLanguage() {
+  locale.value = locale.value === "ko" ? "en" : "ko";
+  window.localStorage.setItem("locale", locale.value);
+  document.documentElement.lang = locale.value;
+  document.title = messages[locale.value as "ko" | "en"].meta.title;
+}
 </script>
 
 <style scoped>
 .nav-link {
   font-weight: 500;
+}
+
+.language-switch {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  font-size: 13px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.language-switch span:not(.language-divider) {
+  opacity: 0.48;
+}
+
+.language-switch span.active {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.language-divider {
+  margin: 0 0.3rem;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 991px) {
+  .language-item {
+    margin-left: 0 !important;
+  }
+
+  .language-switch {
+    padding-left: 0;
+  }
 }
 
 button {

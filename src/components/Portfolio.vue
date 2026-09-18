@@ -18,7 +18,7 @@
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
         >
-          포트폴리오
+          {{ t("portfolio.title") }}
         </h2>
       </div>
       <hr
@@ -30,7 +30,7 @@
         class="portfolio-tabs"
         :class="{ 'portfolio-tabs-dark': nightMode }"
         role="tablist"
-        aria-label="포트폴리오 분류"
+        :aria-label="t('portfolio.tabsLabel')"
       >
         <button
           v-for="tab in tabs"
@@ -100,7 +100,7 @@
             <button
               class="award-preview"
               type="button"
-              :aria-label="`${design.title || design.name} 상세 보기`"
+              :aria-label="`${design.title || design.name} ${t('common.viewDetails')}`"
               @click="showDesignModal(design)"
             >
               <img
@@ -127,7 +127,7 @@
                 type="button"
                 @click="showDesignModal(design)"
               >
-                상세 보기
+                {{ t("common.viewDetails") }}
               </button>
             </div>
           </div>
@@ -205,8 +205,9 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
-import info from "../../info";
+import { getLocalizedInfo } from "../localizedInfo";
 import type { PortfolioItem } from "../types/content";
 import Card from "./helpers/Card.vue";
 import CardEducation from "./helpers/CardEducation.vue";
@@ -220,15 +221,21 @@ defineProps<{
   nightMode: boolean;
 }>();
 
-const tabs: Array<{ id: TabId; label: string }> = [
-  { id: "projects", label: "프로젝트" },
-  { id: "award", label: "수상·자격" },
-  { id: "education", label: "교육" },
-];
+const { locale, t } = useI18n();
+const content = computed(() => getLocalizedInfo(locale.value));
+const tabs = computed<Array<{ id: TabId; label: string }>>(() => [
+  { id: "projects", label: t("portfolio.projects") },
+  { id: "award", label: t("portfolio.awards") },
+  { id: "education", label: t("portfolio.education") },
+]);
 const initialVisibleCount = 3;
-const allInfo = info.portfolio as PortfolioItem[];
-const designInfo = info.portfolio_design as PortfolioItem[];
-const allEducationInfo = info.portfolio_education as PortfolioItem[];
+const allInfo = computed(() => content.value.portfolio as PortfolioItem[]);
+const designInfo = computed(
+  () => content.value.portfolio_design as PortfolioItem[],
+);
+const allEducationInfo = computed(
+  () => content.value.portfolio_education as PortfolioItem[],
+);
 const activeTab = ref<TabId>("projects");
 const visibleProjectCount = ref(initialVisibleCount);
 const visibleEducationCount = ref(initialVisibleCount);
@@ -237,18 +244,20 @@ const designModalInfo = ref<PortfolioItem | null>(null);
 const educationModalInfo = ref<PortfolioItem | null>(null);
 
 const portfolioInfo = computed(() =>
-  allInfo.slice(0, visibleProjectCount.value),
+  allInfo.value.slice(0, visibleProjectCount.value),
 );
 const educationInfo = computed(() =>
-  allEducationInfo.slice(0, visibleEducationCount.value),
+  allEducationInfo.value.slice(0, visibleEducationCount.value),
 );
 const projectButtonLabel = computed(() =>
-  visibleProjectCount.value >= allInfo.length ? "접기" : "더 보기",
+  visibleProjectCount.value >= allInfo.value.length
+    ? t("portfolio.collapse")
+    : t("portfolio.showMore"),
 );
 const educationButtonLabel = computed(() =>
-  visibleEducationCount.value >= allEducationInfo.length
-    ? "접기"
-    : "더 보기",
+  visibleEducationCount.value >= allEducationInfo.value.length
+    ? t("portfolio.collapse")
+    : t("portfolio.showMore"),
 );
 
 function scrollToPortfolio() {
@@ -261,7 +270,7 @@ function scrollByCardHeight() {
 }
 
 function toggleProjects() {
-  if (visibleProjectCount.value >= allInfo.length) {
+  if (visibleProjectCount.value >= allInfo.value.length) {
     visibleProjectCount.value = initialVisibleCount;
     scrollToPortfolio();
     return;
@@ -269,13 +278,13 @@ function toggleProjects() {
 
   visibleProjectCount.value = Math.min(
     visibleProjectCount.value + initialVisibleCount,
-    allInfo.length,
+    allInfo.value.length,
   );
   scrollByCardHeight();
 }
 
 function toggleEducation() {
-  if (visibleEducationCount.value >= allEducationInfo.length) {
+  if (visibleEducationCount.value >= allEducationInfo.value.length) {
     visibleEducationCount.value = initialVisibleCount;
     scrollToPortfolio();
     return;
@@ -283,7 +292,7 @@ function toggleEducation() {
 
   visibleEducationCount.value = Math.min(
     visibleEducationCount.value + initialVisibleCount,
-    allEducationInfo.length,
+    allEducationInfo.value.length,
   );
   scrollByCardHeight();
 }

@@ -17,7 +17,7 @@
         <h2
           class="title text-center"
           :class="{ pgray: !nightMode, 'text-light': nightMode }"
-          >문의</h2
+          >{{ t("contact.title") }}</h2
         >
       </div>
       <hr
@@ -36,7 +36,8 @@
             type="text"
             name="user_name"
             v-model="name"
-            placeholder="이름"
+            :placeholder="t('contact.name')"
+            :aria-label="t('contact.name')"
             autocomplete="name"
             required
             class="pinput"
@@ -59,7 +60,8 @@
             type="email"
             name="user_email"
             v-model="email"
-            placeholder="이메일"
+            :placeholder="t('contact.email')"
+            :aria-label="t('contact.email')"
             autocomplete="email"
             required
             class="pinput"
@@ -81,7 +83,8 @@
           <textarea
             name="message"
             v-model="text"
-            placeholder="문의 내용"
+            :placeholder="t('contact.message')"
+            :aria-label="t('contact.message')"
             required
             class="pinput"
             rows="4"
@@ -103,7 +106,7 @@
           data-aos-duration="1000"
           data-aos-offset="50"
         >
-          {{ isSending ? "전송 중..." : "메일 보내기" }}
+          {{ isSending ? t("contact.sending") : t("contact.send") }}
         </button>
       </form>
 
@@ -120,6 +123,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import emailjs, { type EmailJSResponseStatus } from "@emailjs/browser";
+import { useI18n } from "vue-i18n";
 
 import config from "../../config";
 import Snackbar from "./helpers/Snackbar.vue";
@@ -135,6 +139,7 @@ const showSnackbar = ref(false);
 const snackbarMessage = ref("");
 const snackbarColor = ref("");
 const isSending = ref(false);
+const { t } = useI18n();
 
 function showMessage(message: string, color: string) {
   showSnackbar.value = true;
@@ -156,7 +161,7 @@ async function sendEmail() {
   }
 
   if (!email.value || !name.value || !text.value) {
-    showMessage("이름, 이메일, 문의 내용을 모두 입력해 주세요.", "rgb(212, 149, 97)");
+    showMessage(t("contact.required"), "rgb(212, 149, 97)");
     return;
   }
 
@@ -180,7 +185,7 @@ async function sendEmail() {
       { publicKey: config.emailjs.publicKey },
     );
 
-    showMessage("메일이 정상적으로 전송되었습니다.", "#1aa260");
+    showMessage(t("contact.success"), "#1aa260");
     email.value = "";
     text.value = "";
     name.value = "";
@@ -192,12 +197,20 @@ async function sendEmail() {
     });
 
     if (emailError.status === 429) {
-      showMessage("전송 요청이 많습니다. 잠시 후 다시 시도해 주세요.", "rgb(212, 149, 97)");
+      showMessage(t("contact.rateLimit"), "rgb(212, 149, 97)");
     } else if (emailError.status === 401 || emailError.status === 403) {
-      showMessage(`메일 서비스 연결을 확인해 주세요. (오류 ${emailError.status})`, "rgb(212, 149, 97)");
+      showMessage(
+        t("contact.connection", { status: emailError.status }),
+        "rgb(212, 149, 97)",
+      );
     } else {
-      const errorCode = emailError.status ? ` (오류 ${emailError.status})` : "";
-      showMessage(`메일 전송에 실패했습니다.${errorCode}`, "rgb(212, 149, 97)");
+      const errorCode = emailError.status
+        ? t("contact.errorCode", { status: emailError.status })
+        : "";
+      showMessage(
+        t("contact.failure", { code: errorCode }),
+        "rgb(212, 149, 97)",
+      );
     }
   } finally {
     isSending.value = false;

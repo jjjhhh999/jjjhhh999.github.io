@@ -27,7 +27,7 @@
             <button
               type="button"
               class="modal-close-button float-end"
-              aria-label="교육 상세 닫기"
+              :aria-label="$t('modal.educationClose')"
               @click="closeModal"
             >
               <i class="fas fa-times" aria-hidden="true"></i>
@@ -68,7 +68,9 @@
               class="mt-1 mb-3"
               :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
             />
-            <button class="btn w-25" type="button" @click="closeModal">닫기</button>
+            <button class="btn w-25" type="button" @click="closeModal">
+              {{ $t("common.close") }}
+            </button>
           </div>
         </div>
       </div>
