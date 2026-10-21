@@ -38,30 +38,38 @@
 
 #### 시스템 구성
 
-- **Admin:** 서비스, 시나리오, Q&A, 키워드, 학습, 사전 테스트 및 운영 배포 관리
-- **Front:** 사용자 챗봇 UI와 Model API 연동
-- **Model:** 문장 임베딩 생성, 벡터 검색 및 답변 제공 API
-- **운영 구조:** Spring Boot 서비스와 FastAPI 모델 서버를 분리하고 MariaDB를 중심으로 데이터 연계
+- **Admin:** 직접 파일·그룹웨어 자료 수집, PDF·DOCX·OCR 처리, Chunk 생성, 검토·승인, Pretest 및 운영 반영
+- **Model:** 벡터·BM25 검색, RRF 통합, Reranker 재정렬, 관련도 판정, Claude Sonnet 기반 답변·출처 생성
+- **Front:** 질문 전달, 답변 표시, 출처 정보와 원문 링크 및 오류·대체 답변 상태 표시
+- **운영 구조:** Admin, Model, Front의 책임을 분리하고 MariaDB에 Chunk·Embedding과 출처 메타데이터 저장
 - **배포 환경:** Gradle, Docker, Docker Compose
 
-#### 기존 AI 검색 구조
+#### 문서 지식화와 배포 흐름
 
-기존 Dorothy는 Sentence-Transformers와 EmbeddingGemma로 사용자 질문을 문장 벡터로 변환하고, FAISS 기반 의미 유사도 검색으로 등록된 Q&A에서 답변을 찾도록 구성되어 있습니다.
+1. 직접 파일, 그룹웨어 게시물과 첨부파일 수집
+2. PDF·DOCX 텍스트 추출 및 이미지 문서 OCR 처리
+3. 제목·게시판·작성일·원문 위치를 포함한 Chunk 생성
+4. 관리자 검토와 승인
+5. Pretest 검색 품질 확인 후 Release 운영 반영
+6. MariaDB에 Chunk·Embedding과 출처 정보 저장
 
-- 의도, Q&A, 동의어 및 미응답 데이터를 EmbeddingGemma 기반 문장 임베딩으로 변환
-- 서비스별 FAISS `IndexFlatL2` 인덱스를 메모리에 구성
-- 사용자 질문을 실시간으로 벡터화하여 유사 답변 검색
-- 거리 임계값을 충족하지 못하는 질문을 미응답으로 처리
+Admin은 지식 수집·검수·배포를 담당하며 검색과 Claude 호출은 수행하지 않습니다.
 
-현재 구현의 핵심은 생성형 답변이나 LLM 파인튜닝이 아닌 **임베딩 기반 Dense Retrieval·Semantic Search**입니다.
+#### 하이브리드 검색과 답변 생성
 
-#### 고도화 담당 영역
+1. 사용자 질문으로 벡터 검색 Top 20과 BM25 검색 Top 20 조회
+2. RRF로 의미 검색과 키워드 검색 결과 통합
+3. Reranker를 이용한 질문·Chunk 관련도 재정렬
+4. 관련도가 낮으면 알 수 없음으로 종료
+5. 관련도가 높으면 상위 Chunk 3~5개 선별
+6. Claude Sonnet으로 답변·근거·출처 생성
+7. Front에서 출처 제목·게시판·작성일·원문 링크 표시
 
-기존 임베딩·FAISS 검색 기능은 현행 플랫폼의 구현입니다. 담당 영역은 기존 구조를 분석하고 그룹웨어 문서와 업무 데이터를 연계하는 RAG 기능을 설계·개발하여 Dorothy 플랫폼을 고도화하는 것입니다.
+Model은 검색과 생성형 AI 호출을 전담합니다. 의미 검색과 키워드 검색을 결합하고 관련도 기준을 충족하지 못한 질문에는 답변을 생성하지 않아 검색 정확성과 답변 신뢰성을 관리합니다.
 
 #### Dorothy 기술 스택
 
-`Java` `Spring Boot` `Spring Security` `MyBatis` `Thymeleaf` `MariaDB` `Python` `FastAPI` `Sentence-Transformers` `EmbeddingGemma` `FAISS` `PyTorch` `Pandas` `NumPy` `KoNLPy` `Docker` `Docker Compose`
+`Java` `Spring Boot` `Spring Security` `MyBatis` `Thymeleaf` `MariaDB` `Python` `FastAPI` `Sentence-Transformers` `EmbeddingGemma` `FAISS` `BM25` `RRF` `Reranker` `Claude Sonnet` `OCR` `Docker` `Docker Compose`
 
 ## 로컬 실행
 

@@ -155,23 +155,82 @@ let info = {
               {img: require("./src/assets/portfolio/dorothy/3_의도관리.png")},
               {img: require("./src/assets/portfolio/dorothy/4_Q&A.png")},
               {img: require("./src/assets/portfolio/dorothy/5_키워드관리.png")},
-              {img: require("./src/assets/portfolio/dorothy/6_연계자료배포.png")},
-              {img: require("./src/assets/portfolio/dorothy/7_파일직접등록.png")},
+              {img: require("./src/assets/portfolio/dorothy/6_연계관리.png")},
+              {img: require("./src/assets/portfolio/dorothy/7_연계대상이력.png")},
               {img: require("./src/assets/portfolio/dorothy/8_연계대상추가.png")},
-              {img: require("./src/assets/portfolio/dorothy/9_연계자료현황.png")},
-              {img: require("./src/assets/portfolio/dorothy/10_챗봇화면.png")},
-              {img: require("./src/assets/portfolio/dorothy/11_교육훈련신청서.png")},
-              {img: require("./src/assets/portfolio/dorothy/12_챗봇pdf.png")},
-              {img: require("./src/assets/portfolio/dorothy/13_교육훈련신청서 작성가이드.png")}
+              {img: require("./src/assets/portfolio/dorothy/9_파일관리.png")},
+              {img: require("./src/assets/portfolio/dorothy/10_파일상세.png")},
+              {img: require("./src/assets/portfolio/dorothy/11_챗봇화면.png")},
+              {img: require("./src/assets/portfolio/dorothy/12_교육훈련신청서.png")},
+              {img: require("./src/assets/portfolio/dorothy/13_챗봇pdf.png")},
+              {img: require("./src/assets/portfolio/dorothy/14_교육훈련신청서 작성가이드.png")}
           ],
-          technologies: ["Java", "Spring Boot", "Spring Security", "MyBatis", "MariaDB", "Python", "FastAPI", "Sentence-Transformers", "EmbeddingGemma", "FAISS", "PyTorch", "KoNLPy", "Docker", "Docker Compose"],
+          technologies: ["Java", "Spring Boot", "Spring Security", "MyBatis", "MariaDB", "Python", "FastAPI", "Sentence-Transformers", "EmbeddingGemma", "FAISS", "BM25", "RRF", "Reranker", "Claude Sonnet", "OCR", "Docker", "Docker Compose"],
           category: "AI Chatbot Platform · Enhancement",
           date: "진행 중",
           github: "",
           visit: "",
-          description: "관리자가 챗봇 시나리오, Q&A, 동의어 및 미응답 데이터를 관리하고 학습·테스트·배포할 수 있는 기업용 AI 챗봇 플랫폼입니다.<br><br>" +
-              "<strong>기존 플랫폼</strong><br>기존 Dorothy는 문장 임베딩과 FAISS 기반 의미 검색으로 등록된 Q&A에서 유사 답변을 제공하며, Spring Boot 서비스와 FastAPI 모델 서버가 분리된 구조입니다.<br><br>" +
-              "<strong>고도화 진행 현황</strong><br>기존 검색 구조를 분석하고 업무 문서 임베딩·벡터 검색 기능을 구현했습니다. 현재 OCR 기반 문서 처리 품질을 검증하고 있으며, 그룹웨어·Notion·Google Drive 문서를 활용한 RAG 파이프라인과 LLM 답변 생성 기능을 개발하고 있습니다."
+          description: `
+              <p>직접 등록 파일, 그룹웨어 게시물과 첨부파일을 지식으로 수집하고, 검토와 배포를 거쳐 하이브리드 검색과 Claude Sonnet 기반 답변까지 연결한 기업용 RAG 챗봇 플랫폼입니다. 수집과 운영(Admin), 검색과 생성(Model), 사용자 경험(Front)의 책임을 분리해 개발했습니다.</p>
+
+              <h4>모듈별 구현 범위</h4>
+              <div class="architecture-grid">
+                <section class="architecture-module">
+                  <h5>dorothy-admin</h5>
+                  <p class="module-purpose">지식 수집, 검수, 배포</p>
+                  <ul>
+                    <li>직접 파일, 그룹웨어 게시물과 첨부파일 수집</li>
+                    <li>PDF, DOCX 텍스트 추출과 OCR 처리</li>
+                    <li>제목, 게시판, 작성일 메타데이터를 포함한 Chunk 생성</li>
+                    <li>검토, 승인, Pretest, 운영 반영</li>
+                    <li>MariaDB에 Chunk와 Embedding 저장</li>
+                  </ul>
+                  <p class="module-boundary">검색과 Claude 호출은 수행하지 않음</p>
+                </section>
+                <section class="architecture-module">
+                  <h5>dorothy-model</h5>
+                  <p class="module-purpose">검색, 판단, 답변 생성</p>
+                  <ul>
+                    <li>벡터 검색과 BM25 검색 결과 생성</li>
+                    <li>RRF 통합과 Reranker 재정렬</li>
+                    <li>관련도 판정과 낮은 관련도 질문 차단</li>
+                    <li>상위 Chunk를 활용한 Claude Sonnet 호출</li>
+                    <li>답변, 근거와 출처 생성</li>
+                  </ul>
+                </section>
+                <section class="architecture-module">
+                  <h5>dorothy-front</h5>
+                  <p class="module-purpose">질문과 답변 사용자 경험</p>
+                  <ul>
+                    <li>사용자 질문 전달과 답변 표시</li>
+                    <li>출처 제목, 게시판, 작성일 표시</li>
+                    <li>원문 링크 제공</li>
+                    <li>오류와 대체 답변 상태 표시</li>
+                  </ul>
+                </section>
+              </div>
+
+              <h4>Admin 문서 지식화와 배포 흐름</h4>
+              <ol class="process-list">
+                <li><span><strong>자료 수집</strong>직접 파일, 그룹웨어 게시물과 첨부파일 수집</span></li>
+                <li><span><strong>텍스트 추출</strong>PDF와 DOCX 파싱 및 이미지 문서 OCR 처리</span></li>
+                <li><span><strong>Chunk 생성</strong>본문과 함께 제목, 게시판, 작성일, 원문 위치를 메타데이터로 구성</span></li>
+                <li><span><strong>검토와 승인</strong>관리자가 추출 내용과 Chunk를 검토한 뒤 승인</span></li>
+                <li><span><strong>배포</strong>Pretest에서 검색 품질을 확인하고 Release를 통해 운영 반영</span></li>
+                <li><span><strong>저장</strong>MariaDB에 Chunk, Embedding과 출처 정보를 저장</span></li>
+              </ol>
+
+              <h4>Model 하이브리드 검색과 답변 생성</h4>
+              <ol class="process-list">
+                <li><span><strong>후보 검색</strong>사용자 질문으로 벡터 검색 Top 20과 BM25 검색 Top 20을 각각 조회</span></li>
+                <li><span><strong>검색 결과 통합</strong>RRF로 의미 기반 결과와 키워드 기반 결과를 하나의 순위로 통합</span></li>
+                <li><span><strong>정밀 재정렬</strong>Reranker가 질문과 각 Chunk의 관련도를 다시 계산해 순서를 조정</span></li>
+                <li><span><strong>관련도 판정</strong>관련도가 낮으면 알 수 없음으로 종료하고, 기준을 충족하면 상위 Chunk 3개에서 5개를 선별</span></li>
+                <li><span><strong>답변 생성</strong>선별한 Chunk를 Claude Sonnet에 전달해 답변, 근거와 출처를 생성</span></li>
+                <li><span><strong>화면 제공</strong>답변과 함께 출처 제목, 게시판, 작성일과 원문 링크를 표시</span></li>
+              </ol>
+
+              <p class="architecture-note"><strong>설계 기준</strong> Admin은 지식의 수집, 품질 검수와 배포에 집중하고, Model은 검색과 생성형 AI 호출을 전담하도록 책임을 분리했습니다. 의미 검색과 키워드 검색을 결합하고 관련도 기준을 충족하지 못한 질문에는 답변을 생성하지 않아 검색 정확성과 답변 신뢰성을 함께 관리했습니다.</p>`
       },
       {
           name: "IM금융지주(대구은행) 인사시스템 구축(AA)",

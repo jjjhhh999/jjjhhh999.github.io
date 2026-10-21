@@ -4,10 +4,67 @@ const portfolioTranslations = [
   {
     name: "Dorothy — Enterprise AI Chatbot Platform",
     date: "In progress",
-    description:
-      "An enterprise AI chatbot platform where administrators manage scenarios, Q&A data, synonyms, and unanswered queries, then train, test, and deploy the chatbot.<br><br>" +
-      "<strong>Existing Platform</strong><br>Dorothy uses sentence embeddings and FAISS-based semantic search to retrieve similar answers from registered Q&A data. The Spring Boot application and FastAPI model server run as separate services.<br><br>" +
-      "<strong>Enhancement in Progress</strong><br>I analyzed the existing retrieval architecture and implemented document embedding and vector search. I am validating OCR-based document processing and developing a RAG pipeline and LLM answer generation using groupware, Notion, and Google Drive documents.",
+    description: `
+      <p>An enterprise RAG chatbot platform that ingests uploaded files, groupware posts, and attachments, reviews and releases the resulting knowledge, and generates grounded answers through hybrid retrieval and Claude Sonnet. I separated the responsibilities of ingestion and operations (Admin), retrieval and generation (Model), and the user experience (Front).</p>
+
+      <h4>Implemented module responsibilities</h4>
+      <div class="architecture-grid">
+        <section class="architecture-module">
+          <h5>dorothy-admin</h5>
+          <p class="module-purpose">Knowledge ingestion, review, and release</p>
+          <ul>
+            <li>Ingests uploaded files, groupware posts, and attachments</li>
+            <li>Extracts text from PDF and DOCX files and processes OCR</li>
+            <li>Creates chunks with title, board, and creation-date metadata</li>
+            <li>Supports review, approval, Pretest, and production release</li>
+            <li>Stores chunks and embeddings in MariaDB</li>
+          </ul>
+          <p class="module-boundary">Does not perform retrieval or call Claude</p>
+        </section>
+        <section class="architecture-module">
+          <h5>dorothy-model</h5>
+          <p class="module-purpose">Retrieval, relevance decisions, and generation</p>
+          <ul>
+            <li>Builds vector and BM25 indexes</li>
+            <li>Fuses results with RRF and reorders them with a reranker</li>
+            <li>Rejects questions below the relevance threshold</li>
+            <li>Calls Claude Sonnet with the highest-ranked chunks</li>
+            <li>Generates answers, evidence, and citations</li>
+          </ul>
+        </section>
+        <section class="architecture-module">
+          <h5>dorothy-front</h5>
+          <p class="module-purpose">Question and answer experience</p>
+          <ul>
+            <li>Sends user questions and displays answers</li>
+            <li>Displays source title, board, and creation date</li>
+            <li>Links to the original source</li>
+            <li>Shows error and fallback-answer states</li>
+          </ul>
+        </section>
+      </div>
+
+      <h4>Admin knowledge ingestion and release flow</h4>
+      <ol class="process-list">
+        <li><span><strong>Source ingestion</strong>Collect uploaded files, groupware posts, and attachments</span></li>
+        <li><span><strong>Text extraction</strong>Parse PDF and DOCX content and apply OCR to image-based documents</span></li>
+        <li><span><strong>Chunk creation</strong>Attach title, board, creation date, and original location metadata to each chunk</span></li>
+        <li><span><strong>Review and approval</strong>Let administrators validate extracted content and chunks</span></li>
+        <li><span><strong>Release</strong>Validate retrieval quality in Pretest and promote approved knowledge to production</span></li>
+        <li><span><strong>Storage</strong>Persist chunks, embeddings, and source metadata in MariaDB</span></li>
+      </ol>
+
+      <h4>Model hybrid retrieval and answer generation</h4>
+      <ol class="process-list">
+        <li><span><strong>Candidate retrieval</strong>Retrieve the top 20 vector matches and top 20 BM25 matches for the user question</span></li>
+        <li><span><strong>Result fusion</strong>Combine semantic and lexical results into one ranking with reciprocal rank fusion</span></li>
+        <li><span><strong>Precision reranking</strong>Recalculate question-to-chunk relevance with a reranker</span></li>
+        <li><span><strong>Relevance decision</strong>Return an unknown response for low relevance, or select the top three to five chunks</span></li>
+        <li><span><strong>Answer generation</strong>Send the selected chunks to Claude Sonnet to produce the answer, evidence, and citations</span></li>
+        <li><span><strong>Presentation</strong>Display the answer with source title, board, creation date, and original link</span></li>
+      </ol>
+
+      <p class="architecture-note"><strong>Design decision</strong> Admin owns knowledge ingestion, quality review, and release, while Model exclusively owns retrieval and generative-AI calls. Combining semantic and lexical retrieval improves coverage, and the relevance gate prevents unsupported answers when the retrieved evidence is weak.</p>`,
   },
   {
     name: "iM Financial Group (Daegu Bank) HR System — Application Architect",

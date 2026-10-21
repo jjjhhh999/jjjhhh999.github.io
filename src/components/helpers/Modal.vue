@@ -51,7 +51,7 @@
             <div class="project-content">
               <h3 class="detail-section-title">{{ $t("modal.overview") }}</h3>
               <div id="project-modal-description" class="project-description">
-                <span v-html="portfolio.description"></span>
+                <div v-html="portfolio.description"></div>
               </div>
 
               <h3 class="detail-section-title">{{ $t("modal.screens") }}</h3>
@@ -230,6 +230,128 @@ a:hover {
   text-align: left;
 }
 
+.project-description :deep(p) {
+  margin: 0 0 1rem;
+}
+
+.project-description :deep(h4) {
+  color: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 1.6rem 0 0.8rem;
+}
+
+.project-description :deep(h4:first-child) {
+  margin-top: 0;
+}
+
+.project-description :deep(.architecture-grid) {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-description :deep(.architecture-module) {
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(102, 157, 179, 0.3);
+  border-radius: 8px;
+  min-width: 0;
+  padding: 0.9rem;
+}
+
+.project-description :deep(.architecture-module h5) {
+  color: #356d83;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+}
+
+.project-description :deep(.module-purpose) {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+}
+
+.project-description :deep(.architecture-module ul) {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.project-description :deep(.architecture-module li) {
+  margin-bottom: 0.35rem;
+}
+
+.project-description :deep(.module-boundary) {
+  border-top: 1px solid rgba(102, 157, 179, 0.25);
+  color: #5a6970;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0;
+  padding-top: 0.65rem;
+}
+
+.project-description :deep(.process-list) {
+  counter-reset: process-step;
+  display: grid;
+  gap: 0.55rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-description :deep(.process-list li) {
+  align-items: start;
+  counter-increment: process-step;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+}
+
+.project-description :deep(.process-list li::before) {
+  align-items: center;
+  background: #669db3;
+  border-radius: 50%;
+  color: white;
+  content: counter(process-step);
+  display: flex;
+  font-size: 0.78rem;
+  font-weight: 700;
+  height: 1.7rem;
+  justify-content: center;
+  margin-top: 0.1rem;
+  width: 1.7rem;
+}
+
+.project-description :deep(.process-list strong) {
+  display: block;
+  font-weight: 700;
+}
+
+.project-description :deep(.architecture-note) {
+  border-top: 1px solid rgba(102, 157, 179, 0.35);
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+}
+
+.modal-container.text-light
+  .project-description
+  :deep(.architecture-module) {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(158, 205, 223, 0.3);
+}
+
+.modal-container.text-light
+  .project-description
+  :deep(.architecture-module h5) {
+  color: #9ecddd;
+}
+
+.modal-container.text-light
+  .project-description
+  :deep(.module-boundary) {
+  color: #d0d7da;
+}
+
 .project-gallery {
   min-width: 0;
 }
@@ -261,6 +383,10 @@ a:hover {
 
   .project-description {
     padding: 0.85rem 1rem;
+  }
+
+  .project-description :deep(.architecture-grid) {
+    grid-template-columns: 1fr;
   }
 }
 
