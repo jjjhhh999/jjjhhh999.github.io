@@ -5,6 +5,7 @@ export interface Picture {
 
 export interface PortfolioItem {
   name: string;
+  displayOrder?: number;
   title?: string;
   cover?: Picture;
   pictures: Picture[];

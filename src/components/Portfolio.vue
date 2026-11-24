@@ -229,7 +229,13 @@ const tabs = computed<Array<{ id: TabId; label: string }>>(() => [
   { id: "education", label: t("portfolio.education") },
 ]);
 const initialVisibleCount = 3;
-const allInfo = computed(() => content.value.portfolio as PortfolioItem[]);
+const allInfo = computed(() =>
+  [...(content.value.portfolio as PortfolioItem[])].sort(
+    (left, right) =>
+      (left.displayOrder ?? Number.MAX_SAFE_INTEGER) -
+      (right.displayOrder ?? Number.MAX_SAFE_INTEGER),
+  ),
+);
 const designInfo = computed(
   () => content.value.portfolio_design as PortfolioItem[],
 );
