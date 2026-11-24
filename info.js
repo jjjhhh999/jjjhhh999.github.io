@@ -29,7 +29,7 @@ let info = {
       "<p><strong>11년 경력 · Java/Spring 백엔드 개발 · Application Architect</strong><br>" +
       "HR·ERP·전자전표 솔루션 설계·구축·제품화·배포·운영<br>" +
       "팀장·개발 PL 경험 · 기술 설계·개발 표준·협업·일정 관리<br>" +
-      "기업용 AI 챗봇 Dorothy 고도화 · 임베딩·벡터 검색·OCR·RAG·LLM 연계</p>",
+      "기업용 AI 챗봇 Dorothy 개발 · 문서 수집·검색·답변 생성·출처 확인</p>",
     email: "<strong>문의</strong><br>협업 및 채용 관련 문의는 하단의 문의하기를 통해 이메일로 보내주세요.",
   links: {
     //linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
@@ -64,9 +64,10 @@ let info = {
               {
                   title: "USTRA AI 챗봇 | Back-end Developer",
                   items: [
-                      "AI 챗봇 백엔드 API 및 임베딩·벡터 유사도 검색 기능 개발",
-                      "RAG 파이프라인, LLM 답변 생성 및 OCR 기반 문서 처리 기능 개발",
-                      "AWS 기반 개발·배포 환경과 Docker 컨테이너 실행 환경 구축"
+                      "파일과 그룹웨어 게시물을 수집해 검토·승인하고 테스트·운영에 반영하는 관리자 기능 개발",
+                      "벡터 검색과 BM25 검색 결과를 RRF로 합치고 Reranker로 순서를 조정하는 RAG 검색 기능 개발",
+                      "Claude·OpenAI·Gemini·Ollama 연동과 관련 문서가 부족할 때 답변을 제한하는 처리 개발",
+                      "React 챗봇 화면과 JWT 인증, 대화 이력, PDF·Word 원문 보기 기능 연계"
                   ]
               },
               {
@@ -78,7 +79,7 @@ let info = {
                   ]
               }
           ],
-          skills: ["Application Architecture (AA)", "HR Solution", "Java 17/21", "Spring Boot", "AI Chatbot Enhancement", "RAG", "EmbeddingGemma", "FAISS", "Docker", "CI/CD"]
+          skills: ["Application Architecture (AA)", "HR Solution", "Java 17/21", "Spring Boot", "AI Chatbot Enhancement", "Hybrid RAG", "EmbeddingGemma", "FAISS", "BM25", "RRF", "BGE Reranker", "React", "Docker", "CI/CD"]
       },
     {
       name: "일진C&S",
@@ -147,7 +148,71 @@ let info = {
   ],
   portfolio: [
       {
+          name: "다우데이타 — 인사시스템 고도화 및 대외 연계",
+          displayOrder: 2,
+          cover: {img: require("./src/assets/portfolio/daoudata/daoudata-ci-official.png")},
+          pictures: [
+              {
+                  img: require("./src/assets/portfolio/daoudata/daoudata-ci-official.png"),
+                  title: "다우데이타 CI"
+              }
+          ],
+          technologies: ["Java 21", "Spring Boot 3.4", "Spring Security", "JWT", "MyBatis", "MariaDB", "REST API", "Swagger/OpenAPI", "Gradle", "Jenkins", "Nginx", "Log4j2", "Blue-Green Deployment", "Linux"],
+          category: "HR Platform Modernization · API Integration · CI/CD",
+          date: "2026. 11. 01 ~ 현재",
+          github: "",
+          visit: "",
+          description: `
+              <p>다우데이타 인사시스템의 백엔드 고도화와 대외 시스템 연계, 안정적인 배포 체계 구축을 담당했습니다. Java 21·Spring Boot 3.4 기반으로 HR 업무 API를 정비하고 PC OFF·다우오피스·세콤 연계를 REST API로 표준화했으며, Jenkins와 Nginx 이중 인스턴스를 이용한 블루그린 배포 구조를 적용했습니다.</p>
+
+              <h4>담당 역할과 핵심 구현</h4>
+              <div class="architecture-grid">
+                <section class="architecture-module">
+                  <h5>배포 아키텍처</h5>
+                  <p class="module-purpose">서비스 연속성을 고려한 CI/CD</p>
+                  <ul>
+                    <li>Jenkins에서 인사시스템과 REST API를 분리 빌드·배포</li>
+                    <li>대기 인스턴스 배포와 기동 확인 후 Nginx 라우팅 전환</li>
+                    <li>두 인스턴스를 교대 운영하는 블루그린 배포 구성</li>
+                    <li>개발·운영 프로파일과 인스턴스 식별 로그 체계 정비</li>
+                  </ul>
+                </section>
+                <section class="architecture-module">
+                  <h5>대외 시스템 연계</h5>
+                  <p class="module-purpose">근태·조직 정보의 일관된 인터페이스</p>
+                  <ul>
+                    <li>PC OFF 시스템과 인사시스템 간 근태 데이터 연계</li>
+                    <li>다우오피스 그룹웨어와 HR 데이터 연계</li>
+                    <li>세콤 출퇴근 기록의 대량 수신·검증·건별 결과 처리</li>
+                    <li>수신한 세콤 데이터를 근태 기록으로 반영하는 배치 구성</li>
+                  </ul>
+                </section>
+                <section class="architecture-module">
+                  <h5>API 운영 품질</h5>
+                  <p class="module-purpose">보안·추적성·장애 대응 기준</p>
+                  <ul>
+                    <li>Spring Security와 JWT 기반 API 인증 적용</li>
+                    <li>요청값 검증과 성공·실패 공통 응답 구조 적용</li>
+                    <li>Trace ID 기반 수신·처리 결과 로그와 예외 처리</li>
+                    <li>Swagger/OpenAPI 기반 인터페이스 명세 제공</li>
+                  </ul>
+                </section>
+              </div>
+
+              <h4>배포와 연계 처리 흐름</h4>
+              <ol class="process-list">
+                <li><span><strong>분리 빌드</strong>Jenkins에서 화면 애플리케이션과 대외 REST API 산출물을 각각 생성</span></li>
+                <li><span><strong>대기계 배포</strong>현재 서비스 중인 인스턴스는 유지하고 대기 인스턴스에 신규 버전을 배포</span></li>
+                <li><span><strong>상태 확인과 전환</strong>신규 인스턴스의 기동 상태를 확인한 뒤 Nginx 연결 대상을 전환</span></li>
+                <li><span><strong>API 수신</strong>외부 시스템 요청을 인증하고 필수값과 업무 규칙을 검증</span></li>
+                <li><span><strong>업무 반영과 추적</strong>검증된 데이터를 HR 도메인에 반영하고 건별 결과와 처리 이력을 기록</span></li>
+              </ol>
+
+              <p class="architecture-note"><strong>설계 기준</strong> 화면 서비스와 대외 연계 프로세스를 분리해 장애 영향을 제한하고, 배포 중에도 기존 인스턴스가 요청을 처리하도록 구성했습니다. 외부 시스템별 차이는 API 경계에서 흡수하고 인증·검증·응답·로그 형식을 공통화해 연계 기능의 유지보수성과 운영 추적성을 높였습니다.</p>`
+      },
+      {
           name: "Dorothy — 기업용 AI 챗봇 플랫폼",
+          displayOrder: 1,
           cover: {img: require("./src/assets/portfolio/dorothy/0_chatbotIcon.png")},
           pictures: [
               {img: require("./src/assets/portfolio/dorothy/1_메인.png")},
@@ -165,72 +230,63 @@ let info = {
               {img: require("./src/assets/portfolio/dorothy/13_챗봇pdf.png")},
               {img: require("./src/assets/portfolio/dorothy/14_교육훈련신청서 작성가이드.png")}
           ],
-          technologies: ["Java", "Spring Boot", "Spring Security", "MyBatis", "MariaDB", "Python", "FastAPI", "Sentence-Transformers", "EmbeddingGemma", "FAISS", "BM25", "RRF", "Reranker", "Claude Sonnet", "OCR", "Docker", "Docker Compose"],
-          category: "AI Chatbot Platform · Enhancement",
-          date: "진행 중",
+          technologies: ["Java 17", "Spring Boot 3.5", "Spring Security", "Spring Data JPA", "QueryDSL", "MariaDB", "Python 3.11", "FastAPI", "React 19", "TypeScript", "Vite", "JWT/JWKS", "EmbeddingGemma", "FAISS", "BM25", "RRF", "BGE Reranker", "Claude", "OpenAI", "Gemini", "Ollama", "OCR", "Docker", "Docker Compose"],
+          category: "기업용 AI 챗봇 · RAG 검색",
+          date: "2026. 07 ~ 현재",
           github: "",
           visit: "",
           description: `
-              <p>직접 등록 파일, 그룹웨어 게시물과 첨부파일을 지식으로 수집하고, 검토와 배포를 거쳐 하이브리드 검색과 Claude Sonnet 기반 답변까지 연결한 기업용 RAG 챗봇 플랫폼입니다. 수집과 운영(Admin), 검색과 생성(Model), 사용자 경험(Front)의 책임을 분리해 개발했습니다.</p>
+              <p>기존 챗봇에 사내 문서를 검색해 답변하는 기능을 추가하고 있습니다. 관리자가 파일이나 그룹웨어 게시물을 등록하면 문서 내용을 읽어 검색할 수 있는 형태로 저장하고, 검토가 끝난 자료만 테스트와 운영에 반영하도록 만들었습니다. 사용자가 질문하면 의미가 비슷한 문서와 키워드가 포함된 문서를 함께 찾고, 검색된 내용을 바탕으로 LLM이 답변합니다. 답변만 보여주는 데 그치지 않고 참고한 문서와 원문도 바로 확인할 수 있도록 개발했습니다.</p>
 
-              <h4>모듈별 구현 범위</h4>
+              <h4>주요 개발 내용</h4>
               <div class="architecture-grid">
                 <section class="architecture-module">
-                  <h5>dorothy-admin</h5>
-                  <p class="module-purpose">지식 수집, 검수, 배포</p>
+                  <h5>관리자 화면</h5>
+                  <p class="module-purpose">문서 등록부터 운영 반영까지 관리</p>
                   <ul>
-                    <li>직접 파일, 그룹웨어 게시물과 첨부파일 수집</li>
-                    <li>PDF, DOCX 텍스트 추출과 OCR 처리</li>
-                    <li>제목, 게시판, 작성일 메타데이터를 포함한 Chunk 생성</li>
-                    <li>검토, 승인, Pretest, 운영 반영</li>
-                    <li>MariaDB에 Chunk와 Embedding 저장</li>
-                  </ul>
-                  <p class="module-boundary">검색과 Claude 호출은 수행하지 않음</p>
-                </section>
-                <section class="architecture-module">
-                  <h5>dorothy-model</h5>
-                  <p class="module-purpose">검색, 판단, 답변 생성</p>
-                  <ul>
-                    <li>벡터 검색과 BM25 검색 결과 생성</li>
-                    <li>RRF 통합과 Reranker 재정렬</li>
-                    <li>관련도 판정과 낮은 관련도 질문 차단</li>
-                    <li>상위 Chunk를 활용한 Claude Sonnet 호출</li>
-                    <li>답변, 근거와 출처 생성</li>
+                    <li>파일 업로드와 그룹웨어 게시물·첨부파일 수집</li>
+                    <li>PDF·DOCX 내용 추출과 이미지 문서 OCR 처리</li>
+                    <li>문서를 검색 단위로 나누고 임베딩 데이터 생성</li>
+                    <li>자료 검토·승인, 사전 테스트와 운영 반영</li>
+                    <li>LLM 종류와 모델, 암호화된 API Key 관리</li>
                   </ul>
                 </section>
                 <section class="architecture-module">
-                  <h5>dorothy-front</h5>
-                  <p class="module-purpose">질문과 답변 사용자 경험</p>
+                  <h5>검색·답변 서버</h5>
+                  <p class="module-purpose">관련 문서를 찾고 답변 생성</p>
                   <ul>
-                    <li>사용자 질문 전달과 답변 표시</li>
-                    <li>출처 제목, 게시판, 작성일 표시</li>
-                    <li>원문 링크 제공</li>
-                    <li>오류와 대체 답변 상태 표시</li>
+                    <li>FAISS 벡터 검색과 BM25 키워드 검색</li>
+                    <li>두 검색 결과를 RRF로 합치고 Reranker로 재정렬</li>
+                    <li>질문과 관련된 문서가 부족하면 답변 생성을 중단</li>
+                    <li>Claude·OpenAI·Gemini·Ollama 연동</li>
+                    <li>대화 내용 저장과 답변에 사용한 출처 생성</li>
+                  </ul>
+                </section>
+                <section class="architecture-module">
+                  <h5>사용자 챗봇 화면</h5>
+                  <p class="module-purpose">질문, 이전 대화와 출처 확인</p>
+                  <ul>
+                    <li>React·TypeScript 기반 챗봇 화면 개발</li>
+                    <li>JWT 인증과 회사별 사용 가능한 서비스 조회</li>
+                    <li>대화방 생성·이름 변경·삭제와 이전 대화 조회</li>
+                    <li>출처 목록과 PDF 페이지·Word 원문 미리보기</li>
+                    <li>처리 중 상태, 오류 안내와 다시 시도 기능</li>
                   </ul>
                 </section>
               </div>
 
-              <h4>Admin 문서 지식화와 배포 흐름</h4>
+              <h4>질문이 답변으로 만들어지는 과정</h4>
               <ol class="process-list">
-                <li><span><strong>자료 수집</strong>직접 파일, 그룹웨어 게시물과 첨부파일 수집</span></li>
-                <li><span><strong>텍스트 추출</strong>PDF와 DOCX 파싱 및 이미지 문서 OCR 처리</span></li>
-                <li><span><strong>Chunk 생성</strong>본문과 함께 제목, 게시판, 작성일, 원문 위치를 메타데이터로 구성</span></li>
-                <li><span><strong>검토와 승인</strong>관리자가 추출 내용과 Chunk를 검토한 뒤 승인</span></li>
-                <li><span><strong>배포</strong>Pretest에서 검색 품질을 확인하고 Release를 통해 운영 반영</span></li>
-                <li><span><strong>저장</strong>MariaDB에 Chunk, Embedding과 출처 정보를 저장</span></li>
+                <li><span><strong>문서 등록</strong>파일이나 그룹웨어 게시물과 첨부파일을 가져옵니다.</span></li>
+                <li><span><strong>내용 추출</strong>PDF·DOCX 문서의 글을 읽고 이미지 문서는 OCR로 처리합니다.</span></li>
+                <li><span><strong>검토와 반영</strong>관리자가 내용을 확인한 뒤 테스트하고 운영 서비스에 반영합니다.</span></li>
+                <li><span><strong>문서 검색</strong>질문을 받으면 벡터 검색과 키워드 검색으로 관련 문서를 찾습니다.</span></li>
+                <li><span><strong>검색 결과 정리</strong>겹치는 결과를 합치고 질문과 가까운 문서가 위로 오도록 순서를 조정합니다.</span></li>
+                <li><span><strong>답변 생성</strong>관련 문서가 충분한 경우에만 LLM이 답변을 만들도록 합니다.</span></li>
+                <li><span><strong>출처 표시</strong>답변과 함께 참고 문서, 해당 페이지와 원문 보기 기능을 제공합니다.</span></li>
               </ol>
 
-              <h4>Model 하이브리드 검색과 답변 생성</h4>
-              <ol class="process-list">
-                <li><span><strong>후보 검색</strong>사용자 질문으로 벡터 검색 Top 20과 BM25 검색 Top 20을 각각 조회</span></li>
-                <li><span><strong>검색 결과 통합</strong>RRF로 의미 기반 결과와 키워드 기반 결과를 하나의 순위로 통합</span></li>
-                <li><span><strong>정밀 재정렬</strong>Reranker가 질문과 각 Chunk의 관련도를 다시 계산해 순서를 조정</span></li>
-                <li><span><strong>관련도 판정</strong>관련도가 낮으면 알 수 없음으로 종료하고, 기준을 충족하면 상위 Chunk 3개에서 5개를 선별</span></li>
-                <li><span><strong>답변 생성</strong>선별한 Chunk를 Claude Sonnet에 전달해 답변, 근거와 출처를 생성</span></li>
-                <li><span><strong>화면 제공</strong>답변과 함께 출처 제목, 게시판, 작성일과 원문 링크를 표시</span></li>
-              </ol>
-
-              <p class="architecture-note"><strong>설계 기준</strong> Admin은 지식의 수집, 품질 검수와 배포에 집중하고, Model은 검색과 생성형 AI 호출을 전담하도록 책임을 분리했습니다. 의미 검색과 키워드 검색을 결합하고 관련도 기준을 충족하지 못한 질문에는 답변을 생성하지 않아 검색 정확성과 답변 신뢰성을 함께 관리했습니다.</p>`
+              <p class="architecture-note"><strong>구현하면서 중요하게 본 부분</strong> 관리자 기능과 검색·답변 기능이 서로 복잡하게 얽히지 않도록 서버 역할을 나눴습니다. 검색 결과가 부족한데도 그럴듯한 답변을 만들지 않도록 관련도 확인 단계를 넣었고, 사용자가 답변 내용을 직접 확인할 수 있도록 출처와 원문 보기 기능을 함께 개발했습니다.</p>`
       },
       {
           name: "IM금융지주(대구은행) 인사시스템 구축(AA)",

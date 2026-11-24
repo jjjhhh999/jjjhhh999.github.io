@@ -34,42 +34,32 @@
 
 ### Dorothy — 기업용 AI 챗봇 플랫폼
 
-관리자가 챗봇의 시나리오, Q&A, 동의어와 미응답 데이터를 관리하고 학습·테스트·배포할 수 있으며, 사용자의 자연어 질문과 의미적으로 가장 유사한 답변을 제공하는 기업용 챗봇 플랫폼입니다.
+기존 챗봇에 사내 문서를 검색해 답변하는 기능을 추가하고 있습니다. 관리자가 등록한 파일과 그룹웨어 게시물을 검색할 수 있는 형태로 만들고, 검토가 끝난 자료만 테스트와 운영에 반영합니다. 사용자가 질문하면 벡터 검색과 키워드 검색으로 관련 문서를 찾고, 해당 내용을 바탕으로 LLM이 답변합니다.
 
 #### 시스템 구성
 
-- **Admin:** 직접 파일·그룹웨어 자료 수집, PDF·DOCX·OCR 처리, Chunk 생성, 검토·승인, Pretest 및 운영 반영
-- **Model:** 벡터·BM25 검색, RRF 통합, Reranker 재정렬, 관련도 판정, Claude Sonnet 기반 답변·출처 생성
-- **Front:** 질문 전달, 답변 표시, 출처 정보와 원문 링크 및 오류·대체 답변 상태 표시
-- **운영 구조:** Admin, Model, Front의 책임을 분리하고 MariaDB에 Chunk·Embedding과 출처 메타데이터 저장
+- **관리자 화면:** 파일·그룹웨어 자료 수집, PDF·DOCX·OCR 처리, 자료 검토·승인, 사전 테스트와 운영 반영
+- **검색·답변 서버:** FAISS 벡터 검색과 BM25 검색, RRF 결과 통합, Reranker 재정렬, 관련도 확인과 LLM 답변 생성
+- **사용자 챗봇 화면:** JWT 인증, 서비스 선택, 대화 이력 관리, 출처 목록, PDF 페이지와 PDF·Word 원문 미리보기
+- **운영 기능:** 암호화된 LLM API Key 관리, 요청 로그 마스킹, AI 호출 상태와 오류 확인
 - **배포 환경:** Gradle, Docker, Docker Compose
 
-#### 문서 지식화와 배포 흐름
+#### 질문이 답변으로 만들어지는 과정
 
-1. 직접 파일, 그룹웨어 게시물과 첨부파일 수집
-2. PDF·DOCX 텍스트 추출 및 이미지 문서 OCR 처리
-3. 제목·게시판·작성일·원문 위치를 포함한 Chunk 생성
-4. 관리자 검토와 승인
-5. Pretest 검색 품질 확인 후 Release 운영 반영
-6. MariaDB에 Chunk·Embedding과 출처 정보 저장
+1. 파일이나 그룹웨어 게시물과 첨부파일 등록
+2. PDF·DOCX 내용 추출과 이미지 문서 OCR 처리
+3. 문서를 검색 단위로 나누고 임베딩 데이터 생성
+4. 관리자가 내용을 확인한 뒤 테스트하고 운영 서비스에 반영
+5. 사용자 질문과 관련된 문서를 벡터 검색과 키워드 검색으로 조회
+6. 검색 결과를 합치고 관련도가 높은 순서로 다시 정렬
+7. 관련 문서가 충분한 경우 LLM 답변과 출처 생성
+8. 챗봇 화면에서 참고 문서, 해당 페이지와 원문 표시
 
-Admin은 지식 수집·검수·배포를 담당하며 검색과 Claude 호출은 수행하지 않습니다.
-
-#### 하이브리드 검색과 답변 생성
-
-1. 사용자 질문으로 벡터 검색 Top 20과 BM25 검색 Top 20 조회
-2. RRF로 의미 검색과 키워드 검색 결과 통합
-3. Reranker를 이용한 질문·Chunk 관련도 재정렬
-4. 관련도가 낮으면 알 수 없음으로 종료
-5. 관련도가 높으면 상위 Chunk 3~5개 선별
-6. Claude Sonnet으로 답변·근거·출처 생성
-7. Front에서 출처 제목·게시판·작성일·원문 링크 표시
-
-Model은 검색과 생성형 AI 호출을 전담합니다. 의미 검색과 키워드 검색을 결합하고 관련도 기준을 충족하지 못한 질문에는 답변을 생성하지 않아 검색 정확성과 답변 신뢰성을 관리합니다.
+검색 결과가 부족할 때는 억지로 답변을 만들지 않도록 했습니다. 사용자가 답변 내용을 직접 확인할 수 있도록 참고 문서와 원문 보기 기능도 함께 제공합니다.
 
 #### Dorothy 기술 스택
 
-`Java` `Spring Boot` `Spring Security` `MyBatis` `Thymeleaf` `MariaDB` `Python` `FastAPI` `Sentence-Transformers` `EmbeddingGemma` `FAISS` `BM25` `RRF` `Reranker` `Claude Sonnet` `OCR` `Docker` `Docker Compose`
+`Java 17` `Spring Boot 3.5` `Spring Security` `Spring Data JPA` `QueryDSL` `MariaDB` `Python 3.11` `FastAPI` `React 19` `TypeScript` `Vite` `JWT/JWKS` `EmbeddingGemma` `FAISS` `BM25` `RRF` `BGE Reranker` `Claude` `OpenAI` `Gemini` `Ollama` `OCR` `Docker` `Docker Compose`
 
 ## 로컬 실행
 

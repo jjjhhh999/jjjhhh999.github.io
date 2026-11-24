@@ -2,69 +2,113 @@ import info from "../info";
 
 const portfolioTranslations = [
   {
-    name: "Dorothy — Enterprise AI Chatbot Platform",
-    date: "In progress",
+    name: "Daou Data — HR Platform Modernization & External Integrations",
+    category: "HR Platform Modernization · API Integration · CI/CD",
+    date: "2026.11.01 – Present",
     description: `
-      <p>An enterprise RAG chatbot platform that ingests uploaded files, groupware posts, and attachments, reviews and releases the resulting knowledge, and generates grounded answers through hybrid retrieval and Claude Sonnet. I separated the responsibilities of ingestion and operations (Admin), retrieval and generation (Model), and the user experience (Front).</p>
+      <p>Modernized the Daou Data HR platform back end, standardized external-system integrations, and established a deployment architecture designed for service continuity. I refined HR APIs on Java 21 and Spring Boot 3.4, integrated PC OFF, Daou Office, and SECOM through REST APIs, and applied Jenkins and Nginx-based blue-green deployment across two application instances.</p>
 
-      <h4>Implemented module responsibilities</h4>
+      <h4>Responsibilities and key implementation</h4>
       <div class="architecture-grid">
         <section class="architecture-module">
-          <h5>dorothy-admin</h5>
-          <p class="module-purpose">Knowledge ingestion, review, and release</p>
+          <h5>Deployment architecture</h5>
+          <p class="module-purpose">CI/CD designed for service continuity</p>
           <ul>
-            <li>Ingests uploaded files, groupware posts, and attachments</li>
-            <li>Extracts text from PDF and DOCX files and processes OCR</li>
-            <li>Creates chunks with title, board, and creation-date metadata</li>
-            <li>Supports review, approval, Pretest, and production release</li>
-            <li>Stores chunks and embeddings in MariaDB</li>
-          </ul>
-          <p class="module-boundary">Does not perform retrieval or call Claude</p>
-        </section>
-        <section class="architecture-module">
-          <h5>dorothy-model</h5>
-          <p class="module-purpose">Retrieval, relevance decisions, and generation</p>
-          <ul>
-            <li>Builds vector and BM25 indexes</li>
-            <li>Fuses results with RRF and reorders them with a reranker</li>
-            <li>Rejects questions below the relevance threshold</li>
-            <li>Calls Claude Sonnet with the highest-ranked chunks</li>
-            <li>Generates answers, evidence, and citations</li>
+            <li>Built and deployed the HR application and external REST API as separate Jenkins pipeline targets</li>
+            <li>Deployed releases to the idle instance and switched Nginx routing after startup verification</li>
+            <li>Configured blue-green deployment by alternating two application instances</li>
+            <li>Refined development and production profiles and instance-aware logging</li>
           </ul>
         </section>
         <section class="architecture-module">
-          <h5>dorothy-front</h5>
-          <p class="module-purpose">Question and answer experience</p>
+          <h5>External integrations</h5>
+          <p class="module-purpose">Consistent attendance and organization interfaces</p>
           <ul>
-            <li>Sends user questions and displays answers</li>
-            <li>Displays source title, board, and creation date</li>
-            <li>Links to the original source</li>
-            <li>Shows error and fallback-answer states</li>
+            <li>Integrated attendance data between the PC OFF and HR systems</li>
+            <li>Integrated HR data with Daou Office groupware</li>
+            <li>Implemented bulk receipt, validation, and per-record results for SECOM attendance events</li>
+            <li>Applied received SECOM events to HR attendance records through scheduled processing</li>
+          </ul>
+        </section>
+        <section class="architecture-module">
+          <h5>API operational quality</h5>
+          <p class="module-purpose">Security, traceability, and error-handling standards</p>
+          <ul>
+            <li>Applied API authentication with Spring Security and JWT</li>
+            <li>Standardized request validation and success or failure response envelopes</li>
+            <li>Recorded inbound processing results and exceptions with trace identifiers</li>
+            <li>Published interface specifications through Swagger and OpenAPI</li>
           </ul>
         </section>
       </div>
 
-      <h4>Admin knowledge ingestion and release flow</h4>
+      <h4>Deployment and integration flow</h4>
       <ol class="process-list">
-        <li><span><strong>Source ingestion</strong>Collect uploaded files, groupware posts, and attachments</span></li>
-        <li><span><strong>Text extraction</strong>Parse PDF and DOCX content and apply OCR to image-based documents</span></li>
-        <li><span><strong>Chunk creation</strong>Attach title, board, creation date, and original location metadata to each chunk</span></li>
-        <li><span><strong>Review and approval</strong>Let administrators validate extracted content and chunks</span></li>
-        <li><span><strong>Release</strong>Validate retrieval quality in Pretest and promote approved knowledge to production</span></li>
-        <li><span><strong>Storage</strong>Persist chunks, embeddings, and source metadata in MariaDB</span></li>
+        <li><span><strong>Separate builds</strong>Jenkins creates independent artifacts for the UI application and external REST API</span></li>
+        <li><span><strong>Idle-instance deployment</strong>The active instance remains available while the new release is installed on the idle instance</span></li>
+        <li><span><strong>Verification and switch</strong>Nginx routing changes after the new instance passes startup verification</span></li>
+        <li><span><strong>API ingestion</strong>External requests are authenticated and validated against required fields and business rules</span></li>
+        <li><span><strong>Domain update and tracing</strong>Validated data is applied to the HR domain with per-record results and processing history</span></li>
       </ol>
 
-      <h4>Model hybrid retrieval and answer generation</h4>
+      <p class="architecture-note"><strong>Design decision</strong> The user-facing application and external-integration process are separated to contain failures, while the active instance continues serving requests during deployment. System-specific differences are absorbed at the API boundary, with common authentication, validation, response, and logging standards improving maintainability and operational traceability.</p>`,
+  },
+  {
+    name: "Dorothy — Enterprise AI Chatbot Platform",
+    category: "Enterprise AI Chatbot · RAG Search",
+    date: "2026.07 – Present",
+    description: `
+      <p>I am improving an existing enterprise chatbot by adding document search and LLM-based answers. Administrators can upload files or collect groupware posts, review the extracted content, and release approved documents to test and production services. When a user asks a question, the system combines semantic and keyword search, builds an answer from the selected documents, and shows the source material used for that answer.</p>
+
+      <h4>What I built</h4>
+      <div class="architecture-grid">
+        <section class="architecture-module">
+          <h5>Admin</h5>
+          <p class="module-purpose">Manage documents from upload to release</p>
+          <ul>
+            <li>Upload files and collect groupware posts and attachments</li>
+            <li>Extract text from PDF and DOCX files and process scanned documents with OCR</li>
+            <li>Split documents into searchable chunks and create embeddings</li>
+            <li>Review, approve, test, and release document changes</li>
+            <li>Manage LLM providers, models, and encrypted API keys</li>
+          </ul>
+        </section>
+        <section class="architecture-module">
+          <h5>Search and answer server</h5>
+          <p class="module-purpose">Find related documents and create answers</p>
+          <ul>
+            <li>Search documents with FAISS vectors and BM25 keywords</li>
+            <li>Combine results with RRF and reorder them with a reranker</li>
+            <li>Stop answer generation when there is not enough related material</li>
+            <li>Connect Claude, OpenAI, Gemini, and Ollama</li>
+            <li>Save conversations and return the sources used in each answer</li>
+          </ul>
+        </section>
+        <section class="architecture-module">
+          <h5>User chatbot</h5>
+          <p class="module-purpose">Ask questions, reopen conversations, and check sources</p>
+          <ul>
+            <li>Build the chatbot UI with React and TypeScript</li>
+            <li>Authenticate users with JWT and load services available to their company</li>
+            <li>Create, rename, delete, and reopen conversations</li>
+            <li>Show source lists, PDF pages, and PDF or Word previews</li>
+            <li>Display loading, error, and retry states</li>
+          </ul>
+        </section>
+      </div>
+
+      <h4>How a question becomes an answer</h4>
       <ol class="process-list">
-        <li><span><strong>Candidate retrieval</strong>Retrieve the top 20 vector matches and top 20 BM25 matches for the user question</span></li>
-        <li><span><strong>Result fusion</strong>Combine semantic and lexical results into one ranking with reciprocal rank fusion</span></li>
-        <li><span><strong>Precision reranking</strong>Recalculate question-to-chunk relevance with a reranker</span></li>
-        <li><span><strong>Relevance decision</strong>Return an unknown response for low relevance, or select the top three to five chunks</span></li>
-        <li><span><strong>Answer generation</strong>Send the selected chunks to Claude Sonnet to produce the answer, evidence, and citations</span></li>
-        <li><span><strong>Presentation</strong>Display the answer with source title, board, creation date, and original link</span></li>
+        <li><span><strong>Add documents</strong>Upload files or collect groupware posts and attachments.</span></li>
+        <li><span><strong>Extract content</strong>Read PDF and DOCX text and apply OCR to scanned documents.</span></li>
+        <li><span><strong>Review and release</strong>Check the extracted content, test it, and release approved changes.</span></li>
+        <li><span><strong>Search</strong>Use vector and keyword search to find documents related to the question.</span></li>
+        <li><span><strong>Sort results</strong>Merge overlapping results and move the closest documents to the top.</span></li>
+        <li><span><strong>Create the answer</strong>Call the selected LLM only when the search results provide enough context.</span></li>
+        <li><span><strong>Show sources</strong>Display the answer together with the referenced documents, pages, and original files.</span></li>
       </ol>
 
-      <p class="architecture-note"><strong>Design decision</strong> Admin owns knowledge ingestion, quality review, and release, while Model exclusively owns retrieval and generative-AI calls. Combining semantic and lexical retrieval improves coverage, and the relevance gate prevents unsupported answers when the retrieved evidence is weak.</p>`,
+      <p class="architecture-note"><strong>What mattered during implementation</strong> I kept document management separate from search and answer generation so that the two areas could change independently. I also added a relevance check to avoid producing a confident-looking answer from weak search results, and made the source documents available so users can verify the answer themselves.</p>`,
   },
   {
     name: "iM Financial Group (Daegu Bank) HR System — Application Architect",
@@ -153,7 +197,7 @@ const englishInfo = {
     "<p><strong>11 years of experience · Java/Spring Back-end Development · Application Architect</strong><br>" +
     "Design, implementation, productization, delivery, and operations for HR, ERP, and electronic voucher solutions<br>" +
     "Team Lead and Development Project Lead experience · Technical design, development standards, collaboration, and schedule management<br>" +
-    "Enhancing the Dorothy enterprise AI chatbot · Embeddings, vector search, OCR, RAG, and LLM integration</p>",
+    "Building Dorothy enterprise AI chatbot features · Document ingestion, search, answer generation, and source review</p>",
   email: "<strong>Contact</strong><br>For collaboration and career opportunities, please use the contact form below.",
   certification: info.certification.map((item, index) => ({
     ...item,
@@ -173,9 +217,10 @@ const englishInfo = {
         {
           title: "USTRA AI Chatbot | Back-end Developer",
           items: [
-            "Developed back-end APIs, embeddings, and vector similarity search for an enterprise AI chatbot",
-            "Developed the RAG pipeline, LLM answer generation, and OCR-based document processing",
-            "Built AWS-based development and delivery environments and Docker container runtime environments",
+            "Built admin features that collect files and groupware posts, support review and approval, and release approved content to test and production",
+            "Built RAG search that combines vector and BM25 results with RRF and reorders them with a reranker",
+            "Connected Claude, OpenAI, Gemini, and Ollama and blocked answer generation when the retrieved documents were not relevant enough",
+            "Connected the React chatbot UI with JWT authentication, conversation history, and PDF or Word source previews",
           ],
         },
         {
